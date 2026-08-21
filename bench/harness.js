@@ -11,6 +11,7 @@
 // we are looking for.
 
 import * as THREE from 'three'
+import { createNarrator, describe as attachDescriptor } from '/dist/index.js'
 
 // --- deterministic inputs -------------------------------------------------------------
 
@@ -102,6 +103,11 @@ function stepMotion() {
 // B  naive one-to-one mirror in a sibling div, text rewritten every frame
 // C  arm B plus an aria-label rewritten every frame
 // D  arm B, but mounted inside the <canvas> element as fallback content
+// E  this library, mounted as canvas fallback content, default cadence
+//
+// Arm E is the point of the whole exercise. It has to be measured on the same harness,
+// the same hardware and the same run as the strawman it is being compared against,
+// otherwise the comparison is a story rather than a measurement.
 //
 // Arm D is the interesting one. Canvas fallback content is the mechanism the HTML spec
 // actually provides for describing a canvas, and it is what the html-in-canvas proposal
@@ -144,6 +150,20 @@ function updateMirrorAria() {
   }
 }
 
+let narrator = null
+let narratorObjects = null
+
+function updateNarrator() {
+  // Writing the positions across is work the library would not normally do, because in a
+  // real application the Object3Ds it reads are the ones being animated. It is counted
+  // against arm E anyway rather than excluded, because excluding it would flatter the
+  // result.
+  for (let i = 0; i < N; i++) {
+    narratorObjects[i].position.set(objects[i].x, objects[i].y, objects[i].z)
+  }
+  narrator.update()
+}
+
 let updateAccessibility = function () {}
 
 if (ARM === 'B') {
@@ -155,6 +175,27 @@ if (ARM === 'B') {
 } else if (ARM === 'D') {
   buildMirror('fallback-mount')
   updateAccessibility = updateMirrorText
+} else if (ARM === 'E') {
+  // The library needs real Object3Ds to traverse, so arm E builds a parallel scene graph of
+  // empty Object3Ds tracking the same records. Those cost nothing to render, they are never
+  // added to the InstancedMesh, and their only job is to carry position and a descriptor.
+  narratorObjects = new Array(N)
+  const holder = new THREE.Group()
+  for (let i = 0; i < N; i++) {
+    const proxy = new THREE.Object3D()
+    proxy.position.set(objects[i].x, objects[i].y, objects[i].z)
+    attachDescriptor(proxy, { label: objects[i].label, role: 'crate' })
+    holder.add(proxy)
+    narratorObjects[i] = proxy
+  }
+  scene.add(holder)
+  narrator = createNarrator(holder, {
+    camera: camera,
+    mount: canvas,
+    label: 'Benchmark scene',
+    cadence: Number(params.get('cadence') || 250),
+  })
+  updateAccessibility = updateNarrator
 } else if (ARM !== 'A') {
   throw new Error('Unknown arm: ' + ARM)
 }
@@ -193,9 +234,10 @@ function percentile(sorted, p) {
   return sorted[idx]
 }
 
-function finish() {
+function finish(reason) {
+  if (window.__benchResult !== undefined) return
   const sorted = frameTimes.slice().sort(function (a, b) { return a - b })
-  const measuredMs = performance.now() - measuringFrom
+  const measuredMs = performance.now() - (measuringFrom === null ? startedAt : measuringFrom)
   window.__benchResult = {
     arm: ARM,
     n: N,
@@ -212,6 +254,12 @@ function finish() {
       max: sorted.length ? sorted[sorted.length - 1] : null,
     },
     longTasks: longTasksSupported ? { count: longTaskCount, totalMs: longTaskTotalMs } : null,
+    // Arm E reports what the library actually did, so the mutation claim is measured in the
+    // browser rather than only in a unit test.
+    narratorStats: narrator ? narrator.stats() : null,
+    // Normally 'complete'. Anything else means the run did not end the way it was meant to
+    // and the numbers describe a shorter or stalled window than the config asked for.
+    endedBecause: reason,
     userAgent: navigator.userAgent,
     hardwareConcurrency: navigator.hardwareConcurrency || null,
   }
@@ -242,10 +290,17 @@ function frame(now) {
   renderer.render(scene, camera)
 
   if (elapsed >= WARMUP_MS + DURATION_MS) {
-    finish()
+    finish('complete')
     return
   }
   requestAnimationFrame(frame)
 }
 
 requestAnimationFrame(frame)
+
+// Safety net. If requestAnimationFrame stops being called at all, which Firefox did once
+// during this spike, the run would otherwise hang until the runner's timeout and take the
+// whole matrix down with it. Report whatever was collected, flagged, rather than nothing.
+setTimeout(function () {
+  finish('rafStalled')
+}, WARMUP_MS + DURATION_MS + 20000)

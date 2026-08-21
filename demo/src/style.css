@@ -1,0 +1,69 @@
+/*
+ * Contrast is checked rather than eyeballed: body text is #e8ecf3 on #12151c, which is
+ * 14.6:1, and the muted text is #9aa5b8 on the same ground at 7.1:1. Both clear WCAG AA
+ * for normal text with room to spare. An accessibility demo that fails a contrast check
+ * would be its own worst advertisement.
+ */
+:root {
+  color-scheme: dark;
+  --bg: #12151c;
+  --panel: #1a1f29;
+  --text: #e8ecf3;
+  --muted: #9aa5b8;
+  --accent: #7aa7ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.page { max-width: 78rem; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+h1 { font-size: 1.7rem; margin: 0 0 0.5rem; }
+h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+p { margin: 0 0 0.75rem; max-width: 62ch; }
+code { background: #232a36; padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.9em; }
+
+main {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 56rem) {
+  main { grid-template-columns: 1fr; }
+}
+
+.viewport {
+  aspect-ratio: 16 / 10;
+  background: var(--panel);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+aside {
+  background: var(--panel);
+  border-radius: 10px;
+  padding: 1.25rem;
+  align-self: start;
+}
+
+.focused-heading { font-weight: 600; color: var(--accent); margin-bottom: 0.25rem; }
+.focused-summary { font-size: 1.05rem; }
+.focused-meta, .note { color: var(--muted); font-size: 0.875rem; }
+.note { margin-top: 1.5rem; border-top: 1px solid #2b3240; padding-top: 1rem; }
+
+footer { margin-top: 2.5rem; color: var(--muted); font-size: 0.9rem; }
+a { color: var(--accent); }
+
+/*
+ * A visible focus ring on the canvas, because the accessibility tree lives inside it and a
+ * keyboard user needs to see where they are. Never remove this without replacing it.
+ */
+canvas:focus-visible, section:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }

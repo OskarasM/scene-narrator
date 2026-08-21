@@ -1,17 +1,86 @@
 {
   "name": "@oskarasm/scene-narrator",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
   "description": "An accessibility layer for moving 3D scenes",
   "license": "MIT",
   "author": "Oskaras Margevicius",
   "type": "module",
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "bench": "node bench/run.mjs",
-    "bench:serve": "node bench/serve.mjs"
+    "bench:analyse": "node bench/analyse.mjs",
+    "bench:serve": "node bench/serve.mjs",
+    "prepublishOnly": "npm run build && npm test"
   },
   "devDependencies": {
+    "@react-three/fiber": "^9.7.0",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@types/three": "^0.185.4",
+    "jsdom": "^29.1.1",
     "playwright": "^1.56.0",
-    "three": "^0.185.1"
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "three": "^0.185.1",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.11"
+  },
+  "keywords": [
+    "accessibility",
+    "a11y",
+    "threejs",
+    "react-three-fiber",
+    "webgl",
+    "screen-reader",
+    "wcag"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OskarasM/scene-narrator.git"
+  },
+  "homepage": "https://github.com/OskarasM/scene-narrator#readme",
+  "bugs": {
+    "url": "https://github.com/OskarasM/scene-narrator/issues"
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "default": "./dist/react.js"
+    }
+  },
+  "peerDependencies": {
+    "@react-three/fiber": ">=8",
+    "react": ">=18",
+    "three": ">=0.150.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "@react-three/fiber": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }

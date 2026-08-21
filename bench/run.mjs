@@ -32,7 +32,7 @@ const has = (name) => process.argv.includes(`--${name}`)
 
 const PILOT = has('pilot')
 
-const ARMS = arg('arms', 'A,B,C,D').split(',')
+const ARMS = arg('arms', 'A,B,C,D,E').split(',')
 const NS = arg('n', PILOT ? '100,1000,5000' : '10,50,100,500,1000,5000')
   .split(',')
   .map(Number)
@@ -42,6 +42,10 @@ const WARMUP = Number(arg('warmup', 1000))
 const BROWSERS = arg('browsers', PILOT ? 'chromium' : 'chromium,firefox').split(',')
 const A11Y_MODES = arg('a11y', 'off,forced').split(',')
 const SEED = Number(arg('seed', 42))
+
+// Below this many frames over the whole measurement window, the run is not a slow run,
+// it is a stopped one. Even the worst genuine cell here manages ten frames a second.
+const SUSPECT_MIN_FRAMES = 30
 
 // --- environment, recorded with every result -------------------------------------------
 
@@ -71,8 +75,20 @@ async function launch(browserName, forceAccessibility) {
     return chromium.launch({ headless: false, args })
   }
   if (browserName === 'firefox') {
+    const firefoxUserPrefs = {
+      // Gecko's refresh driver ticks on hardware vsync by default, which pins every frame
+      // time to the monitor interval and hides any cost cheaper than one refresh. 0 means
+      // tick as fast as possible, which is the Firefox equivalent of the two Chromium
+      // flags above. Without this the Firefox column measures the monitor, not the work.
+      'layout.frame_rate': 0,
+      // Windows occlusion tracking suspends painting when a window is covered. The runner
+      // opens and closes a browser per cell, so windows overlap constantly, and a
+      // suspended run reports three frames in six seconds at any N. Those are not slow
+      // frames, they are absent ones, and they poisoned the first Firefox matrix.
+      'widget.windows.window_occlusion_tracking.enabled': false,
+    }
     // Firefox activates accessibility on demand. -1 forces it on, 1 forces it off.
-    const firefoxUserPrefs = forceAccessibility ? { 'accessibility.force_disabled': -1 } : {}
+    if (forceAccessibility) firefoxUserPrefs['accessibility.force_disabled'] = -1
     return firefox.launch({ headless: false, firefoxUserPrefs })
   }
   throw new Error(`Unsupported browser: ${browserName}`)
@@ -114,8 +130,18 @@ function subtractMetrics(after, before) {
   return out
 }
 
-async function runOnce({ browserName, forceAccessibility, arm, n, run, port }) {
-  const browser = await launch(browserName, forceAccessibility)
+async function runOnce(options) {
+  const browser = await launch(options.browserName, options.forceAccessibility)
+  try {
+    return await measure(browser, options)
+  } finally {
+    // A cell that throws must not leave a browser process behind. Three hundred runs
+    // makes a leak here expensive quickly.
+    await browser.close()
+  }
+}
+
+async function measure(browser, { browserName, forceAccessibility, arm, n, run, port }) {
   const context = await browser.newContext({ viewport: { width: 1280, height: 720 } })
   const page = await context.newPage()
 
@@ -145,8 +171,6 @@ async function runOnce({ browserName, forceAccessibility, arm, n, run, port }) {
   const result = await page.evaluate('window.__benchResult')
   const browserVersion = browser.version()
 
-  await browser.close()
-
   return {
     ...result,
     run,
@@ -154,6 +178,10 @@ async function runOnce({ browserName, forceAccessibility, arm, n, run, port }) {
     browserVersion,
     forcedAccessibility: forceAccessibility,
     rendererMetrics: subtractMetrics(after, before),
+    // A run that produced almost no frames did not run slowly, it stopped running: the
+    // window was occluded, or the machine went to sleep. Averaging one of those into a
+    // cell silently invents a cost. Flag it here and let the analysis exclude it loudly.
+    suspect: result.frames < SUSPECT_MIN_FRAMES,
   }
 }
 
@@ -189,6 +217,7 @@ const { server, port } = await startServer(0)
 await mkdir(RESULTS_DIR, { recursive: true })
 
 const rows = []
+const failures = []
 const total = BROWSERS.length * A11Y_MODES.length * ARMS.length * NS.length * RUNS
 let done = 0
 
@@ -202,15 +231,33 @@ for (const browserName of BROWSERS) {
       for (const n of NS) {
         const runs = []
         for (let run = 1; run <= RUNS; run++) {
-          const result = await runOnce({ browserName, forceAccessibility, arm, n, run, port })
+          done++
+          let result
+          try {
+            result = await runOnce({ browserName, forceAccessibility, arm, n, run, port })
+          } catch (err) {
+            // One bad cell should cost one cell, not the other three hundred. Record the
+            // failure in the results file so it cannot be mistaken for a cell that was
+            // never scheduled, and carry on.
+            failures.push({ browserName, mode, arm, n, run, error: String(err && err.message) })
+            process.stdout.write(
+              `[${String(done).padStart(3)}/${total}] ${browserName} a11y:${mode} arm:${arm} ` +
+                `n:${String(n).padStart(4)} run:${run} FAILED: ${err && err.message}\n`,
+            )
+            continue
+          }
           runs.push(result)
           rows.push(result)
-          done++
           process.stdout.write(
             `[${String(done).padStart(3)}/${total}] ${browserName} a11y:${mode} arm:${arm} ` +
               `n:${String(n).padStart(4)} run:${run} ` +
-              `fps:${result.fps.toFixed(1)} p95:${result.frameTimeMs.p95.toFixed(1)}ms\n`,
+              `fps:${result.fps.toFixed(1)} p95:${result.frameTimeMs.p95.toFixed(1)}ms` +
+              `${result.suspect ? ' SUSPECT' : ''}${result.endedBecause === 'complete' ? '' : ' ' + result.endedBecause}\n`,
           )
+        }
+        if (runs.length === 0) {
+          console.log(`        -> ${browserName} a11y:${mode} arm:${arm} n:${n} no usable runs\n`)
+          continue
         }
         const s = summarise(runs)
         console.log(
@@ -241,6 +288,7 @@ await writeFile(
     {
       environment: ENVIRONMENT,
       config: { ARMS, NS, RUNS, DURATION, WARMUP, BROWSERS, A11Y_MODES, SEED, pilot: PILOT },
+      failures,
       summary: Object.entries(cells).map(([cellKey, runs]) => {
         const [browser, a11y, arm, n] = cellKey.split('|')
         return { browser, a11y, arm, n: Number(n), ...summarise(runs) }
