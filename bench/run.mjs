@@ -96,13 +96,22 @@ async function readChromiumMetrics(session) {
   }
 }
 
+// Durations and heap are cumulative, so a delta across the measurement window is the
+// meaningful figure. Node count is a live gauge, not a counter, and subtracting two
+// samples of it produces noise, so it is reported as an absolute reading instead.
+const CUMULATIVE = ['recalcStyleSeconds', 'layoutSeconds', 'scriptSeconds']
+
 function subtractMetrics(after, before) {
   if (!after || !before) return null
-  const delta = {}
-  for (const key of Object.keys(after)) {
-    delta[key] = after[key] === null || before[key] === null ? null : after[key] - before[key]
+  const out = { nodesAtEnd: after.nodes, jsHeapUsedBytesAtEnd: after.jsHeapUsedBytes }
+  for (const key of CUMULATIVE) {
+    out[key] = after[key] === null || before[key] === null ? null : after[key] - before[key]
   }
-  return delta
+  out.jsHeapGrowthBytes =
+    after.jsHeapUsedBytes === null || before.jsHeapUsedBytes === null
+      ? null
+      : after.jsHeapUsedBytes - before.jsHeapUsedBytes
+  return out
 }
 
 async function runOnce({ browserName, forceAccessibility, arm, n, run, port }) {

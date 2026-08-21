@@ -1,0 +1,1241 @@
+{
+  "environment": {
+    "os": "Windows_NT 10.0.26200",
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 7 5800H with Radeon Graphics         ",
+    "cores": 16,
+    "totalMemoryGb": 15,
+    "node": "v24.14.1",
+    "recordedAt": "2026-08-21T19:31:08.101Z"
+  },
+  "config": {
+    "ARMS": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "NS": [
+      100,
+      1000,
+      5000
+    ],
+    "RUNS": 1,
+    "DURATION": 5000,
+    "WARMUP": 1000,
+    "BROWSERS": [
+      "chromium"
+    ],
+    "A11Y_MODES": [
+      "off",
+      "forced"
+    ],
+    "SEED": 42,
+    "pilot": true
+  },
+  "summary": [
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "A",
+      "n": 100,
+      "runCount": 1,
+      "fps": {
+        "mean": 5141.361465762021,
+        "stdev": 0,
+        "min": 5141.361465762021,
+        "max": 5141.361465762021
+      },
+      "frameTimeP50Mean": 0.1999999999998181,
+      "frameTimeP95Mean": 0.40000000000009095,
+      "frameTimeP99Mean": 0.5,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "A",
+      "n": 1000,
+      "runCount": 1,
+      "fps": {
+        "mean": 2355.2810426154333,
+        "stdev": 0,
+        "min": 2355.2810426154333,
+        "max": 2355.2810426154333
+      },
+      "frameTimeP50Mean": 0.40000000000009095,
+      "frameTimeP95Mean": 0.6000000000003638,
+      "frameTimeP99Mean": 0.8000000000001819,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "A",
+      "n": 5000,
+      "runCount": 1,
+      "fps": {
+        "mean": 653.6078352990153,
+        "stdev": 0,
+        "min": 653.6078352990153,
+        "max": 653.6078352990153
+      },
+      "frameTimeP50Mean": 1.5,
+      "frameTimeP95Mean": 1.8999999999998636,
+      "frameTimeP99Mean": 2.100000000000364,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "B",
+      "n": 100,
+      "runCount": 1,
+      "fps": {
+        "mean": 825.1874062966058,
+        "stdev": 0,
+        "min": 825.1874062966058,
+        "max": 825.1874062966058
+      },
+      "frameTimeP50Mean": 1.1000000000003638,
+      "frameTimeP95Mean": 1.6000000000001364,
+      "frameTimeP99Mean": 2.900000000000091,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "B",
+      "n": 1000,
+      "runCount": 1,
+      "fps": {
+        "mean": 97.18619038114699,
+        "stdev": 0,
+        "min": 97.18619038114699,
+        "max": 97.18619038114699
+      },
+      "frameTimeP50Mean": 9.800000000000182,
+      "frameTimeP95Mean": 13,
+      "frameTimeP99Mean": 15.299999999999727,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "B",
+      "n": 5000,
+      "runCount": 1,
+      "fps": {
+        "mean": 19.24603174602321,
+        "stdev": 0,
+        "min": 19.24603174602321,
+        "max": 19.24603174602321
+      },
+      "frameTimeP50Mean": 52.70000000000027,
+      "frameTimeP95Mean": 65.39999999999964,
+      "frameTimeP99Mean": 69.60000000000036,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "C",
+      "n": 100,
+      "runCount": 1,
+      "fps": {
+        "mean": 710.6162672155976,
+        "stdev": 0,
+        "min": 710.6162672155976,
+        "max": 710.6162672155976
+      },
+      "frameTimeP50Mean": 1.300000000000182,
+      "frameTimeP95Mean": 1.8999999999996362,
+      "frameTimeP99Mean": 3.300000000000182,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "C",
+      "n": 1000,
+      "runCount": 1,
+      "fps": {
+        "mean": 90.57175916692634,
+        "stdev": 0,
+        "min": 90.57175916692634,
+        "max": 90.57175916692634
+      },
+      "frameTimeP50Mean": 10.600000000000364,
+      "frameTimeP95Mean": 14.300000000000182,
+      "frameTimeP99Mean": 16,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "C",
+      "n": 5000,
+      "runCount": 1,
+      "fps": {
+        "mean": 18.26701612263268,
+        "stdev": 0,
+        "min": 18.26701612263268,
+        "max": 18.26701612263268
+      },
+      "frameTimeP50Mean": 57.600000000000364,
+      "frameTimeP95Mean": 69.80000000000018,
+      "frameTimeP99Mean": 78.5,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "D",
+      "n": 100,
+      "runCount": 1,
+      "fps": {
+        "mean": 3281.9026681332844,
+        "stdev": 0,
+        "min": 3281.9026681332844,
+        "max": 3281.9026681332844
+      },
+      "frameTimeP50Mean": 0.2999999999999545,
+      "frameTimeP95Mean": 0.5,
+      "frameTimeP99Mean": 0.6000000000003638,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "D",
+      "n": 1000,
+      "runCount": 1,
+      "fps": {
+        "mean": 613.7458280873068,
+        "stdev": 0,
+        "min": 613.7458280873068,
+        "max": 613.7458280873068
+      },
+      "frameTimeP50Mean": 1.5,
+      "frameTimeP95Mean": 2,
+      "frameTimeP99Mean": 5.400000000000091,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "off",
+      "arm": "D",
+      "n": 5000,
+      "runCount": 1,
+      "fps": {
+        "mean": 146.02034709748128,
+        "stdev": 0,
+        "min": 146.02034709748128,
+        "max": 146.02034709748128
+      },
+      "frameTimeP50Mean": 6.599999999999909,
+      "frameTimeP95Mean": 9.099999999999909,
+      "frameTimeP99Mean": 11.600000000000136,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 100,
+      "runCount": 1,
+      "fps": {
+        "mean": 5138.564207079359,
+        "stdev": 0,
+        "min": 5138.564207079359,
+        "max": 5138.564207079359
+      },
+      "frameTimeP50Mean": 0.1999999999998181,
+      "frameTimeP95Mean": 0.3999999999998636,
+      "frameTimeP99Mean": 0.5,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 1000,
+      "runCount": 1,
+      "fps": {
+        "mean": 2219.7569361147835,
+        "stdev": 0,
+        "min": 2219.7569361147835,
+        "max": 2219.7569361147835
+      },
+      "frameTimeP50Mean": 0.40000000000009095,
+      "frameTimeP95Mean": 0.6999999999998181,
+      "frameTimeP99Mean": 0.8999999999996362,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 5000,
+      "runCount": 1,
+      "fps": {
+        "mean": 655.7540872209828,
+        "stdev": 0,
+        "min": 655.7540872209828,
+        "max": 655.7540872209828
+      },
+      "frameTimeP50Mean": 1.5,
+      "frameTimeP95Mean": 2,
+      "frameTimeP99Mean": 2.5,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 100,
+      "runCount": 1,
+      "fps": {
+        "mean": 670.0515731818456,
+        "stdev": 0,
+        "min": 670.0515731818456,
+        "max": 670.0515731818456
+      },
+      "frameTimeP50Mean": 1.300000000000182,
+      "frameTimeP95Mean": 1.900000000000091,
+      "frameTimeP99Mean": 6.699999999999818,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 1000,
+      "runCount": 1,
+      "fps": {
+        "mean": 62.72651240590093,
+        "stdev": 0,
+        "min": 62.72651240590093,
+        "max": 62.72651240590093
+      },
+      "frameTimeP50Mean": 13.200000000000273,
+      "frameTimeP95Mean": 31.900000000000546,
+      "frameTimeP99Mean": 81.79999999999995,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 5000,
+      "runCount": 1,
+      "fps": {
+        "mean": 12.507945621199523,
+        "stdev": 0,
+        "min": 12.507945621199523,
+        "max": 12.507945621199523
+      },
+      "frameTimeP50Mean": 68.29999999999995,
+      "frameTimeP95Mean": 91.60000000000036,
+      "frameTimeP99Mean": 383.09999999999945,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 100,
+      "runCount": 1,
+      "fps": {
+        "mean": 584.9192387654798,
+        "stdev": 0,
+        "min": 584.9192387654798,
+        "max": 584.9192387654798
+      },
+      "frameTimeP50Mean": 1.5,
+      "frameTimeP95Mean": 2.100000000000364,
+      "frameTimeP99Mean": 7,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 1000,
+      "runCount": 1,
+      "fps": {
+        "mean": 57.963508883745675,
+        "stdev": 0,
+        "min": 57.963508883745675,
+        "max": 57.963508883745675
+      },
+      "frameTimeP50Mean": 14.5,
+      "frameTimeP95Mean": 35,
+      "frameTimeP99Mean": 82.90000000000009,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 5000,
+      "runCount": 1,
+      "fps": {
+        "mean": 11.798415641320757,
+        "stdev": 0,
+        "min": 11.798415641320757,
+        "max": 11.798415641320757
+      },
+      "frameTimeP50Mean": 78.19999999999982,
+      "frameTimeP95Mean": 319.5,
+      "frameTimeP99Mean": 345.5999999999999,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 100,
+      "runCount": 1,
+      "fps": {
+        "mean": 2246.9619443562815,
+        "stdev": 0,
+        "min": 2246.9619443562815,
+        "max": 2246.9619443562815
+      },
+      "frameTimeP50Mean": 0.3999999999998636,
+      "frameTimeP95Mean": 0.6999999999998181,
+      "frameTimeP99Mean": 1,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 1000,
+      "runCount": 1,
+      "fps": {
+        "mean": 378.73037433582357,
+        "stdev": 0,
+        "min": 378.73037433582357,
+        "max": 378.73037433582357
+      },
+      "frameTimeP50Mean": 2.300000000000182,
+      "frameTimeP95Mean": 3.5,
+      "frameTimeP99Mean": 10.100000000000364,
+      "frameTimeP95Stdev": 0
+    },
+    {
+      "browser": "chromium",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 5000,
+      "runCount": 1,
+      "fps": {
+        "mean": 96.83010898362485,
+        "stdev": 0,
+        "min": 96.83010898362485,
+        "max": 96.83010898362485
+      },
+      "frameTimeP50Mean": 9.299999999999955,
+      "frameTimeP95Mean": 14.699999999999818,
+      "frameTimeP99Mean": 28,
+      "frameTimeP95Stdev": 0
+    }
+  ],
+  "runs": [
+    {
+      "arm": "A",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 25732,
+      "measuredMs": 5004.90000000149,
+      "fps": 5141.361465762021,
+      "frameTimeMs": {
+        "p50": 0.1999999999998181,
+        "p95": 0.40000000000009095,
+        "p99": 0.5,
+        "max": 7.900000000000091
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0,
+        "layoutSeconds": 0,
+        "scriptSeconds": 1.5289390000000003,
+        "jsHeapUsedBytes": 1852584,
+        "nodes": -12
+      }
+    },
+    {
+      "arm": "A",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 11783,
+      "measuredMs": 5002.80000000149,
+      "fps": 2355.2810426154333,
+      "frameTimeMs": {
+        "p50": 0.40000000000009095,
+        "p95": 0.6000000000003638,
+        "p99": 0.8000000000001819,
+        "max": 8.5
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0,
+        "layoutSeconds": 0,
+        "scriptSeconds": 3.7369579999999996,
+        "jsHeapUsedBytes": 5446936,
+        "nodes": 0
+      }
+    },
+    {
+      "arm": "A",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 3270,
+      "measuredMs": 5002.99999999851,
+      "fps": 653.6078352990153,
+      "frameTimeMs": {
+        "p50": 1.5,
+        "p95": 1.8999999999998636,
+        "p99": 2.100000000000364,
+        "max": 9.200000000000045
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0,
+        "layoutSeconds": 0,
+        "scriptSeconds": 4.2535050000000005,
+        "jsHeapUsedBytes": 4828484,
+        "nodes": 0
+      }
+    },
+    {
+      "arm": "B",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 4128,
+      "measuredMs": 5002.50000000149,
+      "fps": 825.1874062966058,
+      "frameTimeMs": {
+        "p50": 1.1000000000003638,
+        "p95": 1.6000000000001364,
+        "p99": 2.900000000000091,
+        "max": 8.600000000000136
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.284868,
+        "layoutSeconds": 2.230278,
+        "scriptSeconds": 0.8215490000000001,
+        "jsHeapUsedBytes": 631288,
+        "nodes": -7414
+      }
+    },
+    {
+      "arm": "B",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 487,
+      "measuredMs": 5011.000000000745,
+      "fps": 97.18619038114699,
+      "frameTimeMs": {
+        "p50": 9.800000000000182,
+        "p95": 13,
+        "p99": 15.299999999999727,
+        "max": 15.799999999999955
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.28268400000000005,
+        "layoutSeconds": 2.58172,
+        "scriptSeconds": 0.8064359999999999,
+        "jsHeapUsedBytes": 586252,
+        "nodes": 161
+      }
+    },
+    {
+      "arm": "B",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 97,
+      "measuredMs": 5040.0000000022355,
+      "fps": 19.24603174602321,
+      "frameTimeMs": {
+        "p50": 52.70000000000027,
+        "p95": 65.39999999999964,
+        "p99": 69.60000000000036,
+        "max": 69.60000000000036
+      },
+      "longTasks": {
+        "count": 39,
+        "totalMs": 2152
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.301554,
+        "layoutSeconds": 2.7188489999999996,
+        "scriptSeconds": 0.778027,
+        "jsHeapUsedBytes": 632988,
+        "nodes": -8812
+      }
+    },
+    {
+      "arm": "C",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 3555,
+      "measuredMs": 5002.700000000745,
+      "fps": 710.6162672155976,
+      "frameTimeMs": {
+        "p50": 1.300000000000182,
+        "p95": 1.8999999999996362,
+        "p99": 3.300000000000182,
+        "max": 8.399999999999864
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.258706,
+        "layoutSeconds": 2.0750580000000003,
+        "scriptSeconds": 1.0857489999999999,
+        "jsHeapUsedBytes": 715452,
+        "nodes": -7185
+      }
+    },
+    {
+      "arm": "C",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 454,
+      "measuredMs": 5012.59999999851,
+      "fps": 90.57175916692634,
+      "frameTimeMs": {
+        "p50": 10.600000000000364,
+        "p95": 14.300000000000182,
+        "p99": 16,
+        "max": 28.600000000000364
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.266377,
+        "layoutSeconds": 2.372573,
+        "scriptSeconds": 1.1009630000000001,
+        "jsHeapUsedBytes": 408220,
+        "nodes": -7292
+      }
+    },
+    {
+      "arm": "C",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 92,
+      "measuredMs": 5036.39999999851,
+      "fps": 18.26701612263268,
+      "frameTimeMs": {
+        "p50": 57.600000000000364,
+        "p95": 69.80000000000018,
+        "p99": 78.5,
+        "max": 78.5
+      },
+      "longTasks": {
+        "count": 92,
+        "totalMs": 4873
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.27516399999999996,
+        "layoutSeconds": 2.403586,
+        "scriptSeconds": 1.035795,
+        "jsHeapUsedBytes": 2681260,
+        "nodes": -15731
+      }
+    },
+    {
+      "arm": "D",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 16421,
+      "measuredMs": 5003.49999999851,
+      "fps": 3281.9026681332844,
+      "frameTimeMs": {
+        "p50": 0.2999999999999545,
+        "p95": 0.5,
+        "p99": 0.6000000000003638,
+        "max": 9.5
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.643103,
+        "layoutSeconds": 0,
+        "scriptSeconds": 2.608012,
+        "jsHeapUsedBytes": 805944,
+        "nodes": -120903
+      }
+    },
+    {
+      "arm": "D",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 3071,
+      "measuredMs": 5003.699999999255,
+      "fps": 613.7458280873068,
+      "frameTimeMs": {
+        "p50": 1.5,
+        "p95": 2,
+        "p99": 5.400000000000091,
+        "max": 8.400000000000091
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.885493,
+        "layoutSeconds": 0,
+        "scriptSeconds": 3.345516,
+        "jsHeapUsedBytes": 451704,
+        "nodes": -104401
+      }
+    },
+    {
+      "arm": "D",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 732,
+      "measuredMs": 5013.0000000022355,
+      "fps": 146.02034709748128,
+      "frameTimeMs": {
+        "p50": 6.599999999999909,
+        "p95": 9.099999999999909,
+        "p99": 11.600000000000136,
+        "max": 13.200000000000045
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": false,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.940899,
+        "layoutSeconds": 0,
+        "scriptSeconds": 3.520318,
+        "jsHeapUsedBytes": 154708,
+        "nodes": 115782
+      }
+    },
+    {
+      "arm": "A",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 25718,
+      "measuredMs": 5004.899999997765,
+      "fps": 5138.564207079359,
+      "frameTimeMs": {
+        "p50": 0.1999999999998181,
+        "p95": 0.3999999999998636,
+        "p99": 0.5,
+        "max": 8
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0,
+        "layoutSeconds": 0,
+        "scriptSeconds": 1.526672,
+        "jsHeapUsedBytes": -656800,
+        "nodes": -12
+      }
+    },
+    {
+      "arm": "A",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 11105,
+      "measuredMs": 5002.800000002235,
+      "fps": 2219.7569361147835,
+      "frameTimeMs": {
+        "p50": 0.40000000000009095,
+        "p95": 0.6999999999998181,
+        "p99": 0.8999999999996362,
+        "max": 8.700000000000045
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0,
+        "layoutSeconds": 0,
+        "scriptSeconds": 3.682157,
+        "jsHeapUsedBytes": 4323724,
+        "nodes": 0
+      }
+    },
+    {
+      "arm": "A",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 3281,
+      "measuredMs": 5003.399999997765,
+      "fps": 655.7540872209828,
+      "frameTimeMs": {
+        "p50": 1.5,
+        "p95": 2,
+        "p99": 2.5,
+        "max": 8.5
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0,
+        "layoutSeconds": 0,
+        "scriptSeconds": 4.243845,
+        "jsHeapUsedBytes": 7891616,
+        "nodes": 0
+      }
+    },
+    {
+      "arm": "B",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 3352,
+      "measuredMs": 5002.600000000745,
+      "fps": 670.0515731818456,
+      "frameTimeMs": {
+        "p50": 1.300000000000182,
+        "p95": 1.900000000000091,
+        "p99": 6.699999999999818,
+        "max": 10.100000000000136
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.38988999999999996,
+        "layoutSeconds": 2.073205,
+        "scriptSeconds": 0.826664,
+        "jsHeapUsedBytes": 1395904,
+        "nodes": 2103
+      }
+    },
+    {
+      "arm": "B",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 315,
+      "measuredMs": 5021.800000000745,
+      "fps": 62.72651240590093,
+      "frameTimeMs": {
+        "p50": 13.200000000000273,
+        "p95": 31.900000000000546,
+        "p99": 81.79999999999995,
+        "max": 83.20000000000073
+      },
+      "longTasks": {
+        "count": 12,
+        "totalMs": 839
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.36266600000000004,
+        "layoutSeconds": 1.94959,
+        "scriptSeconds": 0.7935319999999999,
+        "jsHeapUsedBytes": 1789340,
+        "nodes": -4171
+      }
+    },
+    {
+      "arm": "B",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 61,
+      "measuredMs": 4876.899999997765,
+      "fps": 12.507945621199523,
+      "frameTimeMs": {
+        "p50": 68.29999999999995,
+        "p95": 91.60000000000036,
+        "p99": 383.09999999999945,
+        "max": 383.09999999999945
+      },
+      "longTasks": {
+        "count": 60,
+        "totalMs": 4694
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.366084,
+        "layoutSeconds": 2.1044539999999996,
+        "scriptSeconds": 0.8202100000000001,
+        "jsHeapUsedBytes": -1228084,
+        "nodes": 17762
+      }
+    },
+    {
+      "arm": "C",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 2926,
+      "measuredMs": 5002.399999999255,
+      "fps": 584.9192387654798,
+      "frameTimeMs": {
+        "p50": 1.5,
+        "p95": 2.100000000000364,
+        "p99": 7,
+        "max": 19.399999999999636
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.345317,
+        "layoutSeconds": 1.8978499999999998,
+        "scriptSeconds": 1.079897,
+        "jsHeapUsedBytes": 2150808,
+        "nodes": -2262
+      }
+    },
+    {
+      "arm": "C",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 291,
+      "measuredMs": 5020.400000000745,
+      "fps": 57.963508883745675,
+      "frameTimeMs": {
+        "p50": 14.5,
+        "p95": 35,
+        "p99": 82.90000000000009,
+        "max": 86
+      },
+      "longTasks": {
+        "count": 13,
+        "totalMs": 843
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.330564,
+        "layoutSeconds": 1.7957090000000002,
+        "scriptSeconds": 1.096335,
+        "jsHeapUsedBytes": -685212,
+        "nodes": -12216
+      }
+    },
+    {
+      "arm": "C",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 56,
+      "measuredMs": 4746.40000000298,
+      "fps": 11.798415641320757,
+      "frameTimeMs": {
+        "p50": 78.19999999999982,
+        "p95": 319.5,
+        "p99": 345.5999999999999,
+        "max": 345.5999999999999
+      },
+      "longTasks": {
+        "count": 55,
+        "totalMs": 4584
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.192368,
+        "layoutSeconds": 1.092761,
+        "scriptSeconds": 0.6597879999999999,
+        "jsHeapUsedBytes": 376332,
+        "nodes": -36854
+      }
+    },
+    {
+      "arm": "D",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 11242,
+      "measuredMs": 5003.19999999851,
+      "fps": 2246.9619443562815,
+      "frameTimeMs": {
+        "p50": 0.3999999999998636,
+        "p95": 0.6999999999998181,
+        "p99": 1,
+        "max": 18.09999999999991
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.965244,
+        "layoutSeconds": 0,
+        "scriptSeconds": 2.386884,
+        "jsHeapUsedBytes": -236244,
+        "nodes": 104500
+      }
+    },
+    {
+      "arm": "D",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 1896,
+      "measuredMs": 5006.2,
+      "fps": 378.73037433582357,
+      "frameTimeMs": {
+        "p50": 2.300000000000182,
+        "p95": 3.5,
+        "p99": 10.100000000000364,
+        "max": 20.699999999999818
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 1.234625,
+        "layoutSeconds": 0,
+        "scriptSeconds": 2.851826,
+        "jsHeapUsedBytes": -269676,
+        "nodes": 32325
+      }
+    },
+    {
+      "arm": "D",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 5000,
+      "warmupMs": 1000,
+      "frames": 486,
+      "measuredMs": 5019.10000000298,
+      "fps": 96.83010898362485,
+      "frameTimeMs": {
+        "p50": 9.299999999999955,
+        "p95": 14.699999999999818,
+        "p99": 28,
+        "max": 115.80000000000018
+      },
+      "longTasks": {
+        "count": 1,
+        "totalMs": 104
+      },
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "chromium",
+      "browserVersion": "151.0.7922.34",
+      "forcedAccessibility": true,
+      "rendererMetrics": {
+        "recalcStyleSeconds": 0.06613899999999995,
+        "layoutSeconds": 0,
+        "scriptSeconds": 0.15618100000000013,
+        "jsHeapUsedBytes": 893660,
+        "nodes": -121124
+      }
+    }
+  ]
+}
