@@ -2,7 +2,12 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "moduleResolution": "NodeNext",
-    "module": "NodeNext"
+    "module": "NodeNext",
+    "rootDir": "src",
+    "outDir": "dist",
+    "noEmit": false
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

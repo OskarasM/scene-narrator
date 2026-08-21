@@ -1,0 +1,29 @@
+name: Benchmark regression gate
+
+# The benchmark is not run on every pull request. It needs a headed browser, it takes
+# twenty-five minutes, and a shared CI runner's frame times are too noisy to gate on
+# absolute milliseconds. What is gated is the thing that is actually stable: the number of
+# DOM mutations the library produces, which must not grow with the number of objects.
+#
+# The full frame-time matrix in SPIKE.md is a local measurement on named hardware, and the
+# README says so wherever it quotes a millisecond.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
+
+jobs:
+  mutations:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # The assertion lives in test/narrator.test.ts: mutation count at 5000 objects must
+      # stay below twice the count at 50. A regression that reintroduced per-object writes
+      # would fail here immediately.
+      - run: npx vitest run test/narrator.test.ts

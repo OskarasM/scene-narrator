@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run build
+      # Unit tests plus the virtual screen reader assertions. Both run with no operating
+      # system dependency, which is why they can gate every pull request. The real NVDA
+      # pass cannot, and is documented in NVDA.md instead of being faked here.
+      - run: npm test
+
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm ci
+        working-directory: demo
+      - run: npx tsc -p tsconfig.json --noEmit
+        working-directory: demo
+      - run: npm run build
+        working-directory: demo
+
+  prose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      # Plain ASCII and British English. See scripts/check-prose.mjs for why the rule set
+      # is deliberately narrow.
+      - run: node scripts/check-prose.mjs

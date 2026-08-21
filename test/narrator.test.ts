@@ -77,7 +77,7 @@ describe('createNarrator', () => {
     narrator = createNarrator(scene, { camera, mount, now })
     narrator.update()
 
-    const summaries = [...mount.querySelectorAll('section p')].map((p) => p.textContent ?? '')
+    const summaries = [...mount.querySelectorAll('[data-narrator-region] p')].map((p) => p.textContent ?? '')
     expect(summaries.length).toBeGreaterThan(0)
     for (const summary of summaries) expect(summary).toMatch(/crate/)
     // Nothing is listed per object until a region is opened.
@@ -249,7 +249,7 @@ describe('focus and detail', () => {
 
     expect(mount.querySelectorAll('li').length).toBe(0)
 
-    const section = mount.querySelector('section') as HTMLElement
+    const section = mount.querySelector('[data-narrator-region]') as HTMLElement
     section.focus()
     section.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true }))
 
@@ -264,7 +264,7 @@ describe('focus and detail', () => {
     narrator = createNarrator(scene, { camera, mount, now })
     narrator.update()
 
-    const sections = [...mount.querySelectorAll('section')] as HTMLElement[]
+    const sections = [...mount.querySelectorAll('[data-narrator-region]')] as HTMLElement[]
     expect(sections.length).toBeGreaterThan(1)
     expect(sections.filter((s) => s.tabIndex === 0).length).toBe(1)
 
@@ -290,7 +290,7 @@ describe('focus and detail', () => {
     })
     narrator.update()
 
-    const sections = [...mount.querySelectorAll('section')] as HTMLElement[]
+    const sections = [...mount.querySelectorAll('[data-narrator-region]')] as HTMLElement[]
     sections[1].focus()
     expect(focused).toHaveLength(1)
     expect(focused[0]).toBe(sections[1].dataset.narratorRegion)
@@ -301,7 +301,7 @@ describe('focus and detail', () => {
     narrator = createNarrator(scene, { camera, mount, now })
     narrator.update()
 
-    const section = mount.querySelector('section') as HTMLElement
+    const section = mount.querySelector('[data-narrator-region]') as HTMLElement
     section.focus()
     const event = new KeyboardEvent('keydown', { key: 'h', bubbles: true, cancelable: true })
     section.dispatchEvent(event)

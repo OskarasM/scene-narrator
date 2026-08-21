@@ -13,9 +13,13 @@
     "bench": "node bench/run.mjs",
     "bench:analyse": "node bench/analyse.mjs",
     "bench:serve": "node bench/serve.mjs",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm run check:prose && npm run build && npm test",
+    "check:prose": "node scripts/check-prose.mjs"
   },
   "devDependencies": {
+    "@guidepup/guidepup": "^0.33.2",
+    "@guidepup/playwright": "^0.19.1",
+    "@guidepup/virtual-screen-reader": "^0.32.1",
     "@react-three/fiber": "^9.7.0",
     "@types/node": "^26.2.0",
     "@types/react": "^19.2.18",

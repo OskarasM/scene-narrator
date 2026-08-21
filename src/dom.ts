@@ -3,10 +3,10 @@
  *
  * Shape produced, for one region:
  *
- *   <section tabindex="-1" aria-labelledby="...">
+ *   <div tabindex="-1" role="group" aria-labelledby="...">
  *     <h3>The north of the scene</h3>
  *     <p>5 vehicles, mostly moving, ahead and to your left, nearby</p>
- *   </section>
+ *   </div>
  *
  * The heading is stable. The paragraph is the only thing rewritten as the scene moves, so
  * an update costs exactly one text write per region whose meaning changed, regardless of
@@ -145,7 +145,11 @@ export class DomWriter {
       seen.add(region.id)
       let nodes = this.nodes.get(region.id)
       if (!nodes) {
-        const section = this.doc.createElement('section')
+        // A plain div, not a <section>. A named <section> becomes an ARIA landmark, and six
+        // of them would bury the page's real landmarks in a list of grid cells. Only 3.7% of
+        // screen reader users navigate by landmark against 71.6% by heading, so the heading
+        // below is the navigation mechanism and the container is just a container.
+        const section = this.doc.createElement('div')
         // -1 by default: one tab stop for the whole scene, then arrows between regions.
         // Giving every region its own tab stop would put an unskippable list of tab stops
         // in the middle of the page.
@@ -156,6 +160,10 @@ export class DomWriter {
         const heading = this.doc.createElement('h' + childHeadingLevel)
         heading.id = headingId
         section.setAttribute('aria-labelledby', headingId)
+
+        // group rather than region: it names a set of things without claiming to be a
+        // landmark of the page.
+        section.setAttribute('role', 'group')
 
         const summary = this.doc.createElement('p')
 
