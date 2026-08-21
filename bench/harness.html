@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>scene-narrator benchmark harness</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #111; overflow: hidden; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+
+  /* Visually hidden, but still laid out and still in the accessibility tree.
+     display:none would remove these from the accessibility tree entirely, which
+     is exactly what we are trying to measure the cost of avoiding. */
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+
+<canvas id="scene">
+  <!-- Arm D mounts its mirror here, inside the canvas, as fallback content. -->
+  <div id="fallback-mount"></div>
+</canvas>
+<div id="sibling-mount"></div>
+
+<script type="importmap">
+{ "imports": { "three": "/node_modules/three/build/three.module.js" } }
+</script>
+<script type="module" src="/bench/harness.js"></script>
