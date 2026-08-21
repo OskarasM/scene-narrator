@@ -6,5 +6,6 @@ export default defineConfig({
     // region behaviour, and jsdom is the more faithful of the two on focus handling.
     environment: 'jsdom',
     include: ['test/**/*.test.ts', 'test/**/*.test.tsx'],
+    setupFiles: ['test/setup.ts'],
   },
 })

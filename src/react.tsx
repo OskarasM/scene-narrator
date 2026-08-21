@@ -104,12 +104,17 @@ export function useNarrator(): Narrator {
  * ```
  */
 export function useDescribe(ref: RefObject<Object3D | null>, descriptor: Descriptor): void {
-  // Descriptors carry callbacks, so a dependency array over the object identity would fire
-  // on every render. The descriptor is re-applied on every render instead, which is one
-  // property assignment and cheaper than the comparison would be.
-  const object = ref.current
   useEffect(() => {
+    // Read inside the effect, never during render. On the first render `ref.current` is
+    // still null, because the object has not been created yet; by the time the effect runs
+    // it has. Capturing it during render would mean an object that renders exactly once is
+    // never described at all, which is a silent hole in the accessibility tree and the
+    // hardest kind of bug to notice in a library like this one.
+    const object = ref.current
     if (!object) return
+    // Descriptors carry callbacks, so a dependency array comparing them would fire on every
+    // render anyway. The effect runs after every render instead and re-applies, which is one
+    // property assignment and cheaper than the comparison would be.
     describe(object, descriptor)
     return () => undescribe(object)
   })
