@@ -289,6 +289,42 @@ real reduction in what can be said about it rather than parity being implied.
 
 ---
 
+## Result 5: what the library built from this actually costs
+
+The spike above justified building something. A fifth arm, added once the library existed,
+measures it on the same harness so that the comparison is a measurement rather than a story.
+
+Chromium, forced accessibility, p95 / p99 frame time in milliseconds, from
+`bench/results/full-2026-08-22T00-34-52-693Z.json`:
+
+| N | A baseline | B sibling | D fallback | E scene-narrator |
+|---|---|---|---|---|
+| 100 | 0.4 / 0.5 | 3.1 / 8.5 | 0.6 / 0.9 | 0.4 / 0.5 |
+| 500 | 0.6 / 0.8 | 27.9 / 59.1 | 1.7 / 6.5 | 0.7 / 1.0 |
+| 1000 | 0.8 / 1.1 | 40.6 / 87.3 | 3.2 / 13.6 | 1.2 / 1.5 |
+| 2000 | 1.3 / 1.7 | 138.4 / 168.6 | 8.5 / 37.8 | 2.1 / 2.6 |
+| 5000 | 2.0 / 2.4 | 404.9 / 489.6 | 14.9 / 47.2 | 5.0 / 9.2 |
+
+Arm E never crosses the 60fps budget up to N=5000. Its layout and style recalculation time
+are 0.000 ms/frame in every cell, it produces zero long tasks at every N, and the renderer
+holds between 85 and 129 DOM nodes for it regardless of object count.
+
+One incidental confirmation. The forced-accessibility flag changes arm E's p95 by between
+0.75x and 1.10x, which is noise, where it changes the naive mirror's by up to 5.91x. A layer
+that barely touches the accessibility tree is barely affected by whether the browser is
+maintaining one. That is the mechanism working as designed, seen from a third angle.
+
+**Provenance, and a caveat about comparing across runs.** This matrix was run after the
+library was written, so it is a separate results file from the four-arm spike above, and its
+arm A, B and D figures differ from the earlier run. Arm B in particular crosses the 60fps
+budget at an interpolated N~304 here against N~524 earlier. That is run-to-run variation on
+the same machine, of the size the published spread tables would lead you to expect, and it
+is why arm E is compared against the arms measured beside it rather than against the earlier
+numbers. Neither run is the "right" one; what is stable across both is the ordering and the
+order of magnitude.
+
+---
+
 ## What this does not tell you
 
 1. **Nothing here has been near a screen reader.** `--force-renderer-accessibility` is a

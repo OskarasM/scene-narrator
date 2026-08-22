@@ -12,7 +12,7 @@ This library groups the scene into a handful of areas, gives each one a real hea
 spoken summary, and rewrites that summary only when the meaning of the area changes rather
 than when a pixel does.
 
-- **Live demo**: DEMO_URL_PLACEHOLDER
+- **Live demo**: not deployed yet. Clone the repo, then `cd demo && npm install && npm run build && npx vite preview`
 - **The measurements**: [SPIKE.md](SPIKE.md)
 - **The full write-up**: [GUIDE.md](GUIDE.md)
 - **NVDA transcripts**: [NVDA.md](NVDA.md)
@@ -132,7 +132,28 @@ failure this library exists to prevent.
 
 ## What the user gets
 
-MEASURED_TRANSCRIPT_PLACEHOLDER
+NVDA 2026.1.1 reading the demo, copied out of `bench/results/nvda-demo.json`:
+
+```
+main landmark, clickable, region, heading, level 2, Delivery yard
+Areas of the scene are listed as headings. Move to an area and press Enter to hear what is
+  in it.
+grouping, heading, level 3, The north-west of the scene
+6 vans, mostly parked, ahead, far away, including Van 1
+out of grouping, grouping, heading, level 3, The south-west of the scene
+7 vans, mostly moving, ahead and to your left, some distance away
+out of grouping, grouping, heading, level 3, The north-east of the scene
+5 vans, mostly moving, ahead, far away
+out of grouping, Van 1 has been dispatched
+```
+
+Areas are real headings, so the H key works. Contents are summarised rather than enumerated.
+Direction is in words somebody can act on, never coordinates. Events go through a polite live
+region that coalesces, so fifty things happening at once is one announcement.
+
+**One thing to handle yourself:** the element holding focus is inside the canvas and visually
+hidden, so it cannot carry a focus ring. Use `onFocusRegion` to show focus somewhere a
+sighted keyboard user can see it. [NVDA.md](NVDA.md) explains why.
 
 ## Keyboard
 
@@ -152,10 +173,34 @@ without the library being involved at all.
 ## Performance
 
 The problem is real and it arrives early. On Chromium with a screen reader attached, a naive
-one-node-per-object mirror of a moving scene crosses the 16.7ms frame budget between 500 and
-1000 objects, and at 500 objects one frame in a hundred already takes 44ms.
+one-node-per-object mirror of a moving scene crosses the 16.7ms frame budget somewhere
+between 300 and 500 objects, and by 500 objects one frame in a hundred takes 59ms.
 
-PERFORMANCE_TABLE_PLACEHOLDER
+(Two full matrices were run on this machine, and they put that crossing at an interpolated
+300 and 520 objects respectively. Both are in `bench/results/`. The range is the honest
+answer; a single number would not be.)
+
+Chromium with a screen reader attached, p95 / p99 frame time in milliseconds. The naive
+mirror is one hidden node per object rewritten every frame; scene-narrator is this library at
+its default 250ms cadence. Both measured on the same harness, hardware and run.
+
+| Objects | empty canvas | naive mirror | scene-narrator |
+|---|---|---|---|
+| 500 | 0.6 / 0.8 | 27.9 / 59.1 | **0.7 / 1.0** |
+| 1000 | 0.8 / 1.1 | 40.6 / 87.3 | **1.2 / 1.5** |
+| 2000 | 1.3 / 1.7 | 138.4 / 168.6 | **2.1 / 2.6** |
+| 5000 | 2.0 / 2.4 | 404.9 / 489.6 | **5.0 / 9.2** |
+
+The naive mirror crosses the 60fps budget at around 300 objects. This library does not cross
+it at 5,000, and Chromium reports **zero layout time and zero style recalculation per frame**
+at every object count measured, with zero long tasks.
+
+The accessibility tree stays between 85 and 129 DOM nodes whether the scene holds 10 objects
+or 5,000, because areas are the unit and individual objects appear only when a user opens
+one.
+
+AMD Ryzen 7 5800H, 16 cores, Windows 11, Chromium 151.0.7922.34. Three runs per cell, six
+seconds each, headed, with `--force-renderer-accessibility`.
 
 Full method, hardware, variance and the trap that makes most benchmarks of this wrong are in
 [SPIKE.md](SPIKE.md). Every figure traces to a committed file in `bench/results/`.

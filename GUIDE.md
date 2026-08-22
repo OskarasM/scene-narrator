@@ -24,7 +24,7 @@ repository that you can run yourself. Nothing is estimated.
 that gives a moving Three.js scene a navigable accessibility tree without spending the frame
 budget on it.
 
-- Live demo: DEMO_URL_PLACEHOLDER
+- Live demo: not deployed yet. Clone the repo, then `cd demo && npm install && npm run build && npx vite preview`
 - `npm install @oskarasm/scene-narrator`
 - MIT, no runtime dependencies, `three` as a peer dependency, `react` and
   `@react-three/fiber` as optional peers for the React entry point.
@@ -183,7 +183,73 @@ skipped.
 
 ### What this library costs
 
-ARM_E_SECTION_PLACEHOLDER
+The strawman is one thing. What does this library actually cost?
+
+Arm E is `@oskarasm/scene-narrator` at its default 250ms cadence, mounted as canvas fallback
+content, measured on the same harness, the same hardware and the same run as the naive
+mirror it is being compared against. Chromium, `--force-renderer-accessibility`, p95 / p99
+frame time in milliseconds:
+
+| N | baseline | naive mirror | scene-narrator |
+|---|---|---|---|
+| 10 | 0.3 / 0.4 | 0.9 / 1.7 | 0.3 / 0.4 |
+| 100 | 0.4 / 0.5 | 3.1 / 8.5 | 0.4 / 0.5 |
+| 500 | 0.6 / 0.8 | 27.9 / 59.1 | 0.7 / 1.0 |
+| 1000 | 0.8 / 1.1 | 40.6 / 87.3 | 1.2 / 1.5 |
+| 2000 | 1.3 / 1.7 | 138.4 / 168.6 | 2.1 / 2.6 |
+| 5000 | 2.0 / 2.4 | 404.9 / 489.6 | 5.0 / 9.2 |
+
+The naive mirror crosses the 16.7ms budget between N=200 and N=500 (interpolated N~304) in
+this run. The library never crosses it up to N=5000, and neither does the empty-canvas
+baseline.
+
+At 5000 objects the library sits at 5.0ms p95 against a 2.0ms baseline that is drawing the
+same scene with no accessibility layer at all. So the accessibility work costs about 3ms per
+frame at 5000 described objects: 81 times less than the naive mirror on p95, and still
+inside a 60fps budget by a factor of three.
+
+Chromium's own counters say why:
+
+| N | naive layout ms/frame | scene-narrator layout ms/frame | naive recalc ms/frame | scene-narrator recalc ms/frame |
+|---|---|---|---|---|
+| 500 | 4.726 | 0.000 | 0.890 | 0.000 |
+| 1000 | 6.681 | 0.000 | 1.280 | 0.000 |
+| 2000 | 13.856 | 0.000 | 2.659 | 0.000 |
+| 5000 | 39.148 | 0.000 | 7.048 | 0.000 |
+
+Zero layout and zero style recalculation per frame, at every object count measured. Not
+small: zero, to the resolution of Chromium's counters. The library is not doing cheap DOM
+work, it is mostly not doing DOM work at all.
+
+The node count tells the same story from the other end. Chromium's count of nodes the
+renderer is holding at the end of the measurement window:
+
+| N | naive mirror | scene-narrator |
+|---|---|---|
+| 100 | 5,008 | 96 |
+| 500 | 8,243 | 86 |
+| 1000 | 14,500 | 86 |
+| 2000 | 30,908 | 87 |
+| 5000 | 33,132 | 92 |
+
+**Between 85 and 129 nodes, flat, from 10 objects to 5,000.** That is the design claim made
+concrete: the accessibility tree is a function of how many areas the scene has, not of how
+many objects are in it. Individual objects appear only when a user opens an area.
+
+Long tasks over the six second window: **zero at every object count**, against 60 for the
+naive mirror at N=5000.
+
+One more figure, taken from `test/narrator.test.ts` rather than the browser because it can be
+counted exactly there. Over 300 frames of continuous motion, DOM mutations:
+
+| N | naive equivalent | scene-narrator |
+|---|---|---|
+| 50 | 15,000 | 113 |
+| 500 | 150,000 | 143 |
+| 5000 | 1,500,000 | 143 |
+
+Identical at 500 and at 5,000. That is what "O(regions), not O(objects)" means, and it is
+asserted in the test suite so that it cannot regress quietly.
 
 ---
 
@@ -308,7 +374,75 @@ profiler by attributing it to a callback nobody wrote.
 
 ## 7. What NVDA actually says
 
-NVDA_SECTION_PLACEHOLDER
+Everything above is about milliseconds. This section is about whether the thing works, which
+is a different question and the one that matters.
+
+NVDA 2026.1.1 on Windows 11, driving Chrome for Testing 151. Reading the demo from the top,
+verbatim from `bench/results/nvda-demo.json`:
+
+```
+main landmark, clickable, region, heading, level 2, Delivery yard
+Areas of the scene are listed as headings. Move to an area and press Enter to hear what is
+  in it.
+grouping, heading, level 3, The north-west of the scene
+6 vans, mostly parked, ahead, far away, including Van 1
+out of grouping, grouping, heading, level 3, The south-west of the scene
+7 vans, mostly moving, ahead and to your left, some distance away
+out of grouping, grouping, heading, level 3, The north-east of the scene
+5 vans, mostly moving, ahead, far away
+out of grouping, grouping, heading, level 3, The south-east of the scene
+5 vans, mostly moving, ahead and to your right, some distance away
+out of grouping, Van 1 has been dispatched
+```
+
+A canvas that would otherwise be one unlabelled graphic is a named region containing four
+named areas, each summarised by what is in it, roughly where it is, and what it is doing.
+`Van 1 has been dispatched` is the live region firing while the user reads, without
+interrupting them.
+
+Pressing H, which is what 71.6% of screen reader users do:
+
+```
+Delivery yard, region, Delivery yard, heading, level 2
+The north-west of the scene, grouping, The north-west of the scene, heading, level 3
+The south-west of the scene, grouping, The south-west of the scene, heading, level 3
+The north-east of the scene, grouping, The north-east of the scene, heading, level 3
+The south-east of the scene, grouping, The south-east of the scene, heading, level 3
+no next heading
+```
+
+### NVDA does reach canvas fallback content
+
+The mount point decision rested on this, and Chromium's internal accessibility tree could not
+answer it: CDP will show you an AXObject tree containing fallback nodes, but NVDA reads
+through UI Automation, which is a different thing.
+
+A probe page with identical content inside a `<canvas>` and beside it, read with NVDA:
+
+| | Browse mode | Reached by Tab |
+|---|---|---|
+| Inside the `<canvas>` | yes | yes |
+| Beside the `<canvas>` (control) | yes | yes |
+
+The sibling half is a control, so a broken harness fails loudly rather than producing a
+misleading negative. The canvas half is slightly noisier: extra `blank` announcements, and a
+button announced as `, button, Button inside the canvas,` where the sibling gave the clean
+`button, Button beside the canvas`.
+
+### A consequence of the canvas mount point that is easy to miss
+
+The element holding keyboard focus is inside the canvas and visually hidden, so it can never
+show a focus ring. CSS `:has(:focus-visible)` does not rescue it either, because canvas
+fallback content is not rendered and so never matches. **A sighted keyboard user gets no
+focus indication at all**, which is a WCAG 2.4.7 failure hiding inside an accessibility fix.
+
+That is what `onFocusRegion` is for. The demo outlines the viewport from it, and a real
+application should also highlight the focused region in the 3D scene. This was found by a
+Playwright check that presses real keys, after unit tests dispatching synthetic events in
+jsdom had passed happily.
+
+Full transcripts, including focus mode and what is imperfect in each, are in
+[NVDA.md](NVDA.md).
 
 ---
 

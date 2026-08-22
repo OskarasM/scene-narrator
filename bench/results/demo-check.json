@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-08-22T00:30:00.608Z",
+  "recordedAt": "2026-08-22T04:04:00.077Z",
   "browserVersion": "151.0.7922.34",
   "pageErrors": [],
   "headings": [
@@ -14,7 +14,7 @@
   "canvasChildCount": 1,
   "liveRegionCount": 2,
   "pixels": {
-    "distinctColours": 26,
+    "distinctColours": 28,
     "size": [
       792,
       495
