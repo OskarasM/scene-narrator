@@ -1,10 +1,8 @@
 {
-  "recordedAt": "2026-08-22T06:33:21.990Z",
+  "recordedAt": "2026-08-22T06:36:01.022Z",
   "url": "https://oskarasm.github.io/scene-narrator/",
   "browserVersion": "151.0.7922.34",
-  "pageErrors": [
-    "Failed to load resource: the server responded with a status of 404 ()"
-  ],
+  "pageErrors": [],
   "headings": [
     "scene-narrator demo",
     "Delivery yard",
@@ -17,7 +15,7 @@
   "canvasChildCount": 1,
   "liveRegionCount": 2,
   "pixels": {
-    "distinctColours": 29,
+    "distinctColours": 27,
     "size": [
       792,
       495
