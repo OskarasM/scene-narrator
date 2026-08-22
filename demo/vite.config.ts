@@ -7,10 +7,10 @@ import { fileURLToPath } from 'node:url'
 // it was built from.
 const src = (p: string) => fileURLToPath(new URL('../src/' + p, import.meta.url))
 
-// GitHub Pages serves this at /scene-narrator/, not at the root, so the built asset URLs
-// have to carry that prefix. Anywhere else (a local preview, Vercel, any other host) serves
-// it at the root and DEMO_BASE is simply unset. Reading it from the environment rather than
-// hardcoding one of the two means the same commit builds correctly for both.
+// The deployment serves this from the root, which is the default. A host that serves it
+// from a subpath instead, such as a project page on a static host, needs the built asset
+// URLs to carry that prefix, and sets DEMO_BASE to it. Reading it from the environment
+// rather than hardcoding one means the same commit builds correctly for either.
 const base = process.env.DEMO_BASE ?? '/'
 
 export default defineConfig({

@@ -12,7 +12,7 @@ This library groups the scene into a handful of areas, gives each one a real hea
 spoken summary, and rewrites that summary only when the meaning of the area changes rather
 than when a pixel does.
 
-- **Live demo**: <https://oskarasm.github.io/scene-narrator/>. Built from `demo/` on every push to main, so it is always the commit above.
+- **Live demo**: <https://scene-narrator-inky.vercel.app/>. Built from `demo/` on every push to main, so it is always the commit above.
 - **The measurements**: [SPIKE.md](SPIKE.md)
 - **The full write-up**: [GUIDE.md](GUIDE.md)
 - **NVDA transcripts**: [NVDA.md](NVDA.md)
@@ -235,7 +235,7 @@ npm run bench         # headed, about 25 minutes
 # Real browser, real accessibility tree, real key presses, plus axe.
 cd demo && npm install && npm run build && cd ..
 node bench/demo-check.mjs                                        # the local build
-node bench/demo-check.mjs https://oskarasm.github.io/scene-narrator/   # what is deployed
+node bench/demo-check.mjs https://scene-narrator-inky.vercel.app/    # what is deployed
 ```
 
 MIT.
