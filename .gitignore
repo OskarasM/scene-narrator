@@ -3,3 +3,6 @@ dist/
 .DS_Store
 *.log
 bench/results/*.raw.json
+test-results/
+playwright-report/
+demo/dist/
