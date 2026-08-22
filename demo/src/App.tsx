@@ -148,7 +148,14 @@ export default function App() {
       </header>
 
       <main>
-        <div className="viewport">
+        {/*
+          The focused element lives inside the canvas as fallback content and is visually
+          hidden, so it cannot carry a focus ring of its own. CSS :has(:focus-visible) does
+          not help either: canvas fallback content is not rendered, so it never matches.
+          The library's onFocusRegion callback is the intended answer, and this is what it
+          is for. An application would also highlight the focused region in the 3D scene.
+        */}
+        <div className={focused ? 'viewport viewport-focused' : 'viewport'}>
           {/*
             Camera pulled in close enough that the areas of the yard fall into different
             distance bands. From far outside the yard every area reads "far away", which is

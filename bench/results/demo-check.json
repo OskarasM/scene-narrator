@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-08-22T00:27:26.770Z",
+  "recordedAt": "2026-08-22T00:30:00.608Z",
   "browserVersion": "151.0.7922.34",
   "pageErrors": [],
   "headings": [
@@ -14,11 +14,19 @@
   "canvasChildCount": 1,
   "liveRegionCount": 2,
   "pixels": {
-    "distinctColours": 33,
+    "distinctColours": 26,
     "size": [
       792,
       495
     ]
+  },
+  "keyboard": {
+    "entered": true,
+    "firstRegion": "region-0-0",
+    "movedWithArrow": true,
+    "outlineVisible": true,
+    "itemsWhenOpen": 7,
+    "itemsWhenClosed": 0
   },
   "summarySamples": [
     " vans, most of them moving. The 3D view below is a single ",

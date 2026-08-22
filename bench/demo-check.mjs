@@ -90,6 +90,67 @@ const pixels = await page.evaluate(() => {
   return { distinctColours: seen.size, size: [canvas.width, canvas.height] }
 })
 
+// Does the keyboard model actually work in a real browser? The unit tests dispatch
+// synthetic KeyboardEvents in jsdom, which proves the handlers are wired but not that a
+// real key press reaches them, that focus lands where it should, or that a focus ring is
+// visible. Same lesson as the blank canvas: assert the observable behaviour, not the
+// markup that is supposed to produce it.
+const keyboard = await (async () => {
+  const region = () =>
+    page.evaluate(() => {
+      const active = document.activeElement
+      const section = active && active.closest && active.closest('[data-narrator-region]')
+      return section ? section.dataset.narratorRegion : null
+    })
+
+  // Tab until focus lands inside the scene, giving up rather than looping forever.
+  let entered = null
+  for (let i = 0; i < 12 && !entered; i++) {
+    await page.keyboard.press('Tab')
+    entered = await region()
+  }
+  if (!entered) return { entered: false }
+
+  // The focused element itself is visually hidden, because the accessibility tree is canvas
+  // fallback content. So the focus indicator cannot be on it, and checking it would be
+  // checking the wrong thing. What matters is that *something a sighted user can see*
+  // indicates focus: here the viewport containing the canvas.
+  const outlineVisible = await page.evaluate(() => {
+    const shows = (el) => {
+      if (!el) return false
+      const style = getComputedStyle(el)
+      return (
+        (style.outlineStyle !== 'none' && parseFloat(style.outlineWidth) > 0) ||
+        style.boxShadow !== 'none'
+      )
+    }
+    const active = document.activeElement
+    return shows(active) || shows(document.querySelector('.viewport')) || shows(document.querySelector('canvas'))
+  })
+
+  await page.keyboard.press('ArrowDown')
+  const afterArrow = await region()
+
+  await page.keyboard.press('Enter')
+  const itemsWhenOpen = await page.evaluate(
+    () => document.querySelectorAll('.scene-narrator li').length,
+  )
+
+  await page.keyboard.press('Escape')
+  const itemsWhenClosed = await page.evaluate(
+    () => document.querySelectorAll('.scene-narrator li').length,
+  )
+
+  return {
+    entered: true,
+    firstRegion: entered,
+    movedWithArrow: afterArrow !== null && afterArrow !== entered,
+    outlineVisible,
+    itemsWhenOpen,
+    itemsWhenClosed,
+  }
+})()
+
 const { nodes } = await session.send('Accessibility.getFullAXTree')
 
 const headings = nodes
@@ -136,6 +197,7 @@ const report = {
   canvasChildCount: canvasNodes[0]?.childIds?.length ?? 0,
   liveRegionCount: liveRegions.length,
   pixels,
+  keyboard,
   summarySamples: summaries.slice(0, 8),
   axeViolations: axeResults,
 }
@@ -158,6 +220,11 @@ if (liveRegions.length === 0) failures.push('no live region found')
 if (!pixels.distinctColours || pixels.distinctColours < 3) {
   failures.push(`canvas rendered ${pixels.distinctColours ?? 0} distinct colour(s): the 3D scene is blank`)
 }
+if (!keyboard.entered) failures.push('Tab never reached the scene')
+if (!keyboard.movedWithArrow) failures.push('arrow key did not move between areas')
+if (!keyboard.outlineVisible) failures.push('focused area has no visible focus indicator')
+if (!(keyboard.itemsWhenOpen > 0)) failures.push('Enter did not list the objects in an area')
+if (keyboard.itemsWhenClosed !== 0) failures.push('Escape did not close the area')
 if (errors.length > 0) failures.push(`${errors.length} page error(s)`)
 if (Array.isArray(axeResults) && axeResults.length > 0) {
   failures.push(`${axeResults.length} axe violation(s)`)
