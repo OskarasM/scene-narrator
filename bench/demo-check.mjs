@@ -139,6 +139,17 @@ const keyboard = await (async () => {
   await page.keyboard.press('ArrowDown')
   const afterArrow = await region()
 
+  // The button that puts focus in the scene without needing Tab at all.
+  //
+  // This exists because loading the page by typing its address leaves focus in the browser
+  // toolbar, so the first Tab presses never reach the document and the scene looks dead.
+  // Playwright sends keys straight to the page and therefore cannot reproduce that, which
+  // is exactly why the button needs its own assertion rather than being covered by the Tab
+  // checks above.
+  await page.evaluate(() => document.activeElement instanceof HTMLElement && document.activeElement.blur())
+  await page.locator('.enter-scene').click()
+  const regionAfterButton = await region()
+
   await page.keyboard.press('Enter')
   const itemsWhenOpen = await page.evaluate(
     () => document.querySelectorAll('.scene-narrator li').length,
@@ -154,6 +165,7 @@ const keyboard = await (async () => {
     firstRegion: entered,
     movedWithArrow: afterArrow !== null && afterArrow !== entered,
     outlineVisible,
+    buttonFocusedScene: regionAfterButton !== null,
     itemsWhenOpen,
     itemsWhenClosed,
   }
@@ -231,6 +243,7 @@ if (!pixels.distinctColours || pixels.distinctColours < 3) {
 }
 if (!keyboard.entered) failures.push('Tab never reached the scene')
 if (!keyboard.movedWithArrow) failures.push('arrow key did not move between areas')
+if (!keyboard.buttonFocusedScene) failures.push('the button did not put focus in the scene')
 if (!keyboard.outlineVisible) failures.push('focused area has no visible focus indicator')
 if (!(keyboard.itemsWhenOpen > 0)) failures.push('Enter did not list the objects in an area')
 if (keyboard.itemsWhenClosed !== 0) failures.push('Escape did not close the area')

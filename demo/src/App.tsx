@@ -10,11 +10,11 @@
  * The scene is deliberately not the multiplayer room, and shares no code with it.
  */
 
-import { useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Group, InstancedMesh, Object3D } from 'three'
 import { SceneNarrator, useDescribe, useNarrator } from '@oskarasm/scene-narrator/react'
-import type { RegionSnapshot } from '@oskarasm/scene-narrator'
+import type { Narrator, RegionSnapshot } from '@oskarasm/scene-narrator'
 
 const VAN_COUNT = 24
 const YARD = 30
@@ -107,6 +107,20 @@ function Yard({ vans }: { vans: VanState[] }) {
   )
 }
 
+/**
+ * Lifts the narrator instance out to the surrounding page.
+ *
+ * useNarrator only works inside <SceneNarrator>, which is inside <Canvas>, so a plain DOM
+ * button next to the canvas cannot call the narrator directly. This passes the instance
+ * outward once, which is the same thing an application would do to wire the scene up to
+ * its own toolbar.
+ */
+function ExposeNarrator({ onReady }: { onReady: (narrator: Narrator) => void }) {
+  const narrator = useNarrator()
+  useEffect(() => onReady(narrator), [narrator, onReady])
+  return null
+}
+
 /** Announces things the library cannot infer, which is the author's job by design. */
 function DispatchEvents({ vans }: { vans: VanState[] }) {
   const narrator = useNarrator()
@@ -126,6 +140,30 @@ function DispatchEvents({ vans }: { vans: VanState[] }) {
 export default function App() {
   const vans = useMemo(makeVans, [])
   const [focused, setFocused] = useState<RegionSnapshot | null>(null)
+  const narratorRef = useRef<Narrator | null>(null)
+
+  const holdNarrator = useCallback((narrator: Narrator) => {
+    narratorRef.current = narrator
+  }, [])
+
+  /*
+   * Why this button exists.
+   *
+   * Loading this page by typing its address leaves keyboard focus in the browser's own
+   * toolbar, not in the document. The first few Tab presses then move through browser
+   * chrome and never reach the page, so the scene appears unreachable and this panel never
+   * changes. That is not a screen reader problem and it is not a library problem, it is
+   * what happens to anybody who visits a page by typing its URL, and a demo that cannot
+   * survive it demonstrates nothing.
+   *
+   * So there is a real, visible, focusable control that puts focus into the scene. It uses
+   * the same public API an application would: narrator.focusRegion(id).
+   */
+  const enterScene = useCallback(() => {
+    const narrator = narratorRef.current
+    const first = narrator?.snapshot().regions[0]
+    if (first) narrator?.focusRegion(first.id)
+  }, [])
 
   return (
     <div className="page">
@@ -142,8 +180,10 @@ export default function App() {
           them with your heading key, then press Enter on one to hear the vans inside it.
         </p>
         <p>
-          <strong>Without one:</strong> press Tab until you reach the scene, then use the
-          arrow keys. The panel on the right shows the text a screen reader is being given.
+          <strong>Without one:</strong> click anywhere on this page first, then press Tab to
+          reach the scene and use the arrow keys. If you opened this page by typing its
+          address, your keyboard focus starts in the browser toolbar rather than the page,
+          so the button on the right is the reliable way in.
         </p>
       </header>
 
@@ -182,33 +222,46 @@ export default function App() {
               mount="canvas"
               onFocusRegion={setFocused}
             >
+              <ExposeNarrator onReady={holdNarrator} />
               <DispatchEvents vans={vans} />
             </SceneNarrator>
           </Canvas>
         </div>
 
-        <aside aria-hidden="true">
-          <h2>What the screen reader is being told</h2>
-          {focused ? (
-            <>
-              <p className="focused-heading">{focused.heading}</p>
-              <p className="focused-summary">{focused.summary}</p>
-              <p className="focused-meta">
-                {focused.memberLabels.length} vans in this area
+        {/*
+          The button sits outside the aside on purpose. The aside is aria-hidden, and a
+          focusable control inside an aria-hidden subtree is reachable by Tab while being
+          invisible to a screen reader, which strands the user on a control that announces
+          nothing. The button is genuinely useful to everyone, so it is exposed to everyone.
+        */}
+        <div className="side">
+          <button type="button" className="enter-scene" onClick={enterScene}>
+            Put focus in the scene
+          </button>
+
+          <aside aria-hidden="true">
+            <h2>What the screen reader is being told</h2>
+            {focused ? (
+              <>
+                <p className="focused-heading">{focused.heading}</p>
+                <p className="focused-summary">{focused.summary}</p>
+                <p className="focused-meta">
+                  {focused.memberLabels.length} vans in this area
+                </p>
+              </>
+            ) : (
+              <p className="focused-summary">
+                Nothing focused yet. Press the button above, or click anywhere on this page
+                and then press Tab.
               </p>
-            </>
-          ) : (
-            <p className="focused-summary">
-              Nothing focused yet. Tab into the scene, or use your screen reader's heading
-              navigation.
+            )}
+            <p className="note">
+              This panel mirrors the accessibility tree for sighted visitors. It is marked
+              aria-hidden, because a screen reader user is already getting this information
+              from the real thing and does not need it twice.
             </p>
-          )}
-          <p className="note">
-            This panel mirrors the accessibility tree for sighted visitors. It is marked
-            aria-hidden, because a screen reader user is already getting this information
-            from the real thing and does not need it twice.
-          </p>
-        </aside>
+          </aside>
+        </div>
       </main>
 
       <footer>
