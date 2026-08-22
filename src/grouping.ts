@@ -74,9 +74,10 @@ export function partitionByDefinitions(
  * roughly `target` cells. Empty cells are dropped, so `target` is a target and not a
  * guarantee, which the README says in those words.
  *
- * ponytail: uniform grid, not an octree. A grid is O(n) to build with no allocation per
- * node, and it is rebuilt at the narrator's cadence rather than per frame. If a real scene
- * shows the grid to be the bottleneck, the interface here is small enough to swap.
+ * Deliberately a uniform grid rather than an octree. A grid is O(n) to build with no
+ * allocation per node, and it is rebuilt at the narrator's cadence rather than per frame.
+ * If a real scene shows the grid to be the bottleneck, the interface here is small enough
+ * to swap.
  */
 export function partitionAuto(members: Member[], bounds: Bounds, target: number): Region[] {
   if (members.length === 0) return []
