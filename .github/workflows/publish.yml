@@ -6,15 +6,18 @@
 # produced it. For a package whose entire argument is "every number came from something you
 # can rerun", a publish nobody can trace would be the wrong way to ship it.
 #
-# Setup, once, and none of it needs `npm login`:
-#   1. npmjs.com -> Access Tokens -> Generate New Token -> Granular Access Token.
-#      Packages and scopes permission: Read and write, All Packages.
-#   2. github.com/OskarasM/scene-narrator -> Settings -> Secrets and variables -> Actions
-#      -> New repository secret, named NPM_TOKEN.
-#   3. Cut a release: `gh release create v0.1.0 --generate-notes`.
+# Authentication is npm trusted publishing over OIDC. There is no token anywhere: GitHub
+# mints a short-lived identity token for this specific workflow in this specific repository,
+# and npm accepts a publish only from the publisher it has been told to trust. A stolen
+# repository secret is not a thing that can happen, because there is no secret to steal.
 #
-# After the first publish, npm's trusted publishing can replace the token entirely: it is
-# configured on the package settings page, which only exists once the package does.
+# The trust is registered at npmjs.com -> the package -> Settings -> Trusted Publisher, as
+# organisation OskarasM, repository scene-narrator, workflow file publish.yml, and no
+# environment. Those four values have to keep matching this file. Renaming this workflow, or
+# adding an `environment:` to the job below, breaks publishing until the npm side is updated
+# to match, and the error will not say so.
+#
+# To release: `gh release create v0.1.0 --generate-notes`.
 name: Publish
 
 on:
@@ -46,6 +49,7 @@ jobs:
       - run: npm run typecheck
       - run: npm run build
       - run: npm test
+      # No NODE_AUTH_TOKEN. Authentication comes from the OIDC token that `id-token: write`
+      # above allows GitHub to mint. Setting a token here would take precedence over trusted
+      # publishing and quietly put the credential back in the loop.
       - run: npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
