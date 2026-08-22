@@ -20,6 +20,7 @@
     "@guidepup/guidepup": "^0.33.2",
     "@guidepup/playwright": "^0.19.1",
     "@guidepup/virtual-screen-reader": "^0.32.1",
+    "@playwright/test": "^1.62.1",
     "@react-three/fiber": "^9.7.0",
     "@react-three/test-renderer": "^9.1.1",
     "@types/node": "^26.2.0",

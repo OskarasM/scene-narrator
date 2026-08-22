@@ -109,7 +109,7 @@ async function main() {
     const joined = [...browseLog, ...focusLog].join(' | ')
     const result = {
       recordedAt: new Date().toISOString(),
-      nvdaVersion: await nvda.version().catch(() => 'unknown'),
+      nvdaVersion: typeof nvda.version === 'function' ? await nvda.version() : nvda.version,
       browserVersion: browser.version(),
       canvasFallbackReachedInBrowseMode: browseLog.join(' | ').includes(CANVAS_SENTINEL),
       siblingReachedInBrowseMode: browseLog.join(' | ').includes(SIBLING_SENTINEL),

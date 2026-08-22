@@ -1,0 +1,43 @@
+{
+  "recordedAt": "2026-08-21T23:57:01.809Z",
+  "canvasFallbackReachedInBrowseMode": true,
+  "siblingReachedInBrowseMode": true,
+  "canvasButtonReached": true,
+  "siblingButtonReached": true,
+  "browseLog": [
+    "heading, level 1, NVDA mount point probe",
+    "blank",
+    "blank",
+    "blank",
+    "blank",
+    "heading, level 2, Inside the canvas",
+    "blank",
+    "blank",
+    "Canvas fallback content is reachable",
+    "blank",
+    ", button, Button inside the canvas, ",
+    "blank",
+    "blank",
+    "heading, level 2, Beside the canvas",
+    "Sibling content is reachable",
+    "button, Button beside the canvas",
+    "End of probe.",
+    "End of probe.",
+    "End of probe.",
+    "End of probe.",
+    "End of probe.",
+    "End of probe.",
+    "End of probe.",
+    "End of probe.",
+    "End of probe.",
+    "End of probe."
+  ],
+  "focusLog": [
+    "Button beside the canvas, button",
+    "NVDA mount point probe – Google Chrome for Testing, region",
+    "tool bar",
+    "Address and search bar, edit, Press Tab then Enter to ask AI Mode, Ctrl plus, L, selected localhost slash probe",
+    "Bookmark this tab, button",
+    "NVDA mount point probe, document"
+  ]
+}

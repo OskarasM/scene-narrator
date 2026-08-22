@@ -14,5 +14,11 @@ export default defineConfig({
       '@oskarasm/scene-narrator/react': src('react.tsx'),
       '@oskarasm/scene-narrator': src('index.ts'),
     },
+    // The aliases above point at source that lives outside this package, so its bare
+    // `react` and `three` imports resolve against the repository root's node_modules while
+    // the demo's own resolve here. Two copies of React means two copies of the hooks
+    // dispatcher, and the second one is null: "Cannot read properties of null (reading
+    // useEffect)", which renders a blank page and no error visible on it.
+    dedupe: ['react', 'react-dom', 'three', '@react-three/fiber'],
   },
 })

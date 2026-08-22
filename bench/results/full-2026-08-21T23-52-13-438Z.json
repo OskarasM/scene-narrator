@@ -1,0 +1,6811 @@
+{
+  "environment": {
+    "os": "Windows_NT 10.0.26200",
+    "platform": "win32",
+    "arch": "x64",
+    "cpu": "AMD Ryzen 7 5800H with Radeon Graphics         ",
+    "cores": 16,
+    "totalMemoryGb": 15,
+    "node": "v24.14.1",
+    "recordedAt": "2026-08-21T23:15:17.775Z"
+  },
+  "config": {
+    "ARMS": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "NS": [
+      10,
+      50,
+      100,
+      200,
+      500,
+      1000,
+      2000,
+      5000
+    ],
+    "RUNS": 3,
+    "DURATION": 6000,
+    "WARMUP": 1000,
+    "BROWSERS": [
+      "firefox"
+    ],
+    "A11Y_MODES": [
+      "off",
+      "forced"
+    ],
+    "SEED": 42,
+    "pilot": false
+  },
+  "failures": [
+    {
+      "browserName": "firefox",
+      "mode": "off",
+      "arm": "C",
+      "n": 1000,
+      "run": 1,
+      "error": "page.waitForFunction: Timeout 66000ms exceeded."
+    }
+  ],
+  "summary": [
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "A",
+      "n": 10,
+      "runCount": 3,
+      "fps": {
+        "mean": 764.579177492415,
+        "stdev": 41.20450551958448,
+        "min": 709.6288197962776,
+        "max": 808.8490148505612
+      },
+      "frameTimeP50Mean": 1.1599999999999302,
+      "frameTimeP95Mean": 2.5866666666667393,
+      "frameTimeP99Mean": 3.640000000000024,
+      "frameTimeP95Stdev": 0.16519348924460345
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "A",
+      "n": 50,
+      "runCount": 3,
+      "fps": {
+        "mean": 743.5488281403773,
+        "stdev": 45.73432599695971,
+        "min": 690.0918012029123,
+        "max": 801.808319469773
+      },
+      "frameTimeP50Mean": 1.1600000000001576,
+      "frameTimeP95Mean": 2.660000000000158,
+      "frameTimeP99Mean": 3.7199999999996485,
+      "frameTimeP95Stdev": 0.2698147512645752
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "A",
+      "n": 100,
+      "runCount": 3,
+      "fps": {
+        "mean": 611.9903309294687,
+        "stdev": 30.368726122415065,
+        "min": 587.2922228777319,
+        "max": 654.7678565476785
+      },
+      "frameTimeP50Mean": 1.353333333333315,
+      "frameTimeP95Mean": 3.426666666666582,
+      "frameTimeP99Mean": 5.586666666666588,
+      "frameTimeP95Stdev": 0.18926759422108663
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "A",
+      "n": 200,
+      "runCount": 3,
+      "fps": {
+        "mean": 589.6676019128962,
+        "stdev": 67.65042340278254,
+        "min": 494.45549900508956,
+        "max": 645.3891493324537
+      },
+      "frameTimeP50Mean": 1.3599999999999757,
+      "frameTimeP95Mean": 3.873333333333297,
+      "frameTimeP99Mean": 6.05333333333336,
+      "frameTimeP95Stdev": 0.6429791771294435
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "A",
+      "n": 500,
+      "runCount": 3,
+      "fps": {
+        "mean": 495.84014390672627,
+        "stdev": 12.869477618530238,
+        "min": 482.3461958985573,
+        "max": 513.1639892168918
+      },
+      "frameTimeP50Mean": 1.7400000000003881,
+      "frameTimeP95Mean": 4.099999999999757,
+      "frameTimeP99Mean": 5.499999999999848,
+      "frameTimeP95Stdev": 0.016329931618539666
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "A",
+      "n": 1000,
+      "runCount": 3,
+      "fps": {
+        "mean": 670.0762723100388,
+        "stdev": 22.509033743984258,
+        "min": 643.4822017688263,
+        "max": 698.524263298635
+      },
+      "frameTimeP50Mean": 1.3600000000000516,
+      "frameTimeP95Mean": 2.640000000000176,
+      "frameTimeP99Mean": 3.7533333333334062,
+      "frameTimeP95Stdev": 0.0909212113131897
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "A",
+      "n": 2000,
+      "runCount": 3,
+      "fps": {
+        "mean": 522.1637148074709,
+        "stdev": 16.722104712181736,
+        "min": 499.5201407587108,
+        "max": 539.3926665266513
+      },
+      "frameTimeP50Mean": 1.7400000000001608,
+      "frameTimeP95Mean": 3.526666666666491,
+      "frameTimeP99Mean": 5.27333333333316,
+      "frameTimeP95Stdev": 0.2782484900629649
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "A",
+      "n": 5000,
+      "runCount": 3,
+      "fps": {
+        "mean": 387.764577560954,
+        "stdev": 24.932061200986286,
+        "min": 352.9176525477389,
+        "max": 409.84425918151106
+      },
+      "frameTimeP50Mean": 2.2733333333330847,
+      "frameTimeP95Mean": 4.726666666666763,
+      "frameTimeP99Mean": 8.259999999999915,
+      "frameTimeP95Stdev": 0.3307902994682554
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "B",
+      "n": 10,
+      "runCount": 3,
+      "fps": {
+        "mean": 519.8538160853891,
+        "stdev": 89.46922153273705,
+        "min": 395.894966097116,
+        "max": 603.8051557593978
+      },
+      "frameTimeP50Mean": 1.679999999999988,
+      "frameTimeP95Mean": 4.386666666666467,
+      "frameTimeP99Mean": 6.273333333333312,
+      "frameTimeP95Stdev": 2.3163381061974495
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "B",
+      "n": 50,
+      "runCount": 3,
+      "fps": {
+        "mean": 307.16893824851815,
+        "stdev": 50.07739403458979,
+        "min": 239.15152040370776,
+        "max": 358.2610087322995
+      },
+      "frameTimeP50Mean": 2.7999999999998786,
+      "frameTimeP95Mean": 5.920000000000073,
+      "frameTimeP99Mean": 13.833333333333334,
+      "frameTimeP95Stdev": 1.107429455992877
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "B",
+      "n": 100,
+      "runCount": 3,
+      "fps": {
+        "mean": 381.2196331742189,
+        "stdev": 46.352768216635404,
+        "min": 323.6845001650941,
+        "max": 437.1928982405611
+      },
+      "frameTimeP50Mean": 2.3533333333332394,
+      "frameTimeP95Mean": 4.3133333333332,
+      "frameTimeP99Mean": 5.806666666666994,
+      "frameTimeP95Stdev": 1.1328234146985374
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "B",
+      "n": 200,
+      "runCount": 3,
+      "fps": {
+        "mean": 163.29747311738436,
+        "stdev": 30.88377255761082,
+        "min": 131.4450616357237,
+        "max": 205.1037681777588
+      },
+      "frameTimeP50Mean": 5.966666666666545,
+      "frameTimeP95Mean": 9.89999999999994,
+      "frameTimeP99Mean": 13.460000000000036,
+      "frameTimeP95Stdev": 2.3270582287514117
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "B",
+      "n": 500,
+      "runCount": 3,
+      "fps": {
+        "mean": 79.26169989595029,
+        "stdev": 4.671932276398527,
+        "min": 73.89195428373176,
+        "max": 85.28045944847527
+      },
+      "frameTimeP50Mean": 11.560000000000096,
+      "frameTimeP95Mean": 20.246666666666897,
+      "frameTimeP99Mean": 30.166666666666668,
+      "frameTimeP95Stdev": 1.8873850222522535
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "B",
+      "n": 1000,
+      "runCount": 3,
+      "fps": {
+        "mean": 72.66202252255782,
+        "stdev": 6.095879171867708,
+        "min": 64.05209570450633,
+        "max": 77.34313012981644
+      },
+      "frameTimeP50Mean": 13.466666666666242,
+      "frameTimeP95Mean": 16.60666666666687,
+      "frameTimeP99Mean": 22.01333333333332,
+      "frameTimeP95Stdev": 1.6304873163838425
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "B",
+      "n": 2000,
+      "runCount": 3,
+      "fps": {
+        "mean": 39.87128233123452,
+        "stdev": 0.5950363363227906,
+        "min": 39.06133127665728,
+        "max": 40.47396175127335
+      },
+      "frameTimeP50Mean": 24.713333333333747,
+      "frameTimeP95Mean": 28.746666666666744,
+      "frameTimeP99Mean": 35.5466666666667,
+      "frameTimeP95Stdev": 1.0654993612803383
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "B",
+      "n": 5000,
+      "runCount": 3,
+      "fps": {
+        "mean": 16.14932982166564,
+        "stdev": 1.6116235990020849,
+        "min": 14.09459629759828,
+        "max": 18.03083272395797
+      },
+      "frameTimeP50Mean": 60.293333333333216,
+      "frameTimeP95Mean": 84.16000000000001,
+      "frameTimeP99Mean": 127.70666666666678,
+      "frameTimeP95Stdev": 24.52741051694346
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "C",
+      "n": 10,
+      "runCount": 3,
+      "fps": {
+        "mean": 596.787809143973,
+        "stdev": 25.806947523889562,
+        "min": 577.5434573957556,
+        "max": 633.2658783209371
+      },
+      "frameTimeP50Mean": 1.599999999999909,
+      "frameTimeP95Mean": 2.6399999999998727,
+      "frameTimeP99Mean": 3.6399999999997212,
+      "frameTimeP95Stdev": 0.1451436070470496
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "C",
+      "n": 50,
+      "runCount": 3,
+      "fps": {
+        "mean": 540.0865754916323,
+        "stdev": 15.980410105833133,
+        "min": 520.7100986099956,
+        "max": 559.8482626203365
+      },
+      "frameTimeP50Mean": 1.7599999999999152,
+      "frameTimeP95Mean": 2.6333333333334394,
+      "frameTimeP99Mean": 3.613333333333685,
+      "frameTimeP95Stdev": 0.15520595635739873
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "C",
+      "n": 100,
+      "runCount": 3,
+      "fps": {
+        "mean": 418.7364626621593,
+        "stdev": 30.434481704064055,
+        "min": 376.1491130413914,
+        "max": 445.42687297665844
+      },
+      "frameTimeP50Mean": 2.273333333333236,
+      "frameTimeP95Mean": 3.313333333333503,
+      "frameTimeP99Mean": 4.940000000000055,
+      "frameTimeP95Stdev": 0.3724990678586266
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "C",
+      "n": 200,
+      "runCount": 3,
+      "fps": {
+        "mean": 267.22940328904065,
+        "stdev": 12.455245951468303,
+        "min": 253.06797015830492,
+        "max": 283.3815081897256
+      },
+      "frameTimeP50Mean": 3.5733333333333426,
+      "frameTimeP95Mean": 4.966666666667,
+      "frameTimeP99Mean": 6.360000000000052,
+      "frameTimeP95Stdev": 0.31041191271498625
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "C",
+      "n": 500,
+      "runCount": 3,
+      "fps": {
+        "mean": 133.07332984462803,
+        "stdev": 4.506854169569853,
+        "min": 126.74292338132133,
+        "max": 136.88045773357933
+      },
+      "frameTimeP50Mean": 7.0733333333334185,
+      "frameTimeP95Mean": 9.693333333333308,
+      "frameTimeP99Mean": 16.953333333333223,
+      "frameTimeP95Stdev": 1.0603563342365072
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "C",
+      "n": 1000,
+      "runCount": 2,
+      "fps": {
+        "mean": 73.62751162070967,
+        "stdev": 3.7109776119058395,
+        "min": 69.91653400880382,
+        "max": 77.3384892326155
+      },
+      "frameTimeP50Mean": 13.050000000000182,
+      "frameTimeP95Mean": 16.7199999999998,
+      "frameTimeP99Mean": 26.24000000000001,
+      "frameTimeP95Stdev": 2.9400000000000546
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "C",
+      "n": 2000,
+      "runCount": 3,
+      "fps": {
+        "mean": 32.49240153500962,
+        "stdev": 4.467250167499664,
+        "min": 26.199627898955665,
+        "max": 36.12379975762096
+      },
+      "frameTimeP50Mean": 29.859999999999975,
+      "frameTimeP95Mean": 44.26000000000007,
+      "frameTimeP99Mean": 51.553333333333285,
+      "frameTimeP95Stdev": 10.372669216101944
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "C",
+      "n": 5000,
+      "runCount": 3,
+      "fps": {
+        "mean": 14.919052096880899,
+        "stdev": 0.6240678834214818,
+        "min": 14.080307447654386,
+        "max": 15.576272366035774
+      },
+      "frameTimeP50Mean": 66.26666666666642,
+      "frameTimeP95Mean": 80.80000000000025,
+      "frameTimeP99Mean": 119.15333333333335,
+      "frameTimeP95Stdev": 4.999439968636781
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "D",
+      "n": 10,
+      "runCount": 3,
+      "fps": {
+        "mean": 563.2318069060092,
+        "stdev": 55.293225504677096,
+        "min": 500.9719355688407,
+        "max": 635.3348129486334
+      },
+      "frameTimeP50Mean": 1.6600000000000061,
+      "frameTimeP95Mean": 3.0399999999999636,
+      "frameTimeP99Mean": 4.373333333332994,
+      "frameTimeP95Stdev": 0.4445222154178214
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "D",
+      "n": 50,
+      "runCount": 3,
+      "fps": {
+        "mean": 519.1145741102227,
+        "stdev": 38.98850495876922,
+        "min": 464.41538005047556,
+        "max": 552.4769829025369
+      },
+      "frameTimeP50Mean": 1.8333333333331818,
+      "frameTimeP95Mean": 2.8200000000000123,
+      "frameTimeP99Mean": 3.913333333333412,
+      "frameTimeP95Stdev": 0.314960314960263
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "D",
+      "n": 100,
+      "runCount": 3,
+      "fps": {
+        "mean": 427.70805384247564,
+        "stdev": 11.913241335445194,
+        "min": 415.2655066339165,
+        "max": 443.76676831808567
+      },
+      "frameTimeP50Mean": 2.193333333333461,
+      "frameTimeP95Mean": 3.326666666666673,
+      "frameTimeP99Mean": 4.553333333333664,
+      "frameTimeP95Stdev": 0.033993463423861524
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "D",
+      "n": 200,
+      "runCount": 3,
+      "fps": {
+        "mean": 281.69182667215074,
+        "stdev": 16.369882661634957,
+        "min": 262.40728276009145,
+        "max": 302.4264095736704
+      },
+      "frameTimeP50Mean": 3.4333333333336973,
+      "frameTimeP95Mean": 4.519999999999982,
+      "frameTimeP99Mean": 5.566666666666909,
+      "frameTimeP95Stdev": 0.45460605656601516
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "D",
+      "n": 500,
+      "runCount": 3,
+      "fps": {
+        "mean": 141.79979998810217,
+        "stdev": 9.512067984475896,
+        "min": 128.758943909802,
+        "max": 151.17876096754406
+      },
+      "frameTimeP50Mean": 6.739999999999782,
+      "frameTimeP95Mean": 9.320000000000164,
+      "frameTimeP99Mean": 11.859999999999824,
+      "frameTimeP95Stdev": 1.996864208369198
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "D",
+      "n": 1000,
+      "runCount": 3,
+      "fps": {
+        "mean": 75.32298392729628,
+        "stdev": 5.364095837255261,
+        "min": 67.890244105363,
+        "max": 80.3531537779319
+      },
+      "frameTimeP50Mean": 12.600000000000213,
+      "frameTimeP95Mean": 17.37333333333322,
+      "frameTimeP99Mean": 20.913333333333412,
+      "frameTimeP95Stdev": 3.859165137119324
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "D",
+      "n": 2000,
+      "runCount": 3,
+      "fps": {
+        "mean": 38.473582292842615,
+        "stdev": 1.4793299924820686,
+        "min": 36.730365874332286,
+        "max": 40.3469505675139
+      },
+      "frameTimeP50Mean": 25.113333333333383,
+      "frameTimeP95Mean": 32.926666666666584,
+      "frameTimeP99Mean": 43.00666666666666,
+      "frameTimeP95Stdev": 3.5273156302711532
+    },
+    {
+      "browser": "firefox",
+      "a11y": "off",
+      "arm": "D",
+      "n": 5000,
+      "runCount": 3,
+      "fps": {
+        "mean": 14.848803831985778,
+        "stdev": 3.382583036416378,
+        "min": 10.065109709695836,
+        "max": 17.242865764290027
+      },
+      "frameTimeP50Mean": 73.30666666666677,
+      "frameTimeP95Mean": 91.74666666666644,
+      "frameTimeP99Mean": 105.12666666666671,
+      "frameTimeP95Stdev": 38.05219689963871
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 10,
+      "runCount": 3,
+      "fps": {
+        "mean": 696.8952945601459,
+        "stdev": 28.580994509997524,
+        "min": 656.6932387757279,
+        "max": 720.6234292609109
+      },
+      "frameTimeP50Mean": 1.2600000000002183,
+      "frameTimeP95Mean": 2.8600000000002788,
+      "frameTimeP99Mean": 4.08000000000023,
+      "frameTimeP95Stdev": 0.18547236990987614
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 50,
+      "runCount": 3,
+      "fps": {
+        "mean": 712.5390753736993,
+        "stdev": 63.46040418842447,
+        "min": 664.2558368190378,
+        "max": 802.1969598501587
+      },
+      "frameTimeP50Mean": 1.2466666666662907,
+      "frameTimeP95Mean": 2.726666666666764,
+      "frameTimeP99Mean": 4.133333333333515,
+      "frameTimeP95Stdev": 0.27535835237414086
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 100,
+      "runCount": 3,
+      "fps": {
+        "mean": 671.3705116156166,
+        "stdev": 71.51495536577808,
+        "min": 579.6826158532116,
+        "max": 754.1817503016727
+      },
+      "frameTimeP50Mean": 1.3133333333333514,
+      "frameTimeP95Mean": 2.8933333333334303,
+      "frameTimeP99Mean": 4.373333333333297,
+      "frameTimeP95Stdev": 0.5369874817496055
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 200,
+      "runCount": 3,
+      "fps": {
+        "mean": 546.5648765901641,
+        "stdev": 110.55245864373259,
+        "min": 394.86097360148545,
+        "max": 655.1614998917225
+      },
+      "frameTimeP50Mean": 1.6266666666665515,
+      "frameTimeP95Mean": 4.066666666666606,
+      "frameTimeP99Mean": 6.693333333333006,
+      "frameTimeP95Stdev": 1.1349400375747538
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 500,
+      "runCount": 3,
+      "fps": {
+        "mean": 640.6341518136284,
+        "stdev": 73.6526409002008,
+        "min": 579.0501843493104,
+        "max": 744.1765890211869
+      },
+      "frameTimeP50Mean": 1.4066666666670546,
+      "frameTimeP95Mean": 2.9133333333335636,
+      "frameTimeP99Mean": 4.379999999999957,
+      "frameTimeP95Stdev": 0.37747700445055615
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 1000,
+      "runCount": 3,
+      "fps": {
+        "mean": 582.0123638638798,
+        "stdev": 55.976070561554934,
+        "min": 503.26958585245865,
+        "max": 628.4308726040135
+      },
+      "frameTimeP50Mean": 1.5533333333334365,
+      "frameTimeP95Mean": 3.1199999999997394,
+      "frameTimeP99Mean": 4.833333333333485,
+      "frameTimeP95Stdev": 0.4245782220824741
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 2000,
+      "runCount": 3,
+      "fps": {
+        "mean": 539.6528606037622,
+        "stdev": 73.63314830503874,
+        "min": 452.7746833078734,
+        "max": 632.8101302952225
+      },
+      "frameTimeP50Mean": 1.6866666666668,
+      "frameTimeP95Mean": 3.459999999999733,
+      "frameTimeP99Mean": 5.793333333333369,
+      "frameTimeP95Stdev": 0.7596490417731268
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "A",
+      "n": 5000,
+      "runCount": 3,
+      "fps": {
+        "mean": 459.3688998999873,
+        "stdev": 31.895701591019733,
+        "min": 416.56256766435155,
+        "max": 493.0894159914946
+      },
+      "frameTimeP50Mean": 2.0533333333331334,
+      "frameTimeP95Mean": 3.4199999999997694,
+      "frameTimeP99Mean": 4.993333333333339,
+      "frameTimeP95Stdev": 0.28284271247457615
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 10,
+      "runCount": 3,
+      "fps": {
+        "mean": 535.086721400968,
+        "stdev": 13.63305971772121,
+        "min": 517.6366314133962,
+        "max": 550.9118541033434
+      },
+      "frameTimeP50Mean": 1.7733333333335395,
+      "frameTimeP95Mean": 2.9999999999998486,
+      "frameTimeP99Mean": 4.180000000000139,
+      "frameTimeP95Stdev": 0.12328828005943954
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 50,
+      "runCount": 3,
+      "fps": {
+        "mean": 445.4999115610106,
+        "stdev": 32.449021666342965,
+        "min": 405.3833306107753,
+        "max": 484.8559599447975
+      },
+      "frameTimeP50Mean": 2.0866666666667393,
+      "frameTimeP95Mean": 3.4933333333333394,
+      "frameTimeP99Mean": 4.673333333333479,
+      "frameTimeP95Stdev": 0.3039005685340134
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 100,
+      "runCount": 3,
+      "fps": {
+        "mean": 341.14814856732414,
+        "stdev": 11.052354644372533,
+        "min": 332.2984783964306,
+        "max": 356.73068584351216
+      },
+      "frameTimeP50Mean": 2.5333333333331516,
+      "frameTimeP95Mean": 5.000000000000152,
+      "frameTimeP99Mean": 7.506666666666661,
+      "frameTimeP95Stdev": 0.20848661028134588
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 200,
+      "runCount": 3,
+      "fps": {
+        "mean": 228.80512982499476,
+        "stdev": 14.899641928011336,
+        "min": 207.7509254662317,
+        "max": 240.06663890045812
+      },
+      "frameTimeP50Mean": 3.926666666666582,
+      "frameTimeP95Mean": 7.560000000000097,
+      "frameTimeP99Mean": 9.333333333333181,
+      "frameTimeP95Stdev": 0.3973243846865852
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 500,
+      "runCount": 3,
+      "fps": {
+        "mean": 114.9676024220159,
+        "stdev": 4.261940281639594,
+        "min": 110.23443189182328,
+        "max": 120.56590936378555
+      },
+      "frameTimeP50Mean": 7.706666666666782,
+      "frameTimeP95Mean": 16.519999999999982,
+      "frameTimeP99Mean": 19.366666666666635,
+      "frameTimeP95Stdev": 0.668730139892377
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 1000,
+      "runCount": 3,
+      "fps": {
+        "mean": 59.61091771360046,
+        "stdev": 3.015911030893568,
+        "min": 55.67446109121944,
+        "max": 63.0010500175003
+      },
+      "frameTimeP50Mean": 14.673333333333025,
+      "frameTimeP95Mean": 35.00666666666666,
+      "frameTimeP99Mean": 41.066666666666606,
+      "frameTimeP95Stdev": 0.8425886039789656
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 2000,
+      "runCount": 3,
+      "fps": {
+        "mean": 29.778661196246716,
+        "stdev": 2.330375428789165,
+        "min": 26.522227603543765,
+        "max": 31.845859371352734
+      },
+      "frameTimeP50Mean": 29.279999999999745,
+      "frameTimeP95Mean": 65.82666666666667,
+      "frameTimeP99Mean": 96.07999999999977,
+      "frameTimeP95Stdev": 10.958422433097857
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "B",
+      "n": 5000,
+      "runCount": 3,
+      "fps": {
+        "mean": 11.547133714870972,
+        "stdev": 0.4609402357031226,
+        "min": 11.189437171310283,
+        "max": 12.197934037583005
+      },
+      "frameTimeP50Mean": 76.03999999999996,
+      "frameTimeP95Mean": 151.03333333333345,
+      "frameTimeP99Mean": 339.57333333333344,
+      "frameTimeP95Stdev": 43.864136705159176
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 10,
+      "runCount": 3,
+      "fps": {
+        "mean": 447.16672294891197,
+        "stdev": 24.06949870031316,
+        "min": 413.48346066157353,
+        "max": 468.26153323157115
+      },
+      "frameTimeP50Mean": 2.120000000000194,
+      "frameTimeP95Mean": 3.699999999999818,
+      "frameTimeP99Mean": 5.173333333333328,
+      "frameTimeP95Stdev": 0.26280537792536235
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 50,
+      "runCount": 3,
+      "fps": {
+        "mean": 389.05548258617915,
+        "stdev": 10.15151954260568,
+        "min": 376.95602179745697,
+        "max": 401.79717158789043
+      },
+      "frameTimeP50Mean": 2.3400000000001455,
+      "frameTimeP95Mean": 4.046666666666624,
+      "frameTimeP99Mean": 5.873333333333297,
+      "frameTimeP95Stdev": 0.1761312641815302
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 100,
+      "runCount": 3,
+      "fps": {
+        "mean": 326.7035933565584,
+        "stdev": 18.139049614020387,
+        "min": 301.47688677201415,
+        "max": 343.3477824830992
+      },
+      "frameTimeP50Mean": 2.746666666666897,
+      "frameTimeP95Mean": 4.879999999999806,
+      "frameTimeP99Mean": 6.119999999999739,
+      "frameTimeP95Stdev": 0.256645020732248
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 200,
+      "runCount": 3,
+      "fps": {
+        "mean": 160.03236299518304,
+        "stdev": 22.738668853838522,
+        "min": 134.98723093761402,
+        "max": 190.02280273632834
+      },
+      "frameTimeP50Mean": 5.719999999999952,
+      "frameTimeP95Mean": 11.239999999999782,
+      "frameTimeP99Mean": 14.766666666666879,
+      "frameTimeP95Stdev": 2.0028646151618945
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 500,
+      "runCount": 3,
+      "fps": {
+        "mean": 96.10792812439577,
+        "stdev": 4.692305493955269,
+        "min": 89.53488372093024,
+        "max": 100.18369789530888
+      },
+      "frameTimeP50Mean": 9.2199999999998,
+      "frameTimeP95Mean": 18.600000000000062,
+      "frameTimeP99Mean": 22.379999999999807,
+      "frameTimeP95Stdev": 0.891889380286202
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 1000,
+      "runCount": 3,
+      "fps": {
+        "mean": 48.01936703761914,
+        "stdev": 1.3062893166336524,
+        "min": 46.596616419981956,
+        "max": 49.75124378109453
+      },
+      "frameTimeP50Mean": 18.259999999999916,
+      "frameTimeP95Mean": 39.58666666666674,
+      "frameTimeP99Mean": 51.61333333333323,
+      "frameTimeP95Stdev": 1.5141407537685114
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 2000,
+      "runCount": 3,
+      "fps": {
+        "mean": 25.146775373745072,
+        "stdev": 0.6624199329688726,
+        "min": 24.21000257126924,
+        "max": 25.62170308967596
+      },
+      "frameTimeP50Mean": 35.173333333333176,
+      "frameTimeP95Mean": 80.61333333333339,
+      "frameTimeP99Mean": 88.92666666666689,
+      "frameTimeP95Stdev": 1.3403813719318005
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "C",
+      "n": 5000,
+      "runCount": 3,
+      "fps": {
+        "mean": 9.410214716026992,
+        "stdev": 0.09990798981184099,
+        "min": 9.289332860019707,
+        "max": 9.534004616465394
+      },
+      "frameTimeP50Mean": 100.54666666666678,
+      "frameTimeP95Mean": 138.62000000000003,
+      "frameTimeP99Mean": 254.60000000000022,
+      "frameTimeP95Stdev": 20.687174770857492
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 10,
+      "runCount": 3,
+      "fps": {
+        "mean": 565.98897816327,
+        "stdev": 13.252280177391063,
+        "min": 556.4997167516411,
+        "max": 584.7300310278517
+      },
+      "frameTimeP50Mean": 1.7199999999999516,
+      "frameTimeP95Mean": 2.7000000000001214,
+      "frameTimeP99Mean": 3.520000000000209,
+      "frameTimeP95Stdev": 0.11313708498995907
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 50,
+      "runCount": 3,
+      "fps": {
+        "mean": 468.38295969504776,
+        "stdev": 9.98927872132472,
+        "min": 457.61175325627596,
+        "max": 481.68464578088265
+      },
+      "frameTimeP50Mean": 1.9733333333333576,
+      "frameTimeP95Mean": 3.2333333333332726,
+      "frameTimeP99Mean": 4.186666666666952,
+      "frameTimeP95Stdev": 0.11585431464648131
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 100,
+      "runCount": 3,
+      "fps": {
+        "mean": 374.2060355407078,
+        "stdev": 0.7489898452652779,
+        "min": 373.6255678542027,
+        "max": 375.2635839421165
+      },
+      "frameTimeP50Mean": 2.3866666666664664,
+      "frameTimeP95Mean": 4.313333333333503,
+      "frameTimeP99Mean": 5.439999999999752,
+      "frameTimeP95Stdev": 0.037712361663248234
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 200,
+      "runCount": 3,
+      "fps": {
+        "mean": 219.9623496440596,
+        "stdev": 11.754064001829512,
+        "min": 204.19176037947025,
+        "max": 232.39774499220343
+      },
+      "frameTimeP50Mean": 4.0400000000002665,
+      "frameTimeP95Mean": 7.786666666666861,
+      "frameTimeP99Mean": 9.466666666666546,
+      "frameTimeP95Stdev": 0.38861577711427187
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 500,
+      "runCount": 3,
+      "fps": {
+        "mean": 94.23431879677082,
+        "stdev": 14.298503833474946,
+        "min": 78.18152115568624,
+        "max": 112.90973558774769
+      },
+      "frameTimeP50Mean": 9.139999999999722,
+      "frameTimeP95Mean": 21.16666666666697,
+      "frameTimeP99Mean": 31.633333333333514,
+      "frameTimeP95Stdev": 3.757315826786676
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 1000,
+      "runCount": 3,
+      "fps": {
+        "mean": 61.318480213077116,
+        "stdev": 0.4844203060345717,
+        "min": 60.63533840848894,
+        "max": 61.70457645047334
+      },
+      "frameTimeP50Mean": 14.393333333333581,
+      "frameTimeP95Mean": 33.893333333333125,
+      "frameTimeP99Mean": 39.75333333333371,
+      "frameTimeP95Stdev": 0.21746008573737843
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 2000,
+      "runCount": 3,
+      "fps": {
+        "mean": 31.77803772571713,
+        "stdev": 0.1738720010552169,
+        "min": 31.55821161275749,
+        "max": 31.983368648302882
+      },
+      "frameTimeP50Mean": 27.886666666667224,
+      "frameTimeP95Mean": 68.94666666666642,
+      "frameTimeP99Mean": 89.02666666666664,
+      "frameTimeP95Stdev": 2.892811012761912
+    },
+    {
+      "browser": "firefox",
+      "a11y": "forced",
+      "arm": "D",
+      "n": 5000,
+      "runCount": 3,
+      "fps": {
+        "mean": 13.837062196505345,
+        "stdev": 0.29754425432285553,
+        "min": 13.425889092210994,
+        "max": 14.120117346481099
+      },
+      "frameTimeP50Mean": 67.46666666666654,
+      "frameTimeP95Mean": 79.89333333333359,
+      "frameTimeP99Mean": 281.373333333333,
+      "frameTimeP95Stdev": 2.545025649292431
+    }
+  ],
+  "runs": [
+    {
+      "arm": "A",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4854,
+      "measuredMs": 6001.12,
+      "fps": 808.8490148505612,
+      "frameTimeMs": {
+        "p50": 1.0799999999999272,
+        "p95": 2.4600000000000364,
+        "p99": 3.380000000000109,
+        "max": 26.700000000000045
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4651,
+      "measuredMs": 5999.28,
+      "fps": 775.2596978304064,
+      "frameTimeMs": {
+        "p50": 1.1400000000001,
+        "p95": 2.480000000000473,
+        "p99": 3.5799999999999272,
+        "max": 18.25999999999999
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4258,
+      "measuredMs": 6000.32,
+      "fps": 709.6288197962776,
+      "frameTimeMs": {
+        "p50": 1.2599999999997635,
+        "p95": 2.819999999999709,
+        "p99": 3.9600000000000364,
+        "max": 18.039999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4434,
+      "measuredMs": 6002.0599999999995,
+      "fps": 738.7463637484465,
+      "frameTimeMs": {
+        "p50": 1.180000000000291,
+        "p95": 2.6400000000003274,
+        "p99": 3.3799999999996544,
+        "max": 17.62000000000012
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4810,
+      "measuredMs": 5998.9400000000005,
+      "fps": 801.808319469773,
+      "frameTimeMs": {
+        "p50": 1.1199999999998909,
+        "p95": 2.3400000000001455,
+        "p99": 3.399999999999636,
+        "max": 15.920000000000073
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4142,
+      "measuredMs": 6002.1,
+      "fps": 690.0918012029123,
+      "frameTimeMs": {
+        "p50": 1.180000000000291,
+        "p95": 3,
+        "p99": 4.379999999999654,
+        "max": 21.579999999999927
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3929,
+      "measuredMs": 6000.6,
+      "fps": 654.7678565476785,
+      "frameTimeMs": {
+        "p50": 1.2200000000000273,
+        "p95": 3.1599999999998545,
+        "p99": 7.400000000000091,
+        "max": 20.720000000000027
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3524,
+      "measuredMs": 6000.42,
+      "fps": 587.2922228777319,
+      "frameTimeMs": {
+        "p50": 1.4399999999998272,
+        "p95": 3.5399999999999636,
+        "p99": 4.619999999999891,
+        "max": 21.480000000000018
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3564,
+      "measuredMs": 6000.9,
+      "fps": 593.9109133629955,
+      "frameTimeMs": {
+        "p50": 1.400000000000091,
+        "p95": 3.5799999999999272,
+        "p99": 4.739999999999782,
+        "max": 20.299999999999955
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3777,
+      "measuredMs": 6003.26,
+      "fps": 629.1581574011453,
+      "frameTimeMs": {
+        "p50": 1.2799999999997453,
+        "p95": 3.480000000000473,
+        "p99": 4.860000000000127,
+        "max": 17.039999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3874,
+      "measuredMs": 6002.58,
+      "fps": 645.3891493324537,
+      "frameTimeMs": {
+        "p50": 1.2600000000002183,
+        "p95": 3.3599999999996726,
+        "p99": 4.839999999999918,
+        "max": 18.960000000000036
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2967,
+      "measuredMs": 6000.54,
+      "fps": 494.45549900508956,
+      "frameTimeMs": {
+        "p50": 1.5399999999999636,
+        "p95": 4.779999999999745,
+        "p99": 8.460000000000036,
+        "max": 21
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2954,
+      "measuredMs": 6003.9400000000005,
+      "fps": 492.0102466047295,
+      "frameTimeMs": {
+        "p50": 1.7400000000006912,
+        "p95": 4.079999999999927,
+        "p99": 5.339999999999691,
+        "max": 20.139999999999873
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3080,
+      "measuredMs": 6001.98,
+      "fps": 513.1639892168918,
+      "frameTimeMs": {
+        "p50": 1.680000000000291,
+        "p95": 4.099999999999454,
+        "p99": 5.539999999999964,
+        "max": 26.200000000000045
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2894,
+      "measuredMs": 5999.84,
+      "fps": 482.3461958985573,
+      "frameTimeMs": {
+        "p50": 1.800000000000182,
+        "p95": 4.119999999999891,
+        "p99": 5.619999999999891,
+        "max": 20.8599999999999
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4190,
+      "measuredMs": 5998.36,
+      "fps": 698.524263298635,
+      "frameTimeMs": {
+        "p50": 1.2999999999999545,
+        "p95": 2.5400000000004184,
+        "p99": 3.6200000000008004,
+        "max": 17.800000000000182
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4009,
+      "measuredMs": 5999.5,
+      "fps": 668.2223518626552,
+      "frameTimeMs": {
+        "p50": 1.3600000000001273,
+        "p95": 2.619999999999891,
+        "p99": 3.6799999999993815,
+        "max": 17.639999999999873
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3862,
+      "measuredMs": 6001.72,
+      "fps": 643.4822017688263,
+      "frameTimeMs": {
+        "p50": 1.4200000000000728,
+        "p95": 2.7600000000002183,
+        "p99": 3.9600000000000364,
+        "max": 19.09999999999991
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2998,
+      "measuredMs": 6001.76,
+      "fps": 499.5201407587108,
+      "frameTimeMs": {
+        "p50": 1.740000000000009,
+        "p95": 3.9200000000000728,
+        "p99": 6.2599999999997635,
+        "max": 18.920000000000073
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3236,
+      "measuredMs": 5999.34,
+      "fps": 539.3926665266513,
+      "frameTimeMs": {
+        "p50": 1.7000000000007276,
+        "p95": 3.319999999999709,
+        "p99": 4.8599999999999,
+        "max": 28.539999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3167,
+      "measuredMs": 6002.9,
+      "fps": 527.5783371370504,
+      "frameTimeMs": {
+        "p50": 1.7799999999997453,
+        "p95": 3.3399999999996908,
+        "p99": 4.699999999999818,
+        "max": 21.080000000000155
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2460,
+      "measuredMs": 6002.28,
+      "fps": 409.84425918151106,
+      "frameTimeMs": {
+        "p50": 2.1599999999998545,
+        "p95": 4.400000000000091,
+        "p99": 6.899999999999636,
+        "max": 28.680000000000064
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2404,
+      "measuredMs": 6002.02,
+      "fps": 400.5318209536122,
+      "frameTimeMs": {
+        "p50": 2.219999999999345,
+        "p95": 4.599999999999909,
+        "p99": 8.100000000000364,
+        "max": 26.079999999999927
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2118,
+      "measuredMs": 6001.4,
+      "fps": 352.9176525477389,
+      "frameTimeMs": {
+        "p50": 2.4400000000000546,
+        "p95": 5.180000000000291,
+        "p99": 9.779999999999745,
+        "max": 31.539999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3623,
+      "measuredMs": 6000.28,
+      "fps": 603.8051557593978,
+      "frameTimeMs": {
+        "p50": 1.5399999999999636,
+        "p95": 2.6399999999998727,
+        "p99": 3.7799999999999727,
+        "max": 82.12000000000012
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3359,
+      "measuredMs": 5999.7,
+      "fps": 559.8613263996533,
+      "frameTimeMs": {
+        "p50": 1.680000000000291,
+        "p95": 2.8599999999996726,
+        "p99": 4.039999999999964,
+        "max": 22.09999999999991
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2374,
+      "measuredMs": 5996.54,
+      "fps": 395.894966097116,
+      "frameTimeMs": {
+        "p50": 1.819999999999709,
+        "p95": 7.6599999999998545,
+        "p99": 11,
+        "max": 29.81999999999971
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1435,
+      "measuredMs": 6000.38,
+      "fps": 239.15152040370776,
+      "frameTimeMs": {
+        "p50": 3.5799999999999272,
+        "p95": 7.480000000000473,
+        "p99": 14.739999999999782,
+        "max": 44.40000000000009
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2149,
+      "measuredMs": 5998.42,
+      "fps": 358.2610087322995,
+      "frameTimeMs": {
+        "p50": 2.2799999999997453,
+        "p95": 5.260000000000218,
+        "p99": 13.940000000000055,
+        "max": 62.720000000000255
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1945,
+      "measuredMs": 6001.34,
+      "fps": 324.0942856095472,
+      "frameTimeMs": {
+        "p50": 2.5399999999999636,
+        "p95": 5.019999999999527,
+        "p99": 12.820000000000164,
+        "max": 192.19999999999982
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2623,
+      "measuredMs": 5999.64,
+      "fps": 437.1928982405611,
+      "frameTimeMs": {
+        "p50": 2.160000000000082,
+        "p95": 3.2399999999997817,
+        "p99": 4.300000000000182,
+        "max": 18.519999999999982
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2296,
+      "measuredMs": 5998.2,
+      "fps": 382.78150111700177,
+      "frameTimeMs": {
+        "p50": 2.4399999999996,
+        "p95": 3.819999999999709,
+        "p99": 4.720000000000255,
+        "max": 20.480000000000018
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1941,
+      "measuredMs": 5996.58,
+      "fps": 323.6845001650941,
+      "frameTimeMs": {
+        "p50": 2.4600000000000364,
+        "p95": 5.880000000000109,
+        "p99": 8.400000000000546,
+        "max": 44.8599999999999
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 921,
+      "measuredMs": 6006.12,
+      "fps": 153.34358953867056,
+      "frameTimeMs": {
+        "p50": 6.180000000000291,
+        "p95": 9.920000000000073,
+        "p99": 13.55999999999949,
+        "max": 33.13999999999987
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1231,
+      "measuredMs": 6001.84,
+      "fps": 205.1037681777588,
+      "frameTimeMs": {
+        "p50": 4.599999999999454,
+        "p95": 7.039999999999964,
+        "p99": 8.5600000000004,
+        "max": 42.659999999999854
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 788,
+      "measuredMs": 5994.9,
+      "fps": 131.4450616357237,
+      "frameTimeMs": {
+        "p50": 7.119999999999891,
+        "p95": 12.739999999999782,
+        "p99": 18.26000000000022,
+        "max": 36.539999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 443,
+      "measuredMs": 5995.24,
+      "fps": 73.89195428373176,
+      "frameTimeMs": {
+        "p50": 12.2800000000002,
+        "p95": 22.68000000000029,
+        "p99": 31.140000000000327,
+        "max": 52.9399999999996
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 472,
+      "measuredMs": 6004.12,
+      "fps": 78.6126859556438,
+      "frameTimeMs": {
+        "p50": 11.960000000000036,
+        "p95": 18.080000000000382,
+        "p99": 29.699999999999818,
+        "max": 45.07999999999993
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 512,
+      "measuredMs": 6003.72,
+      "fps": 85.28045944847527,
+      "frameTimeMs": {
+        "p50": 10.440000000000055,
+        "p95": 19.980000000000018,
+        "p99": 29.659999999999854,
+        "max": 51.24000000000001
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 384,
+      "measuredMs": 5995.12,
+      "fps": 64.05209570450633,
+      "frameTimeMs": {
+        "p50": 15.179999999999382,
+        "p95": 18.820000000000164,
+        "p99": 27.38000000000011,
+        "max": 33.3599999999999
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 464,
+      "measuredMs": 5999.24,
+      "fps": 77.34313012981644,
+      "frameTimeMs": {
+        "p50": 12.639999999999418,
+        "p95": 14.94000000000051,
+        "p99": 16.76000000000022,
+        "max": 29.660000000000082
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 460,
+      "measuredMs": 6005.9400000000005,
+      "fps": 76.59084173335064,
+      "frameTimeMs": {
+        "p50": 12.579999999999927,
+        "p95": 16.059999999999945,
+        "p99": 21.899999999999636,
+        "max": 26.4399999999996
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 243,
+      "measuredMs": 6003.86,
+      "fps": 40.47396175127335,
+      "frameTimeMs": {
+        "p50": 24.520000000000437,
+        "p95": 27.320000000000164,
+        "p99": 32.51999999999998,
+        "max": 36.25999999999999
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 235,
+      "measuredMs": 6016.18,
+      "fps": 39.06133127665728,
+      "frameTimeMs": {
+        "p50": 25.26000000000022,
+        "p95": 29.039999999999964,
+        "p99": 37.080000000000155,
+        "max": 45.43999999999983
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 240,
+      "measuredMs": 5988.24,
+      "fps": 40.07855396577292,
+      "frameTimeMs": {
+        "p50": 24.360000000000582,
+        "p95": 29.88000000000011,
+        "p99": 37.039999999999964,
+        "max": 43.320000000000164
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 108,
+      "measuredMs": 5989.74,
+      "fps": 18.03083272395797,
+      "frameTimeMs": {
+        "p50": 56.559999999999945,
+        "p95": 59.19999999999982,
+        "p99": 60.59999999999991,
+        "max": 61
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 98,
+      "measuredMs": 6003.96,
+      "fps": 16.32256044344066,
+      "frameTimeMs": {
+        "p50": 58.57999999999993,
+        "p95": 75.7800000000002,
+        "p99": 150.76000000000022,
+        "max": 150.76000000000022
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 85,
+      "measuredMs": 6030.68,
+      "fps": 14.09459629759828,
+      "frameTimeMs": {
+        "p50": 65.73999999999978,
+        "p95": 117.5,
+        "p99": 171.76000000000022,
+        "max": 171.76000000000022
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3799,
+      "measuredMs": 5999.0599999999995,
+      "fps": 633.2658783209371,
+      "frameTimeMs": {
+        "p50": 1.5199999999999818,
+        "p95": 2.4400000000000546,
+        "p99": 3.2799999999997453,
+        "max": 18.039999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3477,
+      "measuredMs": 5999.4400000000005,
+      "fps": 579.5540917152267,
+      "frameTimeMs": {
+        "p50": 1.6400000000003274,
+        "p95": 2.699999999999818,
+        "p99": 3.800000000000182,
+        "max": 19.440000000000055
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3466,
+      "measuredMs": 6001.28,
+      "fps": 577.5434573957556,
+      "frameTimeMs": {
+        "p50": 1.639999999999418,
+        "p95": 2.7799999999997453,
+        "p99": 3.839999999999236,
+        "max": 23.639999999999873
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3125,
+      "measuredMs": 6001.42,
+      "fps": 520.7100986099956,
+      "frameTimeMs": {
+        "p50": 1.7999999999997272,
+        "p95": 2.8199999999999363,
+        "p99": 4.080000000000382,
+        "max": 45.33999999999969
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3240,
+      "measuredMs": 6003.32,
+      "fps": 539.7013652445647,
+      "frameTimeMs": {
+        "p50": 1.7799999999997453,
+        "p95": 2.6399999999998727,
+        "p99": 3.480000000000018,
+        "max": 17.200000000000045
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3359,
+      "measuredMs": 5999.84,
+      "fps": 559.8482626203365,
+      "frameTimeMs": {
+        "p50": 1.7000000000002728,
+        "p95": 2.4400000000005093,
+        "p99": 3.280000000000655,
+        "max": 17.420000000000073
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2672,
+      "measuredMs": 5998.74,
+      "fps": 445.42687297665844,
+      "frameTimeMs": {
+        "p50": 2.1599999999998545,
+        "p95": 3.0600000000004,
+        "p99": 3.9200000000000728,
+        "max": 17.860000000000127
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2257,
+      "measuredMs": 6000.28,
+      "fps": 376.1491130413914,
+      "frameTimeMs": {
+        "p50": 2.5,
+        "p95": 3.8400000000001455,
+        "p99": 5.059999999999945,
+        "max": 21.679999999999836
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2609,
+      "measuredMs": 6002.76,
+      "fps": 434.63340196842785,
+      "frameTimeMs": {
+        "p50": 2.1599999999998545,
+        "p95": 3.0399999999999636,
+        "p99": 5.8400000000001455,
+        "max": 17.559999999999945
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1592,
+      "measuredMs": 6002.14,
+      "fps": 265.2387315190915,
+      "frameTimeMs": {
+        "p50": 3.600000000000364,
+        "p95": 4.980000000000018,
+        "p99": 6.300000000000182,
+        "max": 18.8599999999999
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1519,
+      "measuredMs": 6002.34,
+      "fps": 253.06797015830492,
+      "frameTimeMs": {
+        "p50": 3.759999999999991,
+        "p95": 5.3400000000001455,
+        "p99": 6.460000000000036,
+        "max": 21.61999999999989
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1700,
+      "measuredMs": 5998.98,
+      "fps": 283.3815081897256,
+      "frameTimeMs": {
+        "p50": 3.3599999999996726,
+        "p95": 4.580000000000837,
+        "p99": 6.319999999999936,
+        "max": 24.839999999999918
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 814,
+      "measuredMs": 6003.1,
+      "fps": 135.59660841898352,
+      "frameTimeMs": {
+        "p50": 7.019999999999527,
+        "p95": 9.38000000000011,
+        "p99": 12.059999999999945,
+        "max": 27.02000000000021
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 761,
+      "measuredMs": 6004.28,
+      "fps": 126.74292338132133,
+      "frameTimeMs": {
+        "p50": 7.260000000000218,
+        "p95": 11.11999999999989,
+        "p99": 20.73999999999978,
+        "max": 25.62000000000012
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 822,
+      "measuredMs": 6005.24,
+      "fps": 136.88045773357933,
+      "frameTimeMs": {
+        "p50": 6.940000000000509,
+        "p95": 8.579999999999927,
+        "p99": 18.059999999999945,
+        "max": 25.059999999999945
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 464,
+      "measuredMs": 5999.6,
+      "fps": 77.3384892326155,
+      "frameTimeMs": {
+        "p50": 12.899999999999636,
+        "p95": 13.779999999999745,
+        "p99": 15.61999999999989,
+        "max": 25.37999999999988
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 419,
+      "measuredMs": 5992.86,
+      "fps": 69.91653400880382,
+      "frameTimeMs": {
+        "p50": 13.200000000000728,
+        "p95": 19.659999999999854,
+        "p99": 36.86000000000013,
+        "max": 46.5
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 211,
+      "measuredMs": 6002.2,
+      "fps": 35.15377694845223,
+      "frameTimeMs": {
+        "p50": 26.579999999999927,
+        "p95": 42.48000000000002,
+        "p99": 49.76000000000022,
+        "max": 53.20000000000027
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 158,
+      "measuredMs": 6030.62,
+      "fps": 26.199627898955665,
+      "frameTimeMs": {
+        "p50": 35.76000000000022,
+        "p95": 57.76000000000022,
+        "p99": 66.05999999999949,
+        "max": 74.16000000000008
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 217,
+      "measuredMs": 6007.12,
+      "fps": 36.12379975762096,
+      "frameTimeMs": {
+        "p50": 27.23999999999978,
+        "p95": 32.539999999999964,
+        "p99": 38.840000000000146,
+        "max": 53.820000000000164
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 94,
+      "measuredMs": 6034.82,
+      "fps": 15.576272366035774,
+      "frameTimeMs": {
+        "p50": 64.29999999999973,
+        "p95": 76.16000000000008,
+        "p99": 82.32000000000062,
+        "max": 82.32000000000062
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 85,
+      "measuredMs": 6036.8,
+      "fps": 14.080307447654386,
+      "frameTimeMs": {
+        "p50": 68.67999999999984,
+        "p95": 87.74000000000069,
+        "p99": 171.13999999999942,
+        "max": 171.13999999999942
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 91,
+      "measuredMs": 6026.26,
+      "fps": 15.100576476952536,
+      "frameTimeMs": {
+        "p50": 65.81999999999971,
+        "p95": 78.5,
+        "p99": 104,
+        "max": 104
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3813,
+      "measuredMs": 6001.5599999999995,
+      "fps": 635.3348129486334,
+      "frameTimeMs": {
+        "p50": 1.5,
+        "p95": 2.4600000000000364,
+        "p99": 3.259999999999309,
+        "max": 20.88000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3320,
+      "measuredMs": 5999.4,
+      "fps": 553.3886722005534,
+      "frameTimeMs": {
+        "p50": 1.6599999999998545,
+        "p95": 3.119999999999891,
+        "p99": 4.699999999999818,
+        "max": 20.37999999999988
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3005,
+      "measuredMs": 5998.34,
+      "fps": 500.9719355688407,
+      "frameTimeMs": {
+        "p50": 1.8200000000001637,
+        "p95": 3.5399999999999636,
+        "p99": 5.1599999999998545,
+        "max": 21.659999999999854
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2786,
+      "measuredMs": 5998.9400000000005,
+      "fps": 464.41538005047556,
+      "frameTimeMs": {
+        "p50": 2.019999999999982,
+        "p95": 3.2599999999997635,
+        "p99": 4.620000000000346,
+        "max": 31.720000000000027
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3243,
+      "measuredMs": 6000.54,
+      "fps": 540.451359377656,
+      "frameTimeMs": {
+        "p50": 1.7600000000002183,
+        "p95": 2.5400000000004184,
+        "p99": 3.619999999999891,
+        "max": 18.980000000000018
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3316,
+      "measuredMs": 6002.0599999999995,
+      "fps": 552.4769829025369,
+      "frameTimeMs": {
+        "p50": 1.7199999999993452,
+        "p95": 2.6599999999998545,
+        "p99": 3.5,
+        "max": 17.940000000000055
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2492,
+      "measuredMs": 6000.98,
+      "fps": 415.2655066339165,
+      "frameTimeMs": {
+        "p50": 2.2800000000002,
+        "p95": 3.2800000000002,
+        "p99": 4.260000000000218,
+        "max": 20.339999999999918
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2544,
+      "measuredMs": 5998.7,
+      "fps": 424.0918865754247,
+      "frameTimeMs": {
+        "p50": 2.2200000000002547,
+        "p95": 3.3399999999996908,
+        "p99": 4.080000000000155,
+        "max": 20.299999999999955
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2663,
+      "measuredMs": 6000.9,
+      "fps": 443.76676831808567,
+      "frameTimeMs": {
+        "p50": 2.0799999999999272,
+        "p95": 3.3600000000001273,
+        "p99": 5.3200000000006185,
+        "max": 17.839999999999918
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1682,
+      "measuredMs": 6001.96,
+      "fps": 280.2417876826903,
+      "frameTimeMs": {
+        "p50": 3.4200000000000728,
+        "p95": 4.620000000000346,
+        "p99": 5.579999999999927,
+        "max": 21.8599999999999
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1575,
+      "measuredMs": 6002.12,
+      "fps": 262.40728276009145,
+      "frameTimeMs": {
+        "p50": 3.6400000000003274,
+        "p95": 5.019999999999527,
+        "p99": 6.180000000000291,
+        "max": 21.580000000000155
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1815,
+      "measuredMs": 6001.46,
+      "fps": 302.4264095736704,
+      "frameTimeMs": {
+        "p50": 3.240000000000691,
+        "p95": 3.9200000000000728,
+        "p99": 4.940000000000509,
+        "max": 18.74000000000001
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 873,
+      "measuredMs": 6001.58,
+      "fps": 145.46169508696045,
+      "frameTimeMs": {
+        "p50": 6.699999999999818,
+        "p95": 8.040000000000873,
+        "p99": 9.11999999999989,
+        "max": 21.200000000000045
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 772,
+      "measuredMs": 5995.7,
+      "fps": 128.758943909802,
+      "frameTimeMs": {
+        "p50": 7.039999999999964,
+        "p95": 12.139999999999873,
+        "p99": 17.90000000000009,
+        "max": 43.87999999999988
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 907,
+      "measuredMs": 5999.52,
+      "fps": 151.17876096754406,
+      "frameTimeMs": {
+        "p50": 6.479999999999563,
+        "p95": 7.779999999999745,
+        "p99": 8.55999999999949,
+        "max": 21.059999999999945
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 408,
+      "measuredMs": 6009.7,
+      "fps": 67.890244105363,
+      "frameTimeMs": {
+        "p50": 12.980000000000018,
+        "p95": 22.76000000000022,
+        "p99": 28.5,
+        "max": 32.01999999999953
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 482,
+      "measuredMs": 5998.52,
+      "fps": 80.3531537779319,
+      "frameTimeMs": {
+        "p50": 12.239999999999782,
+        "p95": 13.919999999999845,
+        "p99": 15.860000000000127,
+        "max": 32.12000000000012
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 467,
+      "measuredMs": 6008.32,
+      "fps": 77.72555389859396,
+      "frameTimeMs": {
+        "p50": 12.580000000000837,
+        "p95": 15.4399999999996,
+        "p99": 18.38000000000011,
+        "max": 26.060000000000173
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 221,
+      "measuredMs": 6016.82,
+      "fps": 36.730365874332286,
+      "frameTimeMs": {
+        "p50": 25.539999999999964,
+        "p95": 37.25999999999976,
+        "p99": 57.86000000000013,
+        "max": 63.63999999999987
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 230,
+      "measuredMs": 5998.42,
+      "fps": 38.34343043668166,
+      "frameTimeMs": {
+        "p50": 25.26000000000022,
+        "p95": 32.90000000000009,
+        "p99": 37.38000000000011,
+        "max": 39.24000000000001
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 243,
+      "measuredMs": 6022.76,
+      "fps": 40.3469505675139,
+      "frameTimeMs": {
+        "p50": 24.539999999999964,
+        "p95": 28.61999999999989,
+        "p99": 33.779999999999745,
+        "max": 43.88000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 104,
+      "measuredMs": 6031.48,
+      "fps": 17.242865764290027,
+      "frameTimeMs": {
+        "p50": 58.64000000000033,
+        "p95": 64.61999999999989,
+        "p99": 68.61999999999989,
+        "max": 70.89999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 61,
+      "measuredMs": 6060.54,
+      "fps": 10.065109709695836,
+      "frameTimeMs": {
+        "p50": 103.42000000000007,
+        "p95": 145.5599999999995,
+        "p99": 162.28000000000065,
+        "max": 162.28000000000065
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 103,
+      "measuredMs": 5975.02,
+      "fps": 17.238436021971474,
+      "frameTimeMs": {
+        "p50": 57.8599999999999,
+        "p95": 65.05999999999995,
+        "p99": 84.47999999999956,
+        "max": 97.03999999999996
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": false,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4281,
+      "measuredMs": 6001.1,
+      "fps": 713.3692156437986,
+      "frameTimeMs": {
+        "p50": 1.2400000000006912,
+        "p95": 2.600000000000364,
+        "p99": 3.8200000000006185,
+        "max": 29.38000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3941,
+      "measuredMs": 6001.28,
+      "fps": 656.6932387757279,
+      "frameTimeMs": {
+        "p50": 1.3400000000001455,
+        "p95": 3.0200000000004366,
+        "p99": 4.3400000000001455,
+        "max": 22.640000000000327
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4324,
+      "measuredMs": 6000.360000000001,
+      "fps": 720.6234292609109,
+      "frameTimeMs": {
+        "p50": 1.199999999999818,
+        "p95": 2.9600000000000364,
+        "p99": 4.079999999999927,
+        "max": 21.360000000000127
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4814,
+      "measuredMs": 6001.02,
+      "fps": 802.1969598501587,
+      "frameTimeMs": {
+        "p50": 1.0999999999994543,
+        "p95": 2.3400000000001455,
+        "p99": 3.519999999999527,
+        "max": 17.980000000000018
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3986,
+      "measuredMs": 6000.7,
+      "fps": 664.2558368190378,
+      "frameTimeMs": {
+        "p50": 1.3400000000001455,
+        "p95": 2.880000000000109,
+        "p99": 4.399999999999636,
+        "max": 31.920000000000073
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4027,
+      "measuredMs": 6000.02,
+      "fps": 671.1644294519018,
+      "frameTimeMs": {
+        "p50": 1.2999999999992724,
+        "p95": 2.9600000000000364,
+        "p99": 4.480000000001382,
+        "max": 22.539999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4082,
+      "measuredMs": 6000.76,
+      "fps": 680.2471686919656,
+      "frameTimeMs": {
+        "p50": 1.319999999999709,
+        "p95": 2.6400000000003274,
+        "p99": 4,
+        "max": 22.539999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3479,
+      "measuredMs": 6001.5599999999995,
+      "fps": 579.6826158532116,
+      "frameTimeMs": {
+        "p50": 1.4400000000000546,
+        "p95": 3.6400000000003274,
+        "p99": 5.579999999999927,
+        "max": 29.980000000000473
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4525,
+      "measuredMs": 5999.88,
+      "fps": 754.1817503016727,
+      "frameTimeMs": {
+        "p50": 1.180000000000291,
+        "p95": 2.399999999999636,
+        "p99": 3.5399999999999636,
+        "max": 24.179999999999836
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3933,
+      "measuredMs": 6003.1,
+      "fps": 655.1614998917225,
+      "frameTimeMs": {
+        "p50": 1.3600000000001273,
+        "p95": 2.9399999999996,
+        "p99": 4.239999999999782,
+        "max": 22.019999999999982
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2369,
+      "measuredMs": 5999.58,
+      "fps": 394.86097360148545,
+      "frameTimeMs": {
+        "p50": 2.119999999999891,
+        "p95": 5.6200000000008,
+        "p99": 9.739999999999782,
+        "max": 45.09999999999991
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3539,
+      "measuredMs": 6001.639999999999,
+      "fps": 589.6721562772843,
+      "frameTimeMs": {
+        "p50": 1.3999999999996362,
+        "p95": 3.639999999999418,
+        "p99": 6.099999999999454,
+        "max": 35.86000000000013
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3593,
+      "measuredMs": 6001.58,
+      "fps": 598.6756820703881,
+      "frameTimeMs": {
+        "p50": 1.4600000000000364,
+        "p95": 3.2000000000007276,
+        "p99": 5.179999999999836,
+        "max": 54.559999999999945
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 4465,
+      "measuredMs": 5999.92,
+      "fps": 744.1765890211869,
+      "frameTimeMs": {
+        "p50": 1.2000000000007276,
+        "p95": 2.380000000000109,
+        "p99": 3.300000000000182,
+        "max": 22.61999999999989
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3474,
+      "measuredMs": 5999.48,
+      "fps": 579.0501843493104,
+      "frameTimeMs": {
+        "p50": 1.5600000000004002,
+        "p95": 3.1599999999998545,
+        "p99": 4.6599999999998545,
+        "max": 33.51999999999998
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3685,
+      "measuredMs": 5998.34,
+      "fps": 614.3366331351674,
+      "frameTimeMs": {
+        "p50": 1.5,
+        "p95": 2.7999999999992724,
+        "p99": 4.2400000000002365,
+        "max": 22.7199999999998
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3771,
+      "measuredMs": 6000.66,
+      "fps": 628.4308726040135,
+      "frameTimeMs": {
+        "p50": 1.4400000000005093,
+        "p95": 2.8400000000001455,
+        "p99": 4.199999999999818,
+        "max": 24.840000000000146
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3020,
+      "measuredMs": 6000.76,
+      "fps": 503.26958585245865,
+      "frameTimeMs": {
+        "p50": 1.7199999999998,
+        "p95": 3.7199999999998,
+        "p99": 6.0600000000004,
+        "max": 19.840000000000146
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2715,
+      "measuredMs": 5996.360000000001,
+      "fps": 452.7746833078734,
+      "frameTimeMs": {
+        "p50": 1.8800000000001091,
+        "p95": 4.460000000000036,
+        "p99": 9.039999999999964,
+        "max": 30.59999999999991
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3201,
+      "measuredMs": 6001.42,
+      "fps": 533.3737682081907,
+      "frameTimeMs": {
+        "p50": 1.7200000000002547,
+        "p95": 3.2999999999992724,
+        "p99": 4.739999999999782,
+        "max": 24.179999999999836
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3797,
+      "measuredMs": 6000.219999999999,
+      "fps": 632.8101302952225,
+      "frameTimeMs": {
+        "p50": 1.4600000000000364,
+        "p95": 2.619999999999891,
+        "p99": 3.600000000000364,
+        "max": 31.720000000000255
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2501,
+      "measuredMs": 6003.9,
+      "fps": 416.56256766435155,
+      "frameTimeMs": {
+        "p50": 2.2399999999997817,
+        "p95": 3.819999999999709,
+        "p99": 5.519999999999982,
+        "max": 29.659999999999854
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2811,
+      "measuredMs": 6000.58,
+      "fps": 468.45471604411574,
+      "frameTimeMs": {
+        "p50": 2.019999999999982,
+        "p95": 3.2200000000002547,
+        "p99": 4.539999999999964,
+        "max": 25.38000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "A",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2959,
+      "measuredMs": 6000.9400000000005,
+      "fps": 493.0894159914946,
+      "frameTimeMs": {
+        "p50": 1.8999999999996362,
+        "p95": 3.219999999999345,
+        "p99": 4.920000000000073,
+        "max": 20.420000000000073
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3306,
+      "measuredMs": 6000.96,
+      "fps": 550.9118541033434,
+      "frameTimeMs": {
+        "p50": 1.7399999999997817,
+        "p95": 2.8599999999996726,
+        "p99": 3.9200000000000728,
+        "max": 19.140000000000327
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3107,
+      "measuredMs": 6002.280000000001,
+      "fps": 517.6366314133962,
+      "frameTimeMs": {
+        "p50": 1.8200000000006185,
+        "p95": 3.1599999999998545,
+        "p99": 4.280000000000655,
+        "max": 22.88000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3221,
+      "measuredMs": 6001.360000000001,
+      "fps": 536.7116786861644,
+      "frameTimeMs": {
+        "p50": 1.7600000000002183,
+        "p95": 2.980000000000018,
+        "p99": 4.339999999999691,
+        "max": 20.620000000000346
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2909,
+      "measuredMs": 5999.719999999999,
+      "fps": 484.8559599447975,
+      "frameTimeMs": {
+        "p50": 1.9000000000005457,
+        "p95": 3.100000000000364,
+        "p99": 4.020000000000437,
+        "max": 29.559999999999945
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2432,
+      "measuredMs": 5999.26,
+      "fps": 405.3833306107753,
+      "frameTimeMs": {
+        "p50": 2.319999999999709,
+        "p95": 3.839999999999236,
+        "p99": 4.960000000000036,
+        "max": 35.75999999999976
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2678,
+      "measuredMs": 6000.98,
+      "fps": 446.2604441274592,
+      "frameTimeMs": {
+        "p50": 2.0399999999999636,
+        "p95": 3.5400000000004184,
+        "p99": 5.039999999999964,
+        "max": 30.420000000000073
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1993,
+      "measuredMs": 5997.62,
+      "fps": 332.2984783964306,
+      "frameTimeMs": {
+        "p50": 2.619999999999891,
+        "p95": 5.0600000000004,
+        "p99": 7.460000000000036,
+        "max": 48.159999999999854
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2007,
+      "measuredMs": 6001.52,
+      "fps": 334.4152814620296,
+      "frameTimeMs": {
+        "p50": 2.5599999999994907,
+        "p95": 5.2199999999998,
+        "p99": 7.619999999999891,
+        "max": 39.33999999999969
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2139,
+      "measuredMs": 5996.12,
+      "fps": 356.73068584351216,
+      "frameTimeMs": {
+        "p50": 2.4200000000000728,
+        "p95": 4.720000000000255,
+        "p99": 7.440000000000055,
+        "max": 40.24000000000024
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1441,
+      "measuredMs": 6002.5,
+      "fps": 240.06663890045812,
+      "frameTimeMs": {
+        "p50": 3.719999999999345,
+        "p95": 7.3200000000006185,
+        "p99": 8.88000000000011,
+        "max": 30.90000000000009
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1431,
+      "measuredMs": 5997.54,
+      "fps": 238.59782510829442,
+      "frameTimeMs": {
+        "p50": 3.7200000000002547,
+        "p95": 7.239999999999782,
+        "p99": 8.739999999999782,
+        "max": 23.04000000000042
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1247,
+      "measuredMs": 6002.38,
+      "fps": 207.7509254662317,
+      "frameTimeMs": {
+        "p50": 4.3400000000001455,
+        "p95": 8.11999999999989,
+        "p99": 10.379999999999654,
+        "max": 38.14000000000033
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 686,
+      "measuredMs": 6012.14,
+      "fps": 114.10246601043887,
+      "frameTimeMs": {
+        "p50": 7.5,
+        "p95": 16.379999999999654,
+        "p99": 19.920000000000073,
+        "max": 45.279999999999745
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 723,
+      "measuredMs": 5996.719999999999,
+      "fps": 120.56590936378555,
+      "frameTimeMs": {
+        "p50": 7.420000000000073,
+        "p95": 15.779999999999745,
+        "p99": 17.759999999999764,
+        "max": 35.25999999999976
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 660,
+      "measuredMs": 5987.24,
+      "fps": 110.23443189182328,
+      "frameTimeMs": {
+        "p50": 8.200000000000273,
+        "p95": 17.400000000000546,
+        "p99": 20.420000000000073,
+        "max": 30.300000000000182
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 361,
+      "measuredMs": 6000.9400000000005,
+      "fps": 60.15724203208163,
+      "frameTimeMs": {
+        "p50": 14.239999999999782,
+        "p95": 34.599999999999454,
+        "p99": 40.67999999999938,
+        "max": 50.460000000000036
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 378,
+      "measuredMs": 5999.9,
+      "fps": 63.0010500175003,
+      "frameTimeMs": {
+        "p50": 14.019999999999982,
+        "p95": 34.24000000000069,
+        "p99": 37.32000000000062,
+        "max": 78.03999999999996
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 334,
+      "measuredMs": 5999.16,
+      "fps": 55.67446109121944,
+      "frameTimeMs": {
+        "p50": 15.759999999999309,
+        "p95": 36.179999999999836,
+        "p99": 45.19999999999982,
+        "max": 52.09999999999991
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 191,
+      "measuredMs": 5997.639999999999,
+      "fps": 31.845859371352734,
+      "frameTimeMs": {
+        "p50": 27.67999999999938,
+        "p95": 71.38000000000011,
+        "p99": 92.79999999999973,
+        "max": 109.38000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 186,
+      "measuredMs": 6006.219999999999,
+      "fps": 30.967896613843653,
+      "frameTimeMs": {
+        "p50": 28.859999999999673,
+        "p95": 50.51999999999998,
+        "p99": 89.27999999999975,
+        "max": 114.24000000000024
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 161,
+      "measuredMs": 6070.38,
+      "fps": 26.522227603543765,
+      "frameTimeMs": {
+        "p50": 31.300000000000182,
+        "p95": 75.57999999999993,
+        "p99": 106.15999999999985,
+        "max": 111.26000000000022
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 73,
+      "measuredMs": 5984.62,
+      "fps": 12.197934037583005,
+      "frameTimeMs": {
+        "p50": 75.84000000000015,
+        "p95": 98.42000000000007,
+        "p99": 288.1999999999998,
+        "max": 288.1999999999998
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 64,
+      "measuredMs": 5719.68,
+      "fps": 11.189437171310283,
+      "frameTimeMs": {
+        "p50": 71.30000000000018,
+        "p95": 205.80000000000018,
+        "p99": 462,
+        "max": 462
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "B",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 68,
+      "measuredMs": 6042.280000000001,
+      "fps": 11.254029935719627,
+      "frameTimeMs": {
+        "p50": 80.97999999999956,
+        "p95": 148.8800000000001,
+        "p99": 268.52000000000044,
+        "max": 268.52000000000044
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2759,
+      "measuredMs": 6001.02,
+      "fps": 459.75517495359117,
+      "frameTimeMs": {
+        "p50": 2.0799999999999272,
+        "p95": 3.4400000000005093,
+        "p99": 4.7599999999997635,
+        "max": 33.59999999999991
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2810,
+      "measuredMs": 6000.92,
+      "fps": 468.26153323157115,
+      "frameTimeMs": {
+        "p50": 2,
+        "p95": 3.5999999999994543,
+        "p99": 5.319999999999709,
+        "max": 26.920000000000073
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2481,
+      "measuredMs": 6000.24,
+      "fps": 413.48346066157353,
+      "frameTimeMs": {
+        "p50": 2.280000000000655,
+        "p95": 4.059999999999491,
+        "p99": 5.440000000000509,
+        "max": 25.420000000000073
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2331,
+      "measuredMs": 6001.34,
+      "fps": 388.41325437319,
+      "frameTimeMs": {
+        "p50": 2.3400000000001455,
+        "p95": 4.139999999999418,
+        "p99": 6.279999999999745,
+        "max": 24.379999999999654
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2262,
+      "measuredMs": 6000.7,
+      "fps": 376.95602179745697,
+      "frameTimeMs": {
+        "p50": 2.4600000000000364,
+        "p95": 4.200000000000273,
+        "p99": 5.960000000000036,
+        "max": 28.200000000000273
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2411,
+      "measuredMs": 6000.54,
+      "fps": 401.79717158789043,
+      "frameTimeMs": {
+        "p50": 2.2200000000002547,
+        "p95": 3.800000000000182,
+        "p99": 5.380000000000109,
+        "max": 87.63999999999987
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1809,
+      "measuredMs": 6000.46,
+      "fps": 301.47688677201415,
+      "frameTimeMs": {
+        "p50": 2.9600000000000364,
+        "p95": 5.239999999999782,
+        "p99": 6.7599999999997635,
+        "max": 33.23999999999978
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2061,
+      "measuredMs": 6002.66,
+      "fps": 343.3477824830992,
+      "frameTimeMs": {
+        "p50": 2.600000000000364,
+        "p95": 4.6599999999998545,
+        "p99": 5.859999999999673,
+        "max": 22.980000000000018
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2010,
+      "measuredMs": 5994.88,
+      "fps": 335.28611081456177,
+      "frameTimeMs": {
+        "p50": 2.680000000000291,
+        "p95": 4.739999999999782,
+        "p99": 5.739999999999782,
+        "max": 28.059999999999945
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 931,
+      "measuredMs": 6003.08,
+      "fps": 155.08705531160672,
+      "frameTimeMs": {
+        "p50": 5.760000000000218,
+        "p95": 11.38000000000011,
+        "p99": 15.220000000000255,
+        "max": 31.820000000000164
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 814,
+      "measuredMs": 6030.2,
+      "fps": 134.98723093761402,
+      "frameTimeMs": {
+        "p50": 6.6599999999998545,
+        "p95": 13.61999999999989,
+        "p99": 18.840000000000146,
+        "max": 28.26000000000022
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1140,
+      "measuredMs": 5999.280000000001,
+      "fps": 190.02280273632834,
+      "frameTimeMs": {
+        "p50": 4.739999999999782,
+        "p95": 8.719999999999345,
+        "p99": 10.240000000000236,
+        "max": 26.779999999999745
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 539,
+      "measuredMs": 6020,
+      "fps": 89.53488372093024,
+      "frameTimeMs": {
+        "p50": 9.679999999999836,
+        "p95": 19.860000000000582,
+        "p99": 24.659999999999854,
+        "max": 47.85999999999967
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 592,
+      "measuredMs": 6003.74,
+      "fps": 98.60520275694817,
+      "frameTimeMs": {
+        "p50": 9.099999999999454,
+        "p95": 18.019999999999527,
+        "p99": 21.05999999999949,
+        "max": 28.31999999999971
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 601,
+      "measuredMs": 5998.98,
+      "fps": 100.18369789530888,
+      "frameTimeMs": {
+        "p50": 8.88000000000011,
+        "p95": 17.920000000000073,
+        "p99": 21.420000000000073,
+        "max": 54.75999999999976
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 287,
+      "measuredMs": 6015.48,
+      "fps": 47.71024091178094,
+      "frameTimeMs": {
+        "p50": 18,
+        "p95": 38.68000000000029,
+        "p99": 55.48000000000002,
+        "max": 65.74000000000024
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 280,
+      "measuredMs": 6009.02,
+      "fps": 46.596616419981956,
+      "frameTimeMs": {
+        "p50": 18.9399999999996,
+        "p95": 41.720000000000255,
+        "p99": 50.7199999999998,
+        "max": 62.51999999999998
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 299,
+      "measuredMs": 6009.9,
+      "fps": 49.75124378109453,
+      "frameTimeMs": {
+        "p50": 17.840000000000146,
+        "p95": 38.35999999999967,
+        "p99": 48.63999999999987,
+        "max": 49.02000000000044
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 154,
+      "measuredMs": 6013.6,
+      "fps": 25.60862046029001,
+      "frameTimeMs": {
+        "p50": 34.85999999999967,
+        "p95": 78.72000000000025,
+        "p99": 85.53999999999996,
+        "max": 118.70000000000027
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 145,
+      "measuredMs": 5989.26,
+      "fps": 24.21000257126924,
+      "frameTimeMs": {
+        "p50": 35.47999999999956,
+        "p95": 81.48000000000047,
+        "p99": 96.03999999999996,
+        "max": 128.29999999999973
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 153,
+      "measuredMs": 5971.5,
+      "fps": 25.62170308967596,
+      "frameTimeMs": {
+        "p50": 35.18000000000029,
+        "p95": 81.63999999999942,
+        "p99": 85.20000000000073,
+        "max": 89.01999999999998
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 56,
+      "measuredMs": 6028.42,
+      "fps": 9.289332860019707,
+      "frameTimeMs": {
+        "p50": 101.92000000000007,
+        "p95": 123.15999999999985,
+        "p99": 271.2000000000007,
+        "max": 271.2000000000007
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 57,
+      "measuredMs": 6059.12,
+      "fps": 9.407306671595876,
+      "frameTimeMs": {
+        "p50": 100.35999999999967,
+        "p95": 167.86000000000013,
+        "p99": 251.98000000000002,
+        "max": 251.98000000000002
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "C",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 57,
+      "measuredMs": 5978.6,
+      "fps": 9.534004616465394,
+      "frameTimeMs": {
+        "p50": 99.36000000000058,
+        "p95": 124.84000000000015,
+        "p99": 240.6199999999999,
+        "max": 240.6199999999999
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3340,
+      "measuredMs": 5999.24,
+      "fps": 556.7371867103167,
+      "frameTimeMs": {
+        "p50": 1.7599999999993088,
+        "p95": 2.780000000000655,
+        "p99": 3.6200000000001182,
+        "max": 18.139999999999873
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3509,
+      "measuredMs": 6001.0599999999995,
+      "fps": 584.7300310278517,
+      "frameTimeMs": {
+        "p50": 1.660000000000764,
+        "p95": 2.5399999999999636,
+        "p99": 3.3200000000001637,
+        "max": 28.140000000000327
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 10,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 3340,
+      "measuredMs": 6001.8,
+      "fps": 556.4997167516411,
+      "frameTimeMs": {
+        "p50": 1.7399999999997817,
+        "p95": 2.7799999999997453,
+        "p99": 3.6200000000003456,
+        "max": 22.73999999999978
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2889,
+      "measuredMs": 5997.7,
+      "fps": 481.68464578088265,
+      "frameTimeMs": {
+        "p50": 1.9200000000000728,
+        "p95": 3.0799999999999272,
+        "p99": 3.860000000000582,
+        "max": 21.40000000000009
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2746,
+      "measuredMs": 6000.719999999999,
+      "fps": 457.61175325627596,
+      "frameTimeMs": {
+        "p50": 2.019999999999982,
+        "p95": 3.3599999999996726,
+        "p99": 4.400000000000091,
+        "max": 21.800000000000182
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 50,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2796,
+      "measuredMs": 6001.9,
+      "fps": 465.8524800479848,
+      "frameTimeMs": {
+        "p50": 1.9800000000000182,
+        "p95": 3.2600000000002183,
+        "p99": 4.300000000000182,
+        "max": 32.88000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2242,
+      "measuredMs": 5999,
+      "fps": 373.7289548258043,
+      "frameTimeMs": {
+        "p50": 2.3600000000001273,
+        "p95": 4.3400000000001455,
+        "p99": 5.459999999999582,
+        "max": 28.04000000000042
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2242,
+      "measuredMs": 6000.66,
+      "fps": 373.6255678542027,
+      "frameTimeMs": {
+        "p50": 2.399999999999636,
+        "p95": 4.3400000000001455,
+        "p99": 5.559999999999491,
+        "max": 22.779999999999745
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 100,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 2253,
+      "measuredMs": 6003.78,
+      "fps": 375.2635839421165,
+      "frameTimeMs": {
+        "p50": 2.399999999999636,
+        "p95": 4.260000000000218,
+        "p99": 5.300000000000182,
+        "max": 38.31999999999971
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1395,
+      "measuredMs": 6002.64,
+      "fps": 232.39774499220343,
+      "frameTimeMs": {
+        "p50": 3.8400000000001455,
+        "p95": 7.360000000000582,
+        "p99": 8.779999999999745,
+        "max": 26.159999999999854
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1226,
+      "measuredMs": 6004.16,
+      "fps": 204.19176037947025,
+      "frameTimeMs": {
+        "p50": 4.300000000000182,
+        "p95": 8.300000000000182,
+        "p99": 10.359999999999673,
+        "max": 35.38000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 200,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 1341,
+      "measuredMs": 6005.4400000000005,
+      "fps": 223.29754356050515,
+      "frameTimeMs": {
+        "p50": 3.980000000000473,
+        "p95": 7.699999999999818,
+        "p99": 9.260000000000218,
+        "max": 37.85999999999967
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 550,
+      "measuredMs": 6003.6,
+      "fps": 91.61169964687853,
+      "frameTimeMs": {
+        "p50": 9.539999999999964,
+        "p95": 21.020000000000437,
+        "p99": 27.539999999999964,
+        "max": 32.67999999999938
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 469,
+      "measuredMs": 5998.860000000001,
+      "fps": 78.18152115568624,
+      "frameTimeMs": {
+        "p50": 9.979999999999563,
+        "p95": 25.840000000000146,
+        "p99": 47.88000000000011,
+        "max": 104.26000000000022
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 500,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 677,
+      "measuredMs": 5995.9400000000005,
+      "fps": 112.90973558774769,
+      "frameTimeMs": {
+        "p50": 7.899999999999636,
+        "p95": 16.640000000000327,
+        "p99": 19.480000000000473,
+        "max": 34.88000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 371,
+      "measuredMs": 6012.52,
+      "fps": 61.70457645047334,
+      "frameTimeMs": {
+        "p50": 14.220000000000255,
+        "p95": 34.19999999999982,
+        "p99": 41.30000000000018,
+        "max": 52.059999999999945
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 364,
+      "measuredMs": 6003.1,
+      "fps": 60.63533840848894,
+      "frameTimeMs": {
+        "p50": 14.780000000000655,
+        "p95": 33.76000000000022,
+        "p99": 40.0600000000004,
+        "max": 86.48000000000002
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 1000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 370,
+      "measuredMs": 6004.98,
+      "fps": 61.615525780269046,
+      "frameTimeMs": {
+        "p50": 14.179999999999836,
+        "p95": 33.719999999999345,
+        "p99": 37.900000000000546,
+        "max": 50.37999999999988
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 190,
+      "measuredMs": 6020.62,
+      "fps": 31.55821161275749,
+      "frameTimeMs": {
+        "p50": 27.780000000000655,
+        "p95": 73,
+        "p99": 96.88000000000011,
+        "max": 102.67999999999984
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 192,
+      "measuredMs": 6003.12,
+      "fps": 31.983368648302882,
+      "frameTimeMs": {
+        "p50": 28.020000000000437,
+        "p95": 67.39999999999964,
+        "p99": 79.61999999999989,
+        "max": 106.94000000000005
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 2000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 191,
+      "measuredMs": 6007.7,
+      "fps": 31.792532916091016,
+      "frameTimeMs": {
+        "p50": 27.860000000000582,
+        "p95": 66.4399999999996,
+        "p99": 90.57999999999993,
+        "max": 96.38000000000011
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 85,
+      "measuredMs": 6019.780000000001,
+      "fps": 14.120117346481099,
+      "frameTimeMs": {
+        "p50": 67.07999999999993,
+        "p95": 77.84000000000015,
+        "p99": 242.39999999999964,
+        "max": 242.39999999999964
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 1,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 84,
+      "measuredMs": 6014.96,
+      "fps": 13.965180150823945,
+      "frameTimeMs": {
+        "p50": 67.4399999999996,
+        "p95": 78.36000000000013,
+        "p99": 234.73999999999978,
+        "max": 234.73999999999978
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 2,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    },
+    {
+      "arm": "D",
+      "n": 5000,
+      "seed": 42,
+      "durationMs": 6000,
+      "warmupMs": 1000,
+      "frames": 81,
+      "measuredMs": 6033.12,
+      "fps": 13.425889092210994,
+      "frameTimeMs": {
+        "p50": 67.88000000000011,
+        "p95": 83.48000000000047,
+        "p99": 366.97999999999956,
+        "max": 366.97999999999956
+      },
+      "longTasks": {
+        "count": 0,
+        "totalMs": 0
+      },
+      "narratorStats": null,
+      "endedBecause": "complete",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:153.0) Gecko/20100101 Firefox/153.0",
+      "hardwareConcurrency": 16,
+      "run": 3,
+      "browser": "firefox",
+      "browserVersion": "153.0",
+      "forcedAccessibility": true,
+      "rendererMetrics": null,
+      "suspect": false
+    }
+  ]
+}

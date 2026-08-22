@@ -149,7 +149,13 @@ export default function App() {
 
       <main>
         <div className="viewport">
-          <Canvas camera={{ position: [0, 28, 46], fov: 50 }}>
+          {/*
+            Camera pulled in close enough that the areas of the yard fall into different
+            distance bands. From far outside the yard every area reads "far away", which is
+            accurate and useless: the demo exists to be listened to, and a demo where every
+            area sounds identical demonstrates nothing.
+          */}
+          <Canvas camera={{ position: [0, 16, 26], fov: 55 }}>
             <ambientLight intensity={0.7} />
             <directionalLight position={[10, 20, 8]} intensity={1.1} />
             <Yard vans={vans} />

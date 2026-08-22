@@ -214,7 +214,78 @@ than by these numbers.
 
 ## Result 4: Firefox
 
-FIREFOX_SECTION_PLACEHOLDER
+Firefox needed the matrix running twice, and the reason is worth recording because it is
+the same class of mistake as the forced-accessibility trap.
+
+**The first Firefox matrix was invalid and was discarded.** Two independent faults:
+
+1. Every healthy run reported a p50 of exactly 6.94ms, which is the 144Hz vsync interval.
+   `--disable-gpu-vsync` is a Chromium flag and does nothing to Gecko, so the Firefox column
+   was measuring the monitor rather than the accessibility work, and anything cheaper than
+   one refresh was invisible. The fix is the `layout.frame_rate: 0` preference, Gecko's
+   equivalent of the two Chromium flags.
+2. Scattered runs produced three frames in six seconds, at random object counts including
+   N=10. Those are not slow frames, they are absent ones: Windows occlusion tracking
+   suspends painting when a window is covered, and the runner opens and closes a browser per
+   cell so windows overlap constantly. The fix is
+   `widget.windows.window_occlusion_tracking.enabled: false`.
+
+The runner now flags any run producing fewer than 30 frames as stopped rather than slow, and
+the analysis excludes those and says how many it excluded. The corrected matrix had none.
+
+The results below are from the corrected run, Firefox 153.0, same hardware, same config.
+
+p95 / p99 frame time in ms, with accessibility forced on:
+
+| N | A baseline | B sibling | C sibling+aria | D fallback |
+|---|---|---|---|---|
+| 10 | 2.9 / 4.1 | 3.0 / 4.2 | 3.7 / 5.2 | 2.7 / 3.5 |
+| 50 | 2.7 / 4.1 | 3.5 / 4.7 | 4.0 / 5.9 | 3.2 / 4.2 |
+| 100 | 2.9 / 4.4 | 5.0 / 7.5 | 4.9 / 6.1 | 4.3 / 5.4 |
+| 200 | 4.1 / 6.7 | 7.6 / 9.3 | 11.2 / 14.8 | 7.8 / 9.5 |
+| 500 | 2.9 / 4.4 | 16.5 / 19.4 | 18.6 / 22.4 | 21.2 / 31.6 |
+| 1000 | 3.1 / 4.8 | 35.0 / 41.1 | 39.6 / 51.6 | 33.9 / 39.8 |
+| 2000 | 3.5 / 5.8 | 65.8 / 96.1 | 80.6 / 88.9 | 68.9 / 89.0 |
+| 5000 | 3.4 / 5.0 | 151.0 / 339.6 | 138.6 / 254.6 | 79.9 / 281.4 |
+
+Budget crossings on p95, forced:
+
+- **B sibling** crosses 16.7ms between N=500 and N=1000 (interpolated N~503), and 33.3ms
+  between N=500 and N=1000 (interpolated N~938).
+- **D fallback** crosses 16.7ms between N=200 and N=500 (interpolated N~368), and 33.3ms
+  between N=500 and N=1000 (interpolated N~968).
+- **A baseline** crosses neither up to N=5000, sitting flat at around 3ms throughout.
+
+Two things follow.
+
+**The problem is not Chromium-specific.** Firefox falls over at roughly the same place, a
+naive mirror crossing the 60fps budget somewhere around 500 objects. Whatever else is true,
+the cliff is real in both engines.
+
+**The canvas fallback advantage is Chromium-specific.** This is the most surprising result
+of the spike and it directly contradicts what arm D looked like on Chromium. At N=1000
+forced, the sibling mirror is 35.0ms p95 and canvas fallback content is 33.9ms: the same,
+inside the run-to-run spread. At N=500 fallback is actually the worse of the two. Only at
+N=5000 does it pull clearly ahead, and the sibling arm's p95 varies by 71% across runs at
+that point, so that gap is not something to lean on.
+
+Gecko evidently does not get the same free ride from fallback content not participating in
+layout that Blink does. The measurement does not say why, and this spike does not claim to
+know.
+
+So the honest statement is: **mounting into canvas fallback content removes the layout cost
+entirely on Chromium, makes little difference on Firefox, and is worth doing anyway** because
+it is the mechanism the HTML specification provides, because NVDA reaches it (see
+[NVDA.md](NVDA.md)), and because it is never worse in any cell measured here except one at
+N=500 that is inside the noise.
+
+### The reduced metric set
+
+Firefox has no CDP, so there are no layout or style recalculation counters for it, and it
+does not implement the `longtask` PerformanceObserver entry type, so long tasks are reported
+as absent rather than as zero. Absent and none are not the same measurement and the analysis
+does not merge them. Firefox therefore contributes frame times and nothing else, which is a
+real reduction in what can be said about it rather than parity being implied.
 
 ---
 
@@ -271,4 +342,5 @@ several hundred times, because headed is the only honest way to run it.
 Results this document draws on:
 
 - `bench/results/full-2026-08-21T20-37-55-057Z.json`, 384 runs, Chromium and Firefox.
-- FIREFOX_RESULTS_PLACEHOLDER
+- `bench/results/full-2026-08-21T23-52-13-438Z.json`, 191 runs, Firefox, after the two
+  preference fixes described above. The earlier Firefox half of the first file is not used.

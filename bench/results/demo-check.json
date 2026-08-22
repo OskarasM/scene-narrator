@@ -1,0 +1,27 @@
+{
+  "recordedAt": "2026-08-22T00:08:35.349Z",
+  "browserVersion": "151.0.7922.34",
+  "pageErrors": [],
+  "headings": [
+    "scene-narrator demo",
+    "Delivery yard",
+    "The north-west of the scene",
+    "The south-west of the scene",
+    "The north-east of the scene",
+    "The south-east of the scene"
+  ],
+  "canvasNodeCount": 1,
+  "canvasChildCount": 1,
+  "liveRegionCount": 2,
+  "summarySamples": [
+    " vans, most of them moving. The 3D view below is a single ",
+    " the scene is a set of headings. Move between them with your heading key, then press Enter on one to hear the vans inside it.",
+    " vans, most of them moving. The 3D view below is a ",
+    "with your heading key, then press Enter on one to hear the vans inside it.",
+    "5 vans, mostly parked, ahead and to your left, far away, including Van 1",
+    "7 vans, mostly moving, ahead and to your left, some distance away",
+    "7 vans, mostly moving, ahead, far away",
+    "5 vans, mostly moving, ahead and to your right, some distance away"
+  ],
+  "axeViolations": []
+}

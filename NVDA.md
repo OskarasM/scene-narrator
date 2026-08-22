@@ -3,71 +3,223 @@
 Shipping an accessibility library that has never been tested with a screen reader would be
 absurd, so this file exists and is a precondition of publishing rather than a nice-to-have.
 
-Two separate things are recorded here:
+Every transcript below is what NVDA actually said, copied out of
+`bench/results/nvda-mount-probe.json` and `bench/results/nvda-demo.json`, which are written
+by the specs in `nvda/` and committed. Nothing here is a paraphrase of what it should have
+said.
 
-1. **The mount point probe.** Does NVDA reach canvas fallback content at all? The library's
-   default depends on the answer, and Chromium's internal accessibility tree cannot answer
-   it, because NVDA reads through UI Automation and that is a different thing.
-2. **The manual pass**, in browse mode and focus mode separately, with the transcript
-   written down. A component can work in one mode and be broken in the other, so untested in
-   both means untested.
-
-**Scope: NVDA on Windows only.** VoiceOver, JAWS, Narrator and TalkBack are untested. That
-is stated as a limit everywhere it is relevant, and never softened into "should work".
-
----
+**Scope: NVDA on Windows, on Chromium, only.** VoiceOver, JAWS, Narrator and TalkBack are
+untested. That is stated as a limit wherever it is relevant and never softened into "should
+work".
 
 ## Environment
 
-NVDA_ENV_PLACEHOLDER
+| | |
+|---|---|
+| Screen reader | NVDA 2026.1.1, via `@guidepup/nvda` 0.2.1-2026.1.1 |
+| Browser | Chrome for Testing 151.0.7922.34, launched with `--force-renderer-accessibility` |
+| OS | Windows 11, 10.0.26200 |
+| Driver | `@guidepup/playwright` 0.19.1 |
+| Recorded | 2026-08-21 and 2026-08-22 |
+
+Reproduce with:
+
+```bash
+npx @guidepup/setup install nvda
+cd demo && npm run build && cd ..
+npx playwright test --config playwright.config.ts
+```
+
+NVDA speaks out loud throughout, and reads whichever window has focus, so do not touch the
+keyboard while it runs.
 
 ---
 
-## 1. Mount point probe
+## 1. Mount point probe: does NVDA reach canvas fallback content?
 
-The question: canvas fallback content costs zero layout time on Chromium
-(see [SPIKE.md](SPIKE.md)), but is it actually reachable by a real screen reader?
+This is the question the library's default mount point depended on, and Chromium's internal
+accessibility tree could not answer it. CDP will happily show you an AXObject tree containing
+canvas fallback nodes, but NVDA reads through UI Automation, which is a different thing, and
+canvas fallback content has historically had patchy support there.
 
-`bench/nvda-probe.mjs` serves one page with the same content in two places, inside the
-`<canvas>` as fallback content and beside it as an ordinary sibling, and reads through it
-with NVDA driving a real Chromium.
+`nvda/mount-point.spec.ts` serves one page with the same content in two places, inside the
+`<canvas>` as fallback content and beside it as an ordinary sibling, with distinct sentinel
+phrases, and reads through the whole thing.
 
-PROBE_RESULT_PLACEHOLDER
+**Result: NVDA reaches canvas fallback content, including its headings and its focusable
+elements.**
+
+| | Browse mode | Reached by Tab |
+|---|---|---|
+| Inside the `<canvas>` | yes | yes |
+| Beside the `<canvas>` (control) | yes | yes |
+
+Browse mode transcript, verbatim:
+
+```
+heading, level 1, NVDA mount point probe
+blank
+blank
+blank
+blank
+heading, level 2, Inside the canvas
+blank
+blank
+Canvas fallback content is reachable
+blank
+, button, Button inside the canvas,
+blank
+blank
+heading, level 2, Beside the canvas
+Sibling content is reachable
+button, Button beside the canvas
+End of probe.
+```
+
+The sibling half is the control. If NVDA had failed to reach ordinary sibling content the
+run would say nothing about the canvas either way, so the spec asserts on the control
+separately and would fail loudly rather than report a misleading negative.
+
+**One difference worth noting rather than glossing over.** The canvas half produced several
+extra `blank` announcements, and its button came out as `, button, Button inside the canvas,`
+with stray leading and trailing commas, where the sibling button was the clean
+`button, Button beside the canvas`. So the two are not announced identically. The content is
+present and navigable in both; the canvas version is slightly noisier.
+
+**Decision taken:** the default mount point is the canvas element, using fallback content.
+NVDA reaches it, it costs zero layout time on Chromium, and it is the mechanism the HTML
+specification actually provides. `mount: 'sibling'` remains available for anyone who needs
+it. Note that the layout saving is Chromium-specific: on Firefox the two mount points cost
+about the same, which [SPIKE.md](SPIKE.md) sets out.
 
 ---
 
-## 2. Browse mode
+## 2. Browse mode against the demo
 
 Browse mode is NVDA's default on a web page. The arrow keys belong to NVDA for reading the
-document, H jumps between headings, and the page's own key handlers mostly do not fire.
-This is how a screen reader user meets a page they have not seen before.
+document, H jumps between headings, and the page's own key handlers mostly do not fire. This
+is how a screen reader user meets a page they have not seen before.
 
-BROWSE_TRANSCRIPT_PLACEHOLDER
+Verbatim, reading from the top:
+
+```
+out of grouping, out of region, banner landmark, heading, level 1, scene-narrator demo
+A delivery yard with 24 vans, most of them moving. The 3D view below is a single, less
+  canvas greater, , which on its own tells a screen reader nothing at all. The
+  accessibility tree beside it is generated by the library and updates as the scene changes.
+With a screen reader:, the scene is a set of headings. Move between them with your heading
+  key, then press Enter on one to hear the vans inside it.
+Without one:, press Tab until you reach the scene, then use the arrow keys. The panel on
+  the right shows the text a screen reader is being given.
+main landmark, clickable, region, heading, level 2, Delivery yard
+Areas of the scene are listed as headings. Move to an area and press Enter to hear what is
+  in it.
+grouping, heading, level 3, The north-west of the scene
+6 vans, mostly parked, ahead, far away, including Van 1
+out of grouping, grouping, heading, level 3, The south-west of the scene
+7 vans, mostly moving, ahead and to your left, some distance away
+out of grouping, grouping, heading, level 3, The north-east of the scene
+5 vans, mostly moving, ahead, far away
+out of grouping, grouping, heading, level 3, The south-east of the scene
+5 vans, mostly moving, ahead and to your right, some distance away
+out of grouping, Van 1 has been dispatched
+out of region, blank
+Van 2 has been dispatched
+link, Source and measurements, dot Verified with NVDA on Windows. Voice Over and JAWS are
+  untested.
+```
+
+That is the library working. A canvas that would otherwise be a single unlabelled graphic is
+a named region containing four named areas, each with a spoken summary that says what is in
+it, roughly where it is, and what it is doing. `Van 1 has been dispatched` and
+`Van 2 has been dispatched` are the live region firing while the user reads, without
+interrupting them.
+
+### Heading navigation
+
+The thing 71.6% of screen reader users actually do. Pressing H repeatedly:
+
+```
+main landmark, clickable, Delivery yard, region, Delivery yard, heading, level 2
+The north-west of the scene, grouping, The north-west of the scene, heading, level 3
+The south-west of the scene, grouping, The south-west of the scene, heading, level 3
+The north-east of the scene, grouping, The north-east of the scene, heading, level 3
+The south-east of the scene, grouping, The south-east of the scene, heading, level 3
+no next heading
+```
+
+Five headings, in a stable order, each one meaning something read on its own. This is the
+navigation model the library is designed around and it works.
+
+### What is imperfect here, stated rather than hidden
+
+- **"grouping" is announced before every area heading.** That is the `role="group"` on the
+  area container. It buys the announcement in focus mode below, where the area's name and
+  summary are read on entry, and it costs one extra word per area in browse mode. Judged
+  worth it, but it is a real cost and a future version might drop the role and find another
+  way to name the container.
+- **"clickable" is announced on the scene region.** That comes from React Three Fiber
+  attaching pointer handlers to the canvas, not from this library, but a user hears it all
+  the same.
+- **The area headings are compass directions**, which is what automatic grouping can honestly
+  produce. A scene with real semantic structure should supply its own regions and get
+  "Loading bay" instead of "The north-west of the scene". The README says so.
 
 ---
 
-## 3. Focus mode
+## 3. Focus mode against the demo
 
-Focus mode is what NVDA switches into when the user tabs to a control, or presses
-NVDA+space. Keystrokes now reach the page, so the library's arrow key handling is live. This
-is a completely different code path from browse mode and a component can pass one and fail
-the other.
+Focus mode is what NVDA switches into when the user tabs to a control or presses NVDA+space.
+Keystrokes reach the page, so the library's arrow key handling is live. This is a completely
+different code path from browse mode and a component can pass one and fail the other.
 
-FOCUS_TRANSCRIPT_PLACEHOLDER
+Tabbing into the scene, verbatim:
+
+```
+main landmark, clickable, Delivery yard, region, The north-west of the scene, grouping,
+  The north-west of the scene, heading, level 3, 6 vans, mostly parked, ahead, far away,
+  including Van 1
+content info landmark, Source and measurements, link
+```
+
+Tab reaches the scene in one stop, and NVDA announces the containing region, the area that
+has focus, and its full summary. The roving tabindex is doing its job: there is one tab stop
+for the whole scene rather than one per area, so a keyboard user passing through the page is
+not made to tab through every area of a 3D scene to get to the footer.
+
+### What is imperfect here
+
+- **The entry announcement is long.** Region name, area name, heading level and the whole
+  summary arrive as one utterance. It is complete and it is a mouthful. Shortening it means
+  giving up either the region name or the summary, and on balance a user arriving somewhere
+  new should be told where they are.
+- **The arrow key model is not exercised deeply here.** The transcript above covers entry.
+  Arrow movement between areas is asserted in `test/narrator.test.ts` against a real DOM,
+  and it works, but a fuller focus mode transcript covering arrows and Enter is the obvious
+  next thing to record.
 
 ---
 
 ## 4. Keyboard only, screen reader off
 
-KEYBOARD_PLACEHOLDER
+Verified by hand in Chromium with NVDA closed:
+
+- Tab reaches the scene in one stop and the focus ring is visible on the focused area,
+  because the demo stylesheet sets an explicit `:focus-visible` outline rather than removing
+  the default one.
+- Arrow keys move between areas, and wrap at both ends, so it is not possible to get stuck.
+- Enter opens an area and lists its vans; Escape closes it.
+- No keyboard trap: Tab continues past the scene to the footer link.
 
 ---
 
 ## What this does not cover
 
 - **VoiceOver and JAWS.** Untested. Not "expected to work".
-- **NVDA on other browsers.** Tested against Chromium only.
+- **Other browsers.** NVDA was tested against Chromium only. Firefox with NVDA is a
+  different UI Automation path and is not covered.
 - **Braille output.** Not tested at all.
-- **Real users.** Everything here is one developer testing their own library. That is
-  necessary and it is not sufficient, and the difference matters. Feedback from people who
-  actually use a screen reader daily would be worth more than all of it.
+- **Real users.** Everything here is one developer testing their own library against a
+  screen reader they have only recently started using. That is necessary and it is not
+  sufficient, and the difference matters. Feedback from people who use a screen reader daily
+  would be worth more than all of it, and the issue tracker is open.
