@@ -8,6 +8,16 @@
       name="description"
       content="A WebGL delivery yard that a screen reader can actually navigate, built with @oskarasm/scene-narrator."
     />
+    <!--
+      Inlined rather than served as a file. A browser asks for /favicon.ico whether or not
+      one exists, and on a static host that is a 404 in the console of an accessibility
+      demo, which is a bad first impression and one that bench/demo-check.mjs correctly
+      refuses to ignore.
+    -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2312151c'/%3E%3Crect x='6' y='12' width='14' height='9' rx='2' fill='%235b8def'/%3E%3Crect x='19' y='14' width='7' height='7' rx='2' fill='%237aa7ff'/%3E%3Ccircle cx='11' cy='23' r='2.5' fill='%23e8ecf3'/%3E%3Ccircle cx='23' cy='23' r='2.5' fill='%23e8ecf3'/%3E%3C/svg%3E"
+    />
   </head>
   <body>
     <div id="root"></div>

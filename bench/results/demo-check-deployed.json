@@ -1,8 +1,10 @@
 {
-  "recordedAt": "2026-08-22T06:34:48.492Z",
-  "url": "http://127.0.0.1:58628/",
+  "recordedAt": "2026-08-22T06:33:21.990Z",
+  "url": "https://oskarasm.github.io/scene-narrator/",
   "browserVersion": "151.0.7922.34",
-  "pageErrors": [],
+  "pageErrors": [
+    "Failed to load resource: the server responded with a status of 404 ()"
+  ],
   "headings": [
     "scene-narrator demo",
     "Delivery yard",
@@ -15,7 +17,7 @@
   "canvasChildCount": 1,
   "liveRegionCount": 2,
   "pixels": {
-    "distinctColours": 25,
+    "distinctColours": 29,
     "size": [
       792,
       495
@@ -34,10 +36,10 @@
     " the scene is a set of headings. Move between them with your heading key, then press Enter on one to hear the vans inside it.",
     " vans, most of them moving. The 3D view below is a ",
     "with your heading key, then press Enter on one to hear the vans inside it.",
-    "5 vans, mostly parked, ahead and to your left, far away, including Van 1",
+    "6 vans, mostly parked, ahead, far away, including Van 1",
     "7 vans, mostly moving, ahead and to your left, some distance away",
-    "7 vans, mostly moving, ahead, far away",
-    "5 vans, mostly moving, ahead and to your right, some distance away"
+    "5 vans, mostly moving, ahead, far away",
+    "6 vans, mostly moving, ahead and to your right, some distance away"
   ],
   "axeViolations": []
 }

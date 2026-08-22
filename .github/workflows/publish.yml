@@ -1,0 +1,51 @@
+# Publishes the package to npm when a GitHub release is published.
+#
+# Publishing from CI rather than from a laptop is not ceremony here. It means the tarball on
+# npm is built by the same job that ran the tests, from a commit anyone can read, and
+# --provenance attaches a signed statement saying exactly which workflow run and which commit
+# produced it. For a package whose entire argument is "every number came from something you
+# can rerun", a publish nobody can trace would be the wrong way to ship it.
+#
+# Setup, once, and none of it needs `npm login`:
+#   1. npmjs.com -> Access Tokens -> Generate New Token -> Granular Access Token.
+#      Packages and scopes permission: Read and write. Scope it to @oskarasm.
+#   2. github.com/OskarasM/scene-narrator -> Settings -> Secrets and variables -> Actions
+#      -> New repository secret, named NPM_TOKEN.
+#   3. Cut a release: `gh release create v0.1.0 --generate-notes`.
+#
+# After the first publish, npm's trusted publishing can replace the token entirely: it is
+# configured on the package settings page, which only exists once the package does.
+name: Publish
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  # Required for --provenance. Without it the publish still works, silently, without the
+  # signed link back to this commit.
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - run: npm ci
+      # prepublishOnly runs the prose check, the build and the tests, so this is belt and
+      # braces. It is here anyway because a publish that fails after the version is gone
+      # from the registry's point of view is worse than one that fails early.
+      - run: npm run check:prose
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm test
+      - run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

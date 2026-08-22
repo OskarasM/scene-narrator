@@ -24,7 +24,7 @@ repository that you can run yourself. Nothing is estimated.
 that gives a moving Three.js scene a navigable accessibility tree without spending the frame
 budget on it.
 
-- Live demo: not deployed yet. Clone the repo, then `cd demo && npm install && npm run build && npx vite preview`
+- Live demo: <https://oskarasm.github.io/scene-narrator/>. Built from `demo/` on every push to main, so it is always the commit above.
 - `npm install @oskarasm/scene-narrator`
 - MIT, no runtime dependencies, `three` as a peer dependency, `react` and
   `@react-three/fiber` as optional peers for the React entry point.

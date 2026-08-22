@@ -10,6 +10,7 @@
 // screen reader at all. A clean axe run is a floor, not a result.
 //
 // Run: cd demo && npm run build && cd .. && node bench/demo-check.mjs
+// Or against the deployed demo: node bench/demo-check.mjs https://oskarasm.github.io/scene-narrator/
 
 import { createServer } from 'node:http'
 import { createReadStream } from 'node:fs'
@@ -47,7 +48,14 @@ function serveDist() {
   return new Promise((r) => server.listen(0, '127.0.0.1', () => r({ server, port: server.address().port })))
 }
 
-const { server, port } = await serveDist()
+// With no argument, serve and check the local build. With a URL, check whatever is
+// deployed there. The plan called for Playwright and axe against the deployed demo, and a
+// green deployment workflow is not the same claim as a working page: the build can succeed
+// and the site still 404 its assets under a base path, which is exactly the failure a
+// static host introduces and a local preview cannot show you.
+const target = process.argv[2]
+const { server, port } = target ? { server: null, port: null } : await serveDist()
+const url = target ?? `http://127.0.0.1:${port}/`
 
 const browser = await chromium.launch({
   headless: false,
@@ -64,10 +72,10 @@ page.on('console', (msg) => {
   if (msg.type() === 'error') errors.push(msg.text())
 })
 
-await page.goto(`http://127.0.0.1:${port}/`)
+await page.goto(url)
 // Long enough for WebGL to come up and several cadence windows to elapse, so the summaries
 // have been written at least once and probably rewritten.
-await page.waitForTimeout(4000)
+await page.waitForTimeout(target ? 8000 : 4000)
 
 // Did anything actually render? The accessibility tree can be perfect while the canvas is
 // blank, which is precisely the failure this library shipped once: a useFrame priority
@@ -190,6 +198,7 @@ try {
 
 const report = {
   recordedAt: new Date().toISOString(),
+  url,
   browserVersion: browser.version(),
   pageErrors: errors,
   headings,
@@ -202,12 +211,12 @@ const report = {
   axeViolations: axeResults,
 }
 
-await writeFile(resolve(ROOT, 'bench/results/demo-check.json'), JSON.stringify(report, null, 2), 'utf8')
+await writeFile(resolve(ROOT, target ? 'bench/results/demo-check-deployed.json' : 'bench/results/demo-check.json'), JSON.stringify(report, null, 2), 'utf8')
 
 console.log(JSON.stringify(report, null, 2))
 
 await browser.close()
-server.close()
+server?.close()
 
 // Fail loudly. A demo that silently stopped producing an accessibility tree would otherwise
 // keep passing this check forever.
