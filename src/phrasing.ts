@@ -163,7 +163,14 @@ export function summariseRegion(digest: Digest, options: PhrasingOptions): strin
 export function describeMember(member: Member, eye: Point, forward: Point): string {
   const parts = [member.descriptor.label]
   if (member.descriptor.role) parts.push(member.descriptor.role)
-  const state = member.descriptor.state?.()
+  let state = ''
+  try {
+    state = member.descriptor.state?.() ?? ''
+  } catch {
+    // Same reasoning as in digest.ts: an author callback throwing must not remove an object
+    // from the list a user is reading. It loses its state, not its existence.
+    state = ''
+  }
   if (state) parts.push(state)
   parts.push(BEARINGS[bearingSector(eye, forward, member.position)])
   parts.push(distancePhrase(distanceBand(distance(eye, member.position))))
