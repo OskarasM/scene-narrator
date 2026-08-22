@@ -13,8 +13,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Group, InstancedMesh, Object3D } from 'three'
-import { SceneNarrator, useDescribe, useNarrator } from '@oskarasm/scene-narrator/react'
-import type { Narrator, RegionSnapshot } from '@oskarasm/scene-narrator'
+import { SceneNarrator, useDescribe, useNarrator } from 'scene-narrator/react'
+import type { Narrator, RegionSnapshot } from 'scene-narrator'
 
 const VAN_COUNT = 24
 const YARD = 30

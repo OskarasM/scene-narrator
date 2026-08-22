@@ -10,7 +10,7 @@
 // screen reader at all. A clean axe run is a floor, not a result.
 //
 // Run: cd demo && npm run build && cd .. && node bench/demo-check.mjs
-// Or against the deployed demo: node bench/demo-check.mjs https://oskarasm.github.io/scene-narrator/
+// Or against the deployed demo: node bench/demo-check.mjs https://scene-narrator-inky.vercel.app/
 
 import { createServer } from 'node:http'
 import { createReadStream } from 'node:fs'

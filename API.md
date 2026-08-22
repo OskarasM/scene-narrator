@@ -81,7 +81,7 @@ is the better input, and `regions: 'auto'` is a default rather than the only pat
 Chosen.
 
 ```js
-import { createNarrator, describe } from '@oskarasm/scene-narrator'
+import { createNarrator, describe } from 'scene-narrator'
 
 describe(van, { label: 'Delivery van', role: 'vehicle' })
 

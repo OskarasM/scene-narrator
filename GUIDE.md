@@ -20,12 +20,12 @@ repository that you can run yourself. Nothing is estimated.
 
 ## 1. What this is
 
-[`@oskarasm/scene-narrator`](https://github.com/OskarasM/scene-narrator) is a small library
+[`scene-narrator`](https://github.com/OskarasM/scene-narrator) is a small library
 that gives a moving Three.js scene a navigable accessibility tree without spending the frame
 budget on it.
 
 - Live demo: <https://scene-narrator-inky.vercel.app/>. Built from `demo/` on every push to main, so it is always the commit above.
-- `npm install @oskarasm/scene-narrator`
+- `npm install scene-narrator`
 - MIT, no runtime dependencies, `three` as a peer dependency, `react` and
   `@react-three/fiber` as optional peers for the React entry point.
 
@@ -185,7 +185,7 @@ skipped.
 
 The strawman is one thing. What does this library actually cost?
 
-Arm E is `@oskarasm/scene-narrator` at its default 250ms cadence, mounted as canvas fallback
+Arm E is `scene-narrator` at its default 250ms cadence, mounted as canvas fallback
 content, measured on the same harness, the same hardware and the same run as the naive
 mirror it is being compared against. Chromium, `--force-renderer-accessibility`, p95 / p99
 frame time in milliseconds:

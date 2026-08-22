@@ -8,7 +8,7 @@
 #
 # Setup, once, and none of it needs `npm login`:
 #   1. npmjs.com -> Access Tokens -> Generate New Token -> Granular Access Token.
-#      Packages and scopes permission: Read and write. Scope it to @oskarasm.
+#      Packages and scopes permission: Read and write, All Packages.
 #   2. github.com/OskarasM/scene-narrator -> Settings -> Secrets and variables -> Actions
 #      -> New repository secret, named NPM_TOKEN.
 #   3. Cut a release: `gh release create v0.1.0 --generate-notes`.

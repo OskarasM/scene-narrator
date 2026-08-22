@@ -1,4 +1,4 @@
-# @oskarasm/scene-narrator
+# scene-narrator
 
 An accessibility layer for moving 3D scenes.
 
@@ -25,7 +25,7 @@ Verified with NVDA on Windows. **VoiceOver and JAWS are untested.**
 ## Install
 
 ```bash
-npm install @oskarasm/scene-narrator
+npm install scene-narrator
 ```
 
 `three` is a peer dependency. `react` and `@react-three/fiber` are optional peers, needed
@@ -35,7 +35,7 @@ only for the React entry point. There are no runtime dependencies.
 
 ```tsx
 import { Canvas } from '@react-three/fiber'
-import { SceneNarrator, useDescribe } from '@oskarasm/scene-narrator/react'
+import { SceneNarrator, useDescribe } from 'scene-narrator/react'
 
 function Van({ van }) {
   const ref = useRef<Mesh>(null)
@@ -63,7 +63,7 @@ R3F's store, and drives itself from `useFrame`.
 ## Use it with plain Three.js
 
 ```js
-import { createNarrator, describe } from '@oskarasm/scene-narrator'
+import { createNarrator, describe } from 'scene-narrator'
 
 describe(van, { label: 'Delivery van', role: 'vehicle' })
 

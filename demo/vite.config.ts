@@ -18,8 +18,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@oskarasm/scene-narrator/react': src('react.tsx'),
-      '@oskarasm/scene-narrator': src('index.ts'),
+      'scene-narrator/react': src('react.tsx'),
+      'scene-narrator': src('index.ts'),
     },
     // The aliases above point at source that lives outside this package, so its bare
     // `react` and `three` imports resolve against the repository root's node_modules while

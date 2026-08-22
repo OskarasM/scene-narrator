@@ -1,5 +1,5 @@
 {
-  "name": "@oskarasm/scene-narrator",
+  "name": "scene-narrator",
   "version": "0.1.0",
   "description": "An accessibility layer for moving 3D scenes",
   "license": "MIT",

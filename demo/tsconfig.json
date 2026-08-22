@@ -17,10 +17,10 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@oskarasm/scene-narrator/react": [
+      "scene-narrator/react": [
         "../src/react.tsx"
       ],
-      "@oskarasm/scene-narrator": [
+      "scene-narrator": [
         "../src/index.ts"
       ]
     }

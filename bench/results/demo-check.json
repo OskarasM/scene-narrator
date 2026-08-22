@@ -1,6 +1,6 @@
 {
-  "recordedAt": "2026-08-22T13:07:59.771Z",
-  "url": "http://127.0.0.1:62870/",
+  "recordedAt": "2026-08-22T15:37:12.293Z",
+  "url": "http://127.0.0.1:55024/",
   "browserVersion": "151.0.7922.34",
   "pageErrors": [],
   "headings": [
@@ -15,7 +15,7 @@
   "canvasChildCount": 1,
   "liveRegionCount": 2,
   "pixels": {
-    "distinctColours": 30,
+    "distinctColours": 25,
     "size": [
       792,
       495
