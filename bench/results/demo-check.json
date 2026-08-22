@@ -1,5 +1,5 @@
 {
-  "recordedAt": "2026-08-22T00:08:35.349Z",
+  "recordedAt": "2026-08-22T00:27:26.770Z",
   "browserVersion": "151.0.7922.34",
   "pageErrors": [],
   "headings": [
@@ -13,6 +13,13 @@
   "canvasNodeCount": 1,
   "canvasChildCount": 1,
   "liveRegionCount": 2,
+  "pixels": {
+    "distinctColours": 33,
+    "size": [
+      792,
+      495
+    ]
+  },
   "summarySamples": [
     " vans, most of them moving. The 3D view below is a single ",
     " the scene is a set of headings. Move between them with your heading key, then press Enter on one to hear the vans inside it.",

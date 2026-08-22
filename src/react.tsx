@@ -77,9 +77,19 @@ export function SceneNarrator({ mount = 'canvas', onFocusRegion, children, ...re
 
   useEffect(() => () => narrator.dispose(), [narrator])
 
-  // Priority 1 rather than 0, so the narrator reads positions after the frame's animation
-  // callbacks have written them. Reading a frame late would describe the previous frame.
-  useFrame(() => narrator.update(), 1)
+  // Default priority, and this must stay that way.
+  //
+  // Any useFrame subscription with a priority above 0 puts React Three Fiber into manual
+  // rendering mode: it stops calling gl.render() and expects the application to do it. A
+  // library that quietly took priority 1 would blank the canvas of every app that installed
+  // it, while its own accessibility tree carried on updating perfectly, so nothing would
+  // look broken except the entire 3D scene. That is exactly what happened here, and it is
+  // why bench/demo-check.mjs now samples the rendered pixels as well as the DOM.
+  //
+  // The cost of default priority is that the narrator may read object positions before some
+  // other useFrame callback has written them, describing the scene one frame late. At a
+  // cadence of 250ms that is not a difference anybody can perceive.
+  useFrame(() => narrator.update())
 
   return <NarratorContext.Provider value={narrator}>{children}</NarratorContext.Provider>
 }

@@ -24,10 +24,15 @@ import { SceneNarrator, useDescribe, useNarrator } from '../src/react.js'
  * of R3F's store so the assertions look in the place the DOM actually is.
  */
 let canvasElement: HTMLCanvasElement | null = null
+let renderPriority: number | null = null
 
 function CaptureCanvas() {
   const gl = useThree((s) => s.gl)
+  // R3F counts subscriptions with a priority above 0 here. Any non-zero value means the
+  // automatic render call has been switched off for the whole application.
+  const priority = useThree((s) => s.internal.priority)
   canvasElement = gl.domElement as HTMLCanvasElement
+  renderPriority = priority
   return null
 }
 
@@ -58,6 +63,7 @@ function findNarratorRoot(): HTMLElement | null {
 
 beforeEach(() => {
   canvasElement = null
+  renderPriority = null
   document.body.innerHTML = ''
 })
 
@@ -88,6 +94,32 @@ suite('<SceneNarrator>', () => {
     // Three boxes were described, so the summaries must mention boxes.
     expect(text).toMatch(/box/)
     expect(text).toMatch(/Test scene/)
+
+    await renderer.unmount()
+  })
+
+  /**
+   * The regression test for the worst bug this library has had.
+   *
+   * `useFrame(cb, 1)` puts R3F into manual rendering mode: it stops calling gl.render() and
+   * expects the application to do it. Installing this library therefore blanked the canvas
+   * of any app that used it, while the accessibility tree carried on updating perfectly, so
+   * every other test still passed and the demo looked like a styling problem.
+   */
+  it('does not switch React Three Fiber into manual rendering mode', async () => {
+    const renderer = await ReactThreeTestRenderer.create(
+      <>
+        <CaptureCanvas />
+        <SceneNarrator label="Rendering scene" cadence={0} />
+        <Box label="Only box" position={[0, 0, -10]} />
+      </>,
+    )
+    await renderer.advanceFrames(2, 100)
+
+    expect(
+      renderPriority,
+      'a non-zero render priority disables automatic rendering and blanks the canvas',
+    ).toBe(0)
 
     await renderer.unmount()
   })

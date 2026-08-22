@@ -69,6 +69,27 @@ await page.goto(`http://127.0.0.1:${port}/`)
 // have been written at least once and probably rewritten.
 await page.waitForTimeout(4000)
 
+// Did anything actually render? The accessibility tree can be perfect while the canvas is
+// blank, which is precisely the failure this library shipped once: a useFrame priority
+// above 0 switches R3F into manual rendering mode and nothing calls gl.render() any more.
+// Every DOM assertion below still passed while the 3D scene was completely invisible.
+const pixels = await page.evaluate(() => {
+  const canvas = document.querySelector('canvas')
+  if (!canvas) return { error: 'no canvas' }
+  // The WebGL drawing buffer is cleared after presentation unless preserveDrawingBuffer is
+  // set, so copy through a 2D context instead of reading the GL buffer.
+  const off = document.createElement('canvas')
+  off.width = canvas.width
+  off.height = canvas.height
+  off.getContext('2d').drawImage(canvas, 0, 0)
+  const data = off.getContext('2d').getImageData(0, 0, off.width, off.height).data
+  const seen = new Set()
+  for (let i = 0; i < data.length; i += 4 * 97) {
+    seen.add(`${data[i]},${data[i + 1]},${data[i + 2]},${data[i + 3]}`)
+  }
+  return { distinctColours: seen.size, size: [canvas.width, canvas.height] }
+})
+
 const { nodes } = await session.send('Accessibility.getFullAXTree')
 
 const headings = nodes
@@ -114,6 +135,7 @@ const report = {
   canvasNodeCount: canvasNodes.length,
   canvasChildCount: canvasNodes[0]?.childIds?.length ?? 0,
   liveRegionCount: liveRegions.length,
+  pixels,
   summarySamples: summaries.slice(0, 8),
   axeViolations: axeResults,
 }
@@ -131,6 +153,11 @@ const failures = []
 if (headings.length < 2) failures.push('fewer than 2 headings in the accessibility tree')
 if (summaries.length === 0) failures.push('no region summary found in the accessibility tree')
 if (liveRegions.length === 0) failures.push('no live region found')
+// A scene that rendered has a sky, a ground and some geometry, so several distinct colours.
+// One colour means a blank canvas, whatever the accessibility tree says.
+if (!pixels.distinctColours || pixels.distinctColours < 3) {
+  failures.push(`canvas rendered ${pixels.distinctColours ?? 0} distinct colour(s): the 3D scene is blank`)
+}
 if (errors.length > 0) failures.push(`${errors.length} page error(s)`)
 if (Array.isArray(axeResults) && axeResults.length > 0) {
   failures.push(`${axeResults.length} axe violation(s)`)

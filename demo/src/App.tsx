@@ -155,7 +155,15 @@ export default function App() {
             accurate and useless: the demo exists to be listened to, and a demo where every
             area sounds identical demonstrates nothing.
           */}
-          <Canvas camera={{ position: [0, 16, 26], fov: 55 }}>
+          <Canvas
+            camera={{ position: [0, 16, 26], fov: 55 }}
+            // preserveDrawingBuffer makes the rendered frame readable after it has been
+            // presented, which is what lets bench/demo-check.mjs assert that the 3D scene
+            // is not blank. Without it the drawing buffer is cleared on present and any
+            // pixel read comes back transparent whether the scene rendered or not, which is
+            // how a completely blank canvas passed every check this project had.
+            gl={{ preserveDrawingBuffer: true }}
+          >
             <ambientLight intensity={0.7} />
             <directionalLight position={[10, 20, 8]} intensity={1.1} />
             <Yard vans={vans} />
