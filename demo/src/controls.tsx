@@ -88,7 +88,15 @@ export function Controls() {
           nothing. This uses the same public call an application would:
           narrator.focusRegion(id).
         */}
-        <button className="button button-accent" type="button" onClick={focusScene}>
+        {/* The enter-scene class is a contract, not styling: bench/demo-check.mjs
+            clicks this button by that name to prove the path works in a real
+            browser. Renaming it silently would leave that check green while it
+            tested nothing. */}
+        <button
+          className="button button-accent enter-scene"
+          type="button"
+          onClick={focusScene}
+        >
           Put focus in the scene
         </button>
       </div>

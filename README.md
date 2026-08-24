@@ -12,13 +12,29 @@ This library groups the scene into a handful of areas, gives each one a real hea
 spoken summary, and rewrites that summary only when the meaning of the area changes rather
 than when a pixel does.
 
-- **Live demo**: <https://scene-narrator-inky.vercel.app/>. Built from `demo/` on every push to main, so it is always the commit above.
+- **Live demo**: <https://scene-narrator-inky.vercel.app/>. Three scenes, live controls, and
+  a running transcript of every sentence the library writes. Built from `demo/` on every
+  push to main, so it is always the commit above.
 - **The measurements**: [SPIKE.md](SPIKE.md)
 - **The full write-up**: [GUIDE.md](GUIDE.md)
 - **NVDA transcripts**: [NVDA.md](NVDA.md)
 - **API design and the alternatives considered**: [API.md](API.md)
 
 Verified with NVDA on Windows. **VoiceOver and JAWS are untested.**
+
+### What the demo is for
+
+Three scenes, because one scene only makes one argument.
+
+| Scene | Objects | Regions | What it shows |
+|---|---|---|---|
+| Delivery yard | 24 | automatic | Continuous motion with real structure to group by. The shape this was designed against. |
+| Product configurator | 6 | author-defined | The case an audit turns up, where speed is not the problem and telling the user what they selected is. |
+| Particle field | 4,000 | automatic | Eight times the object count at which the spike measured a per-object mirror crossing the frame budget. |
+
+Cadence, target region count and the scene are live controls passing the same arguments an
+application passes to `createNarrator`. The cost readouts are counted off the running
+narrator once a second, and the sixty-second series downloads as JSON or CSV.
 
 ---
 
@@ -232,10 +248,22 @@ npm run build
 npm run check:prose
 npm run bench         # headed, about 25 minutes
 
+npm run check:fonts   # the demo's self-hosted faces, against a 150 kB ceiling
+npm run bench:partition  # grouping and phrasing cost at 24, 400 and 4,000 objects
+
 # Real browser, real accessibility tree, real key presses, plus axe.
 cd demo && npm install && npm run build && cd ..
 node bench/demo-check.mjs                                        # the local build
 node bench/demo-check.mjs https://scene-narrator-inky.vercel.app/    # what is deployed
+
+# The site suite: axe at WCAG 2 A and AA, the skip link, 44px targets at 375px,
+# no horizontal overflow at four widths, the typefaces actually loading, and the
+# page holding its layout with no WebGL context at all. Three engines.
+cd demo && npx playwright install chromium firefox webkit && npm run test:browser
 ```
+
+[CONTRIBUTING.md](CONTRIBUTING.md) has the rules that matter: what a change to the
+accessibility tree has to prove, and why no number goes in a document without a committed
+script behind it.
 
 MIT.

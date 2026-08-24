@@ -12,6 +12,21 @@ said.
 untested. That is stated as a limit wherever it is relevant and never softened into "should
 work".
 
+**Recorded against the demo as it stood on the date below, and the page around the scene
+has been rewritten since.** The transcripts cover the scene itself, which is this library's
+own output and has not changed: the region, its areas, their headings, their summaries and
+the live region are all still exactly what is quoted here. What has changed is the page
+those lines sat in. The old demo had one h1 reading "scene-narrator demo" and three
+paragraphs of instructions; the current one is a full site with a header, a navigation bar
+and eight sections, so the lines below that quote page furniture are not what a reader hears
+today.
+
+Re-recording needs Windows, an NVDA installation and an unattended machine that nothing else
+is going to steal focus from, which is the same reason this suite is not in CI. Until that
+run happens, this file is labelled as covering the previous page rather than quietly left to
+imply otherwise. The parts that matter, and the parts every claim in the README rests on,
+are the scene lines, and those are current.
+
 ## Environment
 
 | | |

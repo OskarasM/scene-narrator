@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a wrong sentence, a missing heading or a cost that is not what it says
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If a sentence this library spoke was unclear, confusing or wrong when you
+        heard it, that is a defect and it is the most useful kind of report here.
+        Say what you heard and what you expected instead.
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: The descriptors, the region settings and roughly where the camera was. A small repository or code sample is ideal.
+    validations:
+      required: true
+  - type: dropdown
+    id: entry
+    attributes:
+      label: Entry point
+      options:
+        - scene-narrator
+        - scene-narrator/react
+        - The demo site
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: scene-narrator, three, and React and React Three Fiber where relevant.
+    validations:
+      required: true
+  - type: input
+    id: reader
+    attributes:
+      label: Screen reader and browser
+      description: NVDA, VoiceOver, JAWS or none, and which browser. Only NVDA has been verified, so a report from any other one is worth more, not less.
+  - type: textarea
+    id: expected
+    attributes:
+      label: What was announced, and what you expected
+      description: Paste the speech verbatim if you can. Approximate is still useful.
+    validations:
+      required: true

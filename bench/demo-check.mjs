@@ -111,9 +111,12 @@ const keyboard = await (async () => {
       return section ? section.dataset.narratorRegion : null
     })
 
-  // Tab until focus lands inside the scene, giving up rather than looping forever.
+  // Tab until focus lands inside the scene, giving up rather than looping
+  // forever. The budget is generous because the page now has a real header: a
+  // skip link, five section links and a source link all come before the scene,
+  // which is correct reading order and eight tab stops.
   let entered = null
-  for (let i = 0; i < 12 && !entered; i++) {
+  for (let i = 0; i < 24 && !entered; i++) {
     await page.keyboard.press('Tab')
     entered = await region()
   }
