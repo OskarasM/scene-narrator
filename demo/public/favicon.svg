@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Explicit colours, not currentColor: an SVG used as a favicon has no
+       inheriting page to take a colour from, so currentColor resolves to black
+       and the mark stops being this project's mark. -->
+  <rect width="64" height="64" fill="#faf8f4"/>
+  <!-- A described object, and what it says, travelling outward. The same core
+       three-dispose-guard holds inside its rings, with the rings opened. The
+       mark sits right of the geometric centre so it reads optically centred,
+       since all of its mass is on one side. -->
+  <g fill="none" stroke="#a4531c" stroke-width="4" stroke-linecap="butt">
+    <path d="M 26 7 A 25 25 0 0 1 26 57"/>
+    <path d="M 30 19 A 13 13 0 0 1 30 45"/>
+  </g>
+  <circle cx="18" cy="32" r="5" fill="#a4531c"/>
+</svg>

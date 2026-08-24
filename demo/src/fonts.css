@@ -1,0 +1,79 @@
+/* Self-hosted, latin-subset, variable where the design uses an axis.
+   Not loaded from a font CDN: a UK portfolio hitting a third-party font host
+   transmits every visitor's IP address to it, which is a strange position for
+   an accessibility project to take, and the shared-cache argument that used to
+   justify it died with cache partitioning.
+
+   Licences ship beside the files in /fonts. Every face is SIL OFL 1.1.
+   Subsetting: latin plus the punctuation this site actually sets, axes clamped
+   to the ranges used. See scripts/check-font-budget.mjs for the ceiling. */
+
+/* Chrome and code. Static, because chrome only ever sets two weights. */
+@font-face {
+  font-family: "Commit Mono";
+  src: url("/fonts/commit-mono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Commit Mono";
+  src: url("/fonts/commit-mono-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Body. Atkinson Hyperlegible Next is the Braille Institute's legibility face,
+   drawn so that characters which usually collide (I l 1, O 0, c e) stay
+   distinct. On this site of the three that is an argument rather than a
+   decoration. */
+@font-face {
+  font-family: "Atkinson Next";
+  src: url("/fonts/atkinson-next-var.woff2") format("woff2-variations");
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Display. A reading serif, used at reading size for most of the page: the
+   only place it is set large is the sentence the library itself wrote. Upright
+   throughout. There is no italic file here, so nothing can accidentally set
+   one and get a synthesised slant. */
+@font-face {
+  font-family: "Literata";
+  src: url("/fonts/literata-var.woff2") format("woff2-variations");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Metric-matched fallbacks, so the swap does not shift layout.
+   size-adjust is each face's OS/2 xAvgCharWidth over its fallback's, and the
+   overrides are that face's own hhea metrics divided back through it, so the
+   scaled fallback ends up with the real face's line box. Computed from the
+   font binaries with fontTools, not estimated. */
+@font-face {
+  font-family: "Commit Mono Fallback";
+  src: local("Consolas"), local("Menlo"), local("DejaVu Sans Mono");
+  size-adjust: 109.13%;
+  ascent-override: 82.47%;
+  descent-override: 18.33%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Atkinson Next Fallback";
+  src: local("Arial"), local("Helvetica Neue"), local("Liberation Sans");
+  size-adjust: 118.03%;
+  ascent-override: 83.37%;
+  descent-override: 26.77%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Literata Fallback";
+  src: local("Georgia"), local("Times New Roman"), local("Liberation Serif");
+  size-adjust: 129.11%;
+  ascent-override: 91.16%;
+  descent-override: 23.86%;
+  line-gap-override: 0%;
+}

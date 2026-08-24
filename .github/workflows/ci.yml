@@ -38,6 +38,34 @@ jobs:
       - run: npm run build
         working-directory: demo
 
+  # The site suite: axe against WCAG 2 A and AA, the skip link, the focus ring,
+  # 44px targets at 375px, no horizontal overflow at four widths, the self
+  # hosted faces actually loading, and the whole page holding its layout with
+  # no WebGL context at all. Three engines, because a headless runner exercises
+  # paths a desktop browser never does. This is a separate job from `demo` so a
+  # build failure and an accessibility failure are told apart at a glance.
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm ci
+        working-directory: demo
+      - run: npx playwright install --with-deps chromium firefox webkit
+        working-directory: demo
+      - run: npm run test:browser
+        working-directory: demo
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: demo/playwright-report
+          retention-days: 7
+
   prose:
     runs-on: ubuntu-latest
     steps:
@@ -48,3 +76,6 @@ jobs:
       # Plain ASCII and British English. See scripts/check-prose.mjs for why the rule set
       # is deliberately narrow.
       - run: node scripts/check-prose.mjs
+      # Self hosting type means the page owns its own weight, so there is a
+      # ceiling on it and the ceiling is checked rather than remembered.
+      - run: node scripts/check-font-budget.mjs

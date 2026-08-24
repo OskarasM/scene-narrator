@@ -6,3 +6,6 @@ bench/results/*.raw.json
 test-results/
 playwright-report/
 demo/dist/
+playwright-report/
+demo/playwright-report/
+demo/test-results/

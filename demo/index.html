@@ -1,25 +1,50 @@
 <!doctype html>
 <html lang="en-GB">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>scene-narrator demo: an accessible moving 3D scene</title>
+    <meta name="theme-color" content="#faf8f4" />
+    <meta name="color-scheme" content="light" />
+
+    <title>scene-narrator: an accessibility layer for moving 3D scenes</title>
     <meta
       name="description"
-      content="A WebGL delivery yard that a screen reader can actually navigate, built with scene-narrator."
+      content="A canvas contributes nothing to the accessibility tree, and one hidden node per object is unusable before it is slow. This groups a moving 3D scene into a handful of named areas and rewrites each one only when its meaning changes. Verified with NVDA."
     />
-    <!--
-      Inlined rather than served as a file. A browser asks for /favicon.ico whether or not
-      one exists, and on a static host that is a 404 in the console of an accessibility
-      demo, which is a bad first impression and one that bench/demo-check.mjs correctly
-      refuses to ignore.
-    -->
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2312151c'/%3E%3Crect x='6' y='12' width='14' height='9' rx='2' fill='%235b8def'/%3E%3Crect x='19' y='14' width='7' height='7' rx='2' fill='%237aa7ff'/%3E%3Ccircle cx='11' cy='23' r='2.5' fill='%23e8ecf3'/%3E%3Ccircle cx='23' cy='23' r='2.5' fill='%23e8ecf3'/%3E%3C/svg%3E"
+    <link rel="canonical" href="https://scene-narrator-inky.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scene-narrator-inky.vercel.app/" />
+    <meta property="og:site_name" content="scene-narrator" />
+    <meta property="og:title" content="scene-narrator: an accessibility layer for moving 3D scenes" />
+    <meta
+      property="og:description"
+      content="Words, not coordinates. Listen to a moving WebGL scene describe itself, read every line it wrote, and check the frame times against a naive mirror."
     />
+    <meta property="og:image" content="https://scene-narrator-inky.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="scene-narrator, an accessibility layer for moving 3D scenes built with Three.js and React Three Fiber."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- The full set, all generated from favicon.svg by scripts/render-icons.mjs
+         so no size can drift from the others. -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/icon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Only the display face is preloaded: it sets the sentence the library
+         wrote, which is the largest text above the fold and the swap a visitor
+         actually sees. Body and chrome arrive with the stylesheet, and their
+         metric-matched fallbacks hold the layout still in the meantime. -->
+    <link rel="preload" href="/fonts/literata-var.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

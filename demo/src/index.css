@@ -1,0 +1,1095 @@
+/* This site's own stylesheet.
+ *
+ * tokens.css carries the values, chrome.css carries the pieces the three sites
+ * share, and everything below is the part that only makes sense here: the
+ * transcript rail, the annotation margin, the scene, and the four readouts.
+ *
+ * Loaded after chrome.css so this file can override it.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+figcaption,
+dl,
+dd,
+ul,
+ol,
+pre {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Chrome is not underlined and prose is. A page whose header, nav and footer
+   are all underlined reads as a document from 1996; a sentence whose link is
+   not underlined fails 1.4.1, because colour is then the only signal. */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* One focus treatment, everywhere, and it is never removed. Two pixels of
+   accent at four pixels of offset clears every surface on this page.
+
+   This one matters more here than on the sibling sites. The element that
+   actually holds focus in the scene lives inside the canvas as fallback
+   content and is visually hidden, so it can never show a ring of its own:
+   outlining it would outline nothing anybody can see. That is a WCAG 2.4.7
+   failure waiting to happen in any application using this library, and the
+   answer is to indicate focus on the thing the user can see. See .viewport
+   below, and the onFocusRegion callback that drives it. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+canvas {
+  display: block;
+  touch-action: none;
+}
+
+code,
+.mono {
+  font-family: var(--font-chrome);
+  font-size: 0.9em;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.14;
+  letter-spacing: var(--track-display);
+}
+
+h1 {
+  font-size: var(--step-4);
+  font-weight: 700;
+  max-width: 17ch;
+}
+
+h2 {
+  font-size: var(--step-3);
+  font-weight: 700;
+  max-width: 20ch;
+}
+
+h3 {
+  font-size: var(--step-1);
+  font-weight: 600;
+}
+
+q {
+  quotes: '"' '"' "'" "'";
+}
+
+.site-header,
+.site-footer {
+  width: var(--container);
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   The transcript rail
+   -------------------------------------------------------------------------- */
+
+/* The device. A fixed timestamp column on the left and an annotation margin on
+   the right, both ruled with one hairline that runs the whole page rather than
+   restarting at each section. There are deliberately no horizontal dividers
+   between sections: the three sites share a token schema and a hairline rule,
+   and if hue were the only thing separating them they would be the same site.
+   In greyscale this one has to read as a ruled column of text with a hard left
+   rail, where three-dispose-guard reads as a grid and realtime-3d-room reads
+   as horizontal rules with marks on them. */
+.line-shell {
+  width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: var(--rail) minmax(0, 1fr) var(--margin-note);
+  align-items: stretch;
+}
+
+.stamp {
+  border-right: 1px solid var(--line);
+  padding-top: var(--pad-section);
+}
+
+/* The stamp follows you down its own section, which is what makes the rail
+   read as a timeline rather than a list of labels. */
+.stamp .section-number {
+  display: block;
+  position: sticky;
+  top: 24px;
+  padding-right: var(--gutter);
+  text-align: right;
+  color: var(--accent);
+}
+
+.line-body {
+  position: relative;
+  min-width: 0;
+  padding: var(--pad-section) 40px var(--pad-section) 40px;
+}
+
+/* One tick, crossing from the rail into the body at the stamp's own line. */
+.line-body::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: calc(var(--pad-section) + 9px);
+  width: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.margin-note {
+  border-left: 1px solid var(--line);
+  padding: var(--pad-section) 0 var(--pad-section) var(--gutter);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.margin-note p + p {
+  margin-top: var(--gutter);
+}
+
+.margin-note .eyebrow {
+  margin-bottom: var(--gutter);
+}
+
+/* Stacked, not the two-column arrangement chrome.css defaults to: this page
+   is read rather than scanned, and a lede beside a heading is a scanning
+   layout. */
+.section-heading {
+  display: block;
+  margin-bottom: 40px;
+}
+
+.section-heading > p {
+  margin-top: 20px;
+  max-width: 68ch;
+  font-size: var(--step-1);
+  color: var(--muted);
+}
+
+.eyebrow {
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   00:00, the scene
+   -------------------------------------------------------------------------- */
+
+.line-stage .eyebrow {
+  margin-bottom: 24px;
+}
+
+.lede {
+  margin: 24px 0 40px;
+  max-width: 68ch;
+  font-size: var(--step-1);
+  color: var(--muted);
+}
+
+.lede a,
+.prose a,
+.source-line a,
+.margin-note a,
+.transcript-foot a,
+.limits a,
+.downloads a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* The margin readout. Two fixed rows, so the panel does not change height
+   every time an area takes focus. */
+.readout dl {
+  margin-top: var(--gutter);
+  border-top: 1px solid var(--line);
+}
+
+.readout dl > div {
+  min-height: 34px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+
+.readout dt {
+  font-family: var(--font-chrome);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.readout dd {
+  min-width: 0;
+  font-family: var(--font-chrome);
+  font-size: 11px;
+  color: var(--ink);
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.readout-summary {
+  margin-top: var(--gutter);
+  color: var(--accent);
+  font-size: var(--step-0);
+}
+
+.readout-meta {
+  margin-top: var(--gutter);
+}
+
+.viewport {
+  /* Aspect ratio and nothing else. A min-height here combines with the ratio
+     to force a minimum WIDTH, which on a 360px screen made the canvas 569px
+     wide and pushed the whole document sideways. */
+  aspect-ratio: 16 / 9;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+/* Focus, made visible on the thing that can be seen. See the note at the top
+   of this file: the focused element is inside the canvas and invisible. */
+.viewport-focused {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.viewport-refused {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--gutter);
+  padding: var(--gap-prose);
+}
+
+.viewport-refused h2 {
+  font-size: var(--step-2);
+  max-width: none;
+}
+
+.viewport-refused p {
+  max-width: 60ch;
+  color: var(--muted);
+}
+
+/* The one voice moment on this site. It is set at display size and it is not
+   written by me: it is the string the library last put into the accessibility
+   tree, verbatim. The loudest text on the page being machine output is the
+   move a template would never make. */
+.spoken {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.spoken-line {
+  margin-top: var(--gutter);
+  font-family: var(--font-display);
+  font-size: var(--step-5);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: var(--track-display);
+  /* Two lines of the longest sentence this library produces, measured against
+     the real face rather than guessed, so the block below it does not move
+     every time an area changes. */
+  min-height: 2.4em;
+  max-width: 24ch;
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   The instrument strip
+   -------------------------------------------------------------------------- */
+
+.controls {
+  margin-top: 40px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.scene-picker {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.scene-tab {
+  min-height: var(--row-sm);
+  flex: 1 1 180px;
+  display: flex;
+  align-items: baseline;
+  gap: var(--gutter);
+  padding: 0 var(--pad-panel);
+  border: 0;
+  border-right: 1px solid var(--line);
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-chrome);
+  font-size: 12px;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--t) var(--ease), background-color var(--t) var(--ease);
+}
+
+.scene-tab:last-child {
+  border-right: 0;
+}
+
+.scene-tab span {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--dim);
+}
+
+.scene-tab:hover {
+  color: var(--ink);
+  background: var(--accent-wash);
+}
+
+.scene-tab[aria-pressed='true'] {
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+.scene-tab[aria-pressed='true'] span {
+  color: var(--accent-ink);
+}
+
+.dials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--line);
+}
+
+.dial {
+  min-height: var(--row-lg);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--gutter);
+  padding: var(--pad-panel);
+  border-right: 1px solid var(--line);
+}
+
+.dial:last-child {
+  border-right: 0;
+}
+
+.dial label,
+.dial output {
+  font-family: var(--font-chrome);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+}
+
+.dial output {
+  min-width: 5ch;
+  text-align: right;
+  color: var(--accent);
+}
+
+.dial input[type='range'] {
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.dial-hint {
+  grid-column: 1 / -1;
+  font-size: var(--step-0);
+  color: var(--muted);
+}
+
+.dial.is-disabled {
+  color: var(--dim);
+}
+
+.dial.is-disabled output {
+  color: var(--dim);
+}
+
+.control-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter);
+  padding: var(--pad-panel);
+}
+
+.control-note {
+  padding: 0 var(--pad-panel) var(--pad-panel);
+  font-size: var(--step-0);
+  color: var(--muted);
+}
+
+.button-quiet {
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--ground);
+}
+
+.button-quiet:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.button-accent {
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   Prose, source lines, the pipeline
+   -------------------------------------------------------------------------- */
+
+.prose {
+  max-width: 68ch;
+}
+
+.prose p + p {
+  margin-top: 24px;
+}
+
+.block-heading {
+  margin: var(--gap-prose) 0 20px;
+}
+
+/* The first block in a section already has the heading's own margin above it. */
+.section-heading + .block-heading {
+  margin-top: 0;
+  font-family: var(--font-chrome);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.source-line {
+  margin-top: 24px;
+  max-width: 68ch;
+  font-size: var(--step-0);
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.pipeline {
+  margin-top: 40px;
+  border: 1px solid var(--line);
+  border-bottom: 0;
+}
+
+.pipeline li {
+  min-height: var(--row-lg);
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 160px 150px;
+  align-items: baseline;
+  gap: var(--gutter);
+  padding: 20px var(--pad-panel);
+  border-bottom: 1px solid var(--line);
+}
+
+.pipeline h3 {
+  font-size: var(--step-1);
+}
+
+.pipeline p {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: var(--step-0);
+}
+
+.pipeline-index,
+.pipeline-cost,
+.pipeline-file {
+  font-family: var(--font-chrome);
+  font-size: 11px;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+}
+
+.pipeline-index {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.pipeline-cost {
+  color: var(--muted);
+}
+
+.pipeline-file,
+a.pipeline-file {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--accent);
+  text-transform: none;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+/* --------------------------------------------------------------------------
+   The strip. Punctuation, used exactly once.
+   -------------------------------------------------------------------------- */
+
+.strip {
+  padding: var(--gap-prose) 0;
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.strip p {
+  width: var(--container);
+  margin-inline: auto;
+  padding-left: calc(var(--rail) + 40px);
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  letter-spacing: var(--track-display);
+}
+
+/* --------------------------------------------------------------------------
+   00:11, the transcript
+   -------------------------------------------------------------------------- */
+
+.transcript {
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.transcript-head,
+.transcript-foot {
+  min-height: var(--row-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gutter);
+  padding: var(--pad-panel);
+  font-family: var(--font-chrome);
+  font-size: 11px;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.transcript-head {
+  border-bottom: 1px solid var(--line);
+}
+
+.transcript-count {
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.transcript-body {
+  height: 420px;
+  overflow-y: auto;
+  background: var(--ground);
+}
+
+/* Fixed row height, so a live list holds its grid instead of reflowing every
+   time a sentence gets a word longer. Every column that can overflow has a
+   min-width of zero and an ellipsis, or the row grows anyway. */
+.transcript-body li {
+  min-height: var(--row-md);
+  display: grid;
+  grid-template-columns: 62px 215px minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--gutter);
+  padding: var(--gutter) var(--pad-panel);
+  border-bottom: 1px solid var(--line);
+}
+
+.transcript-at,
+.transcript-heading {
+  font-family: var(--font-chrome);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.transcript-text {
+  min-width: 0;
+  font-size: var(--step-0);
+  overflow-wrap: anywhere;
+}
+
+.transcript-body .is-announcement .transcript-text {
+  color: var(--accent);
+}
+
+/* Never colour alone: the announcement rows are also the only ones with a
+   rule down their left edge. */
+.transcript-body .is-announcement {
+  border-left: 2px solid var(--accent);
+}
+
+.transcript-empty .transcript-text {
+  color: var(--muted);
+}
+
+.transcript-foot {
+  border-top: 1px solid var(--line);
+  text-transform: none;
+  letter-spacing: 0;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+}
+
+.transcript-foot p {
+  max-width: 68ch;
+}
+
+/* --------------------------------------------------------------------------
+   00:19, the cost
+   -------------------------------------------------------------------------- */
+
+.readouts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.readout-cell {
+  min-height: var(--row-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: var(--pad-panel);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.readout-cell dt {
+  font-family: var(--font-chrome);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.readout-cell dd {
+  font-family: var(--font-chrome);
+  font-size: var(--step-2);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.readout-cell.is-accent dd {
+  color: var(--accent);
+}
+
+.readout-cell.is-warn dd {
+  color: var(--warn);
+}
+
+.sparkline {
+  margin-top: 40px;
+  border: 1px solid var(--line);
+  padding: var(--pad-panel);
+}
+
+.sparkline svg {
+  width: 100%;
+  height: 120px;
+  margin-top: var(--gutter);
+  display: block;
+  background: var(--panel);
+}
+
+.sparkline-table {
+  margin-top: var(--gutter);
+  font-size: var(--step-0);
+}
+
+.sparkline-table summary {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-chrome);
+  font-size: 11px;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.downloads {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gutter);
+  padding: var(--pad-panel);
+  border: 1px solid var(--line);
+}
+
+.downloads p {
+  max-width: 56ch;
+  font-size: var(--step-0);
+  color: var(--muted);
+}
+
+.download-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gutter);
+}
+
+/* --------------------------------------------------------------------------
+   Tables
+   -------------------------------------------------------------------------- */
+
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step-0);
+}
+
+.data-table th,
+.data-table td {
+  height: var(--row-sm);
+  padding: var(--gutter) var(--pad-panel);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.data-table thead th {
+  font-family: var(--font-chrome);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.data-table tbody th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.data-table tbody tr:last-child th,
+.data-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.data-table .num {
+  font-family: var(--font-chrome);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.data-table .series-a {
+  color: var(--series-a);
+}
+
+.data-table .series-b {
+  color: var(--series-b);
+}
+
+.matrix-note {
+  min-width: 26ch;
+  color: var(--muted);
+}
+
+.verdict {
+  display: inline-block;
+  padding: 3px 8px;
+  font-family: var(--font-chrome);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: var(--track-chrome);
+  white-space: nowrap;
+}
+
+.verdict.is-pass {
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+
+.verdict.is-unverified {
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+/* --------------------------------------------------------------------------
+   00:26, the transcripts, and 00:33, the code
+   -------------------------------------------------------------------------- */
+
+.transcripts {
+  display: grid;
+  gap: 40px;
+}
+
+/* A grid item defaults to min-width: auto, which means it refuses to shrink
+   below its content. A pre full of screen reader output is very wide content,
+   so without this the whole document goes sideways on a phone rather than the
+   pre scrolling inside its own box. */
+.transcripts figure {
+  min-width: 0;
+}
+
+.transcripts figcaption {
+  margin-bottom: var(--gutter);
+}
+
+pre {
+  overflow-x: auto;
+  padding: var(--pad-panel);
+  border: 1px solid var(--line);
+  background: var(--panel);
+  font-family: var(--font-chrome);
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre;
+  tab-size: 2;
+}
+
+.cards {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+  gap: var(--gutter);
+}
+
+.quickstart-code {
+  min-width: 0;
+  border: 1px solid var(--line);
+}
+
+.quickstart-code pre {
+  border: 0;
+  background: var(--ground);
+}
+
+/* --------------------------------------------------------------------------
+   00:38, the limits
+   -------------------------------------------------------------------------- */
+
+.limits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.limits li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gutter);
+  padding: var(--pad-panel);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.limits p {
+  color: var(--muted);
+  font-size: var(--step-0);
+}
+
+/* --------------------------------------------------------------------------
+   The closing band
+   -------------------------------------------------------------------------- */
+
+.cta {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.cta-shell {
+  width: var(--container);
+  margin-inline: auto;
+  padding: var(--gap-prose) 0 var(--gap-prose) calc(var(--rail) + 40px);
+}
+
+.cta-kicker {
+  font-family: var(--font-chrome);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.cta h2 {
+  margin: 20px 0 32px;
+  max-width: 24ch;
+}
+
+/* --------------------------------------------------------------------------
+   Narrow
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1080px) {
+  /* The annotation margin is the first thing to go: it is annotation, so
+     nothing the argument needs has ever been allowed to live only there. */
+  .line-shell {
+    grid-template-columns: var(--rail) minmax(0, 1fr);
+  }
+
+  .margin-note {
+    grid-column: 2;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    margin-bottom: var(--pad-section);
+    padding: 20px 0 0 0;
+  }
+
+  .line-body {
+    padding-bottom: 40px;
+  }
+}
+
+/* The header carries a brand, five section links and a source link, which is
+   more than fits across a phone. The nav drops to its own full-width row and
+   scrolls, rather than being hidden: the sections are the page. */
+@media (max-width: 900px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+    padding-bottom: 8px;
+  }
+
+  .site-header nav {
+    grid-column: 1 / -1;
+    gap: 20px;
+    overflow-x: auto;
+    border-top: 1px solid var(--line);
+  }
+
+  .site-header nav a {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --rail: 0px;
+  }
+
+  .line-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* With no column to stand in, the stamp becomes the first line of the
+     section rather than disappearing. It is the page's structural device, so
+     losing it on a phone would lose the structure with it. */
+  .stamp {
+    border-right: 0;
+    padding-top: var(--pad-section);
+  }
+
+  .stamp .section-number {
+    position: static;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .line-body {
+    padding: 20px 0 40px;
+  }
+
+  .line-body::before {
+    display: none;
+  }
+
+  .margin-note {
+    grid-column: 1;
+  }
+
+  .strip p,
+  .cta-shell {
+    padding-left: 0;
+  }
+
+  .dials,
+  .readouts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dial {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pipeline li {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+
+  .pipeline-cost,
+  .pipeline-file {
+    grid-column: 2;
+  }
+
+  .transcript-body li {
+    grid-template-columns: 54px minmax(0, 1fr);
+  }
+
+  .transcript-heading {
+    grid-column: 2;
+  }
+
+  .transcript-text {
+    grid-column: 2;
+  }
+}

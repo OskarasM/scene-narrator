@@ -1,0 +1,119 @@
+/* The instrument contract: shared token schema.
+   The same variable NAMES appear in three-dispose-guard and realtime-3d-room
+   with different values, so the three stylesheets are structurally identical
+   and a component can be lifted between them without rewiring. Copied into
+   each repo rather than published as a package: three copies of one small file
+   are cheaper than one package plus three build wirings. Revisit at four. */
+
+:root {
+  color-scheme: light;
+
+  /* Surface. Every division on the page is one hairline of --line. This is the
+     only one of the three sites that reads dark-on-light, which is deliberate:
+     the argument here is made in sentences, and a page of sentences is read
+     more often than it is glanced at. */
+  --ground: #faf8f4;
+  --panel: #f2eee6;
+  --panel-raised: #eae4d8;
+  --line: #ddd6c8;
+
+  /* Ink. Every value below is measured against --ground and --panel rather
+     than eyeballed: 17.6:1, 6.5:1 and 5.3:1 respectively. An accessibility
+     project that failed a contrast check would be its own worst advertisement,
+     so the numbers are in the repo and not in somebody's memory. */
+  --ink: #14120e;
+  --muted: #5f5a4f;
+  --dim: #6e6759;
+
+  /* Encoding. A hue may appear on the page only if it appears in a legend.
+     --accent is the library speaking. --warn is the silence it replaces:
+     a canvas that tells a screen reader nothing at all. */
+  --accent: #a4531c;
+  --accent-ink: #faf8f4;
+  --accent-wash: rgba(164, 83, 28, 0.07);
+  --warn: #a81f14;
+  --series-a: #a4531c; /* scene-narrator, one write per change of meaning */
+  --series-b: #2f5d50; /* the naive twin, one write per object per frame */
+  --series-c: #4a3f8f; /* accessibility nodes held in the tree */
+
+  /* Type. Three registers, never anything between them: chrome is mono,
+     argument is body, display appears in h1 to h3 only. */
+  --font-chrome: "Commit Mono", "Commit Mono Fallback", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --font-body: "Atkinson Next", "Atkinson Next Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Literata", "Literata Fallback", Georgia, "Times New Roman", serif;
+
+  --step--1: 11px;
+  --step-0: 13px;
+  --step-1: clamp(17px, 1.7vw, 21px);
+  --step-2: clamp(21px, 2.2vw, 27px);
+  --step-3: clamp(26px, 3.2vw, 38px);
+  --step-4: clamp(30px, 3.6vw, 46px);
+  /* Literata is a text face with a tall ascender, so it carries far less size
+     than a grotesque before it stops being readable and starts being a poster.
+     The one place this appears is the sentence the library wrote, and that
+     sentence has to stay a sentence. Measured against the real face. */
+  --step-5: clamp(28px, 3.4vw, 44px);
+
+  /* Wide positive tracking on mono chrome against tight negative tracking on
+     display type is the signature. A serif needs less of the negative than a
+     grotesque does, because its serifs already close the gaps. */
+  --track-chrome: 0.11em;
+  --track-display: -0.014em;
+
+  /* Space. Two scales, never mixed. The test is whether the block contains a
+     number: numbers get --gutter, sentences get --gap-prose. */
+  --gutter: 12px;
+  --gap-prose: clamp(40px, 5vw, 100px);
+  --pad-section: clamp(76px, 9vw, 132px);
+  --pad-panel: 16px;
+  --container: min(1180px, 100% - 48px);
+
+  /* Rows. Fixed heights on anything that repeats or updates, so a live table
+     holds its grid instead of reflowing every tick. */
+  --row-sm: 56px;
+  --row-md: 58px;
+  --row-lg: 82px;
+  --row-bar: 78px;
+  --row-head: 76px;
+
+  /* Motion. One duration, one curve, one gesture. */
+  --t: 180ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Texture. One, at 2%, panel interiors only, never on prose. */
+  --texture: rgba(20, 18, 14, 0.02);
+
+  --z-canvas: 0;
+  --z-panel: 10;
+  --z-sticky: 20;
+  --z-overlay: 40;
+  --z-modal: 50;
+
+  /* Transcript only. dispose-guard's device is an instrument grid and the
+     room's is a horizontal time axis; this site's is a vertical transcript
+     rail, so it needs the two measurements that rail is drawn from. Named here
+     so no section invents its own. */
+  --rail: 92px; /* the fixed timestamp column, left of every section */
+  --margin-note: 250px; /* the annotation margin, right of the reading column */
+
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--ground);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+/* Scene motion is content, so it is exempt from the 180ms rule but not from
+   this. The JS flag lets the scenes read the same preference and turn autoplay
+   into a play button, which is the only honest answer for a demo whose entire
+   subject is a scene that moves. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

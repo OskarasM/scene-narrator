@@ -14,7 +14,10 @@
     "bench:analyse": "node bench/analyse.mjs",
     "bench:serve": "node bench/serve.mjs",
     "prepublishOnly": "npm run check:prose && npm run build && npm test",
-    "check:prose": "node scripts/check-prose.mjs"
+    "check:prose": "node scripts/check-prose.mjs",
+    "check:fonts": "node scripts/check-font-budget.mjs",
+    "icons": "node scripts/render-icons.mjs",
+    "bench:partition": "node bench/partition.mjs"
   },
   "devDependencies": {
     "@guidepup/guidepup": "^0.33.2",
@@ -49,7 +52,7 @@
     "type": "git",
     "url": "git+https://github.com/OskarasM/scene-narrator.git"
   },
-  "homepage": "https://github.com/OskarasM/scene-narrator#readme",
+  "homepage": "https://scene-narrator-inky.vercel.app",
   "bugs": {
     "url": "https://github.com/OskarasM/scene-narrator/issues"
   },
