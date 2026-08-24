@@ -94,6 +94,17 @@ h3 {
   font-family: var(--font-display);
   line-height: 1.14;
   letter-spacing: var(--track-display);
+  /* Even line lengths rather than a long first line and a two-word orphan.
+     Only headings: balance is capped at a handful of lines by every engine
+     that implements it, and prose wants pretty instead. */
+  text-wrap: balance;
+}
+
+p,
+li,
+dd,
+figcaption {
+  text-wrap: pretty;
 }
 
 h1 {
@@ -689,10 +700,15 @@ a.pipeline-file {
   color: var(--accent);
 }
 
-/* Never colour alone: the announcement rows are also the only ones with a
-   rule down their left edge. */
+/* Never colour alone, and never a stripe either.
+   This was a 2px accent border down the left edge, which is both the oldest
+   decorative reflex there is and a direct contradiction of this site's own
+   rule that every division on the page is exactly one hairline. The row is
+   already labelled in words in its own heading column, which is the signal
+   that survives greyscale, a screen reader and a colour-blind reader alike.
+   The wash is the quiet second one. */
 .transcript-body .is-announcement {
-  border-left: 2px solid var(--accent);
+  background: var(--accent-wash);
 }
 
 .transcript-empty .transcript-text {
@@ -929,10 +945,37 @@ pre {
   tab-size: 2;
 }
 
+/* The install bar.
+   chrome.css gives it its border and its button; it never said what the
+   command itself does with the space, so the code sized to its own content and
+   the button landed on top of it. The code takes the room and the button is
+   pushed to the end. */
+.install-command {
+  margin-top: 8px;
+}
+
+.install-command code {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.install-command .copy-button {
+  margin-left: auto;
+}
+
+/* One column, not two.
+   Side by side these were about 370px each, which is not a width anybody reads
+   code at: every line in both cards was truncated. Full width is 758px and the
+   longest line in either fits. */
 .cards {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
   gap: var(--gutter);
 }
 
