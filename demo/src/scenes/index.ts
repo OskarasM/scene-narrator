@@ -1,16 +1,21 @@
-import { yard } from './yard'
-import { configurator } from './configurator'
-import { particles } from './particles'
-import type { SceneDefinition, SceneId } from './types'
-
 /**
- * Three scenes, one narrator, in the order they make the argument: the shape
- * the library was designed for, the shape an audit actually turns up, and the
- * shape that has no alternative at all.
+ * The scene bodies: the half that imports Three.js.
+ *
+ * Only SceneCanvas.tsx imports this, and SceneCanvas is itself lazily loaded,
+ * so nothing on the critical path can reach Three through here. Everything the
+ * rest of the page needs about a scene is in meta.ts, which imports nothing.
  */
-export const SCENES: readonly SceneDefinition[] = [yard, configurator, particles]
 
-export const sceneById = (id: SceneId): SceneDefinition =>
-  SCENES.find((scene) => scene.id === id) ?? yard
+import type { ComponentType } from 'react'
+import { Yard } from './yard'
+import { Configurator } from './configurator'
+import { Particles } from './particles'
+import type { SceneId } from './meta'
 
-export type { SceneDefinition, SceneId }
+export type SceneBody = ComponentType<{ running: boolean }>
+
+export const BODIES: Record<SceneId, SceneBody> = {
+  yard: Yard,
+  configurator: Configurator,
+  particles: Particles,
+}

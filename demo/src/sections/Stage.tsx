@@ -6,53 +6,21 @@
  * at display size is not written by me, it is the string the library last put
  * into the accessibility tree, verbatim. The loudest text on the page being
  * machine output is the whole argument in one line.
+ *
+ * The canvas itself is in SceneCanvas.tsx and arrives in its own chunk, so the
+ * argument paints before the machinery does.
  */
 
-import { useCallback, useEffect } from 'react'
-import { Canvas, useThree } from '@react-three/fiber'
-import { SceneNarrator, useNarrator } from 'scene-narrator/react'
-import type { Narrator } from 'scene-narrator'
+import { Suspense, lazy } from 'react'
 import { Controls } from '../controls'
 import { useLive } from '../live'
-import { sceneById } from '../scenes'
 import { WEBGL_AVAILABLE } from '../webgl'
 import { SURVEY } from '../site'
 
-/**
- * Lifts the narrator and its canvas out to the surrounding page.
- *
- * useNarrator only works inside <SceneNarrator>, which is inside <Canvas>, so
- * a DOM control next to the canvas cannot reach the narrator directly. This
- * passes both outward once, which is what an application would do to wire a
- * scene up to its own toolbar.
- */
-function Expose({ onReady }: { onReady: (narrator: Narrator, canvas: HTMLCanvasElement) => void }) {
-  const narrator = useNarrator()
-  const canvas = useThree((state) => state.gl.domElement)
-  useEffect(() => onReady(narrator, canvas), [narrator, canvas, onReady])
-  return null
-}
+const SceneCanvas = lazy(() => import('./SceneCanvas'))
 
 export function Stage() {
-  const {
-    sceneId,
-    cadence,
-    regionTarget,
-    running,
-    attach,
-    focused,
-    setFocused,
-    transcript,
-    snapshot,
-  } = useLive()
-
-  const scene = sceneById(sceneId)
-  const Body = scene.Body
-
-  const onReady = useCallback(
-    (narrator: Narrator, canvas: HTMLCanvasElement) => attach(narrator, canvas),
-    [attach],
-  )
+  const { focused, transcript, snapshot } = useLive()
 
   // The newest line the library wrote, whatever wrote it. Before the first
   // evaluation there is nothing to show and the placeholder says so rather
@@ -91,45 +59,15 @@ export function Stage() {
           */}
           <div className={focused ? 'viewport viewport-focused' : 'viewport'}>
             {WEBGL_AVAILABLE ? (
-              <Canvas
-                key={sceneId}
-                camera={{ position: scene.camera.position, fov: scene.camera.fov }}
-                // preserveDrawingBuffer makes the rendered frame readable after
-                // it has been presented, which is what lets bench/demo-check.mjs
-                // assert that the scene is not blank. Without it the buffer is
-                // cleared on present and any pixel read comes back transparent
-                // whether the scene rendered or not, which is how a completely
-                // blank canvas passed every check this project had.
-                gl={{ preserveDrawingBuffer: true }}
+              <Suspense
+                fallback={
+                  <p className="viewport-pending" role="status">
+                    Loading the scene.
+                  </p>
+                }
               >
-                {/* Warm and just under clipping. Every scene here sits on a
-                    cream ground, and a nearly unsaturated cream lit past one
-                    arrives as flat grey, which took the warmth out of all
-                    three at once. */}
-                <ambientLight intensity={0.8} color="#fff4e6" />
-                <directionalLight position={[10, 20, 8]} intensity={0.85} color="#fff8ee" />
-                <SceneNarrator
-                  label={scene.narrator.label}
-                  headingLevel={2}
-                  cadence={cadence}
-                  regions={scene.narrator.regions}
-                  autoRegions={scene.narrator.autoRegions ?? regionTarget}
-                  units={scene.narrator.units}
-                  mount="canvas"
-                  onFocusRegion={setFocused}
-                >
-                  {/* The scene renders inside the provider so that a scene can
-                      reach the narrator with useNarrator and announce the
-                      things no scene graph carries: a van dispatched, a level
-                      finished, a connection dropped. The narrator subscribes to
-                      the frame loop first and so reads positions written later
-                      in the same frame one frame late, which at a cadence
-                      measured in hundreds of milliseconds is not a difference
-                      anybody can perceive. */}
-                  <Body running={running} />
-                  <Expose onReady={onReady} />
-                </SceneNarrator>
-              </Canvas>
+                <SceneCanvas />
+              </Suspense>
             ) : (
               <div className="viewport-refused">
                 <h2>This browser will not give up a WebGL context</h2>

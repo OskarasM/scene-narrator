@@ -24,7 +24,7 @@ import {
 } from 'react'
 import type { Narrator, NarratorSnapshot, RegionSnapshot } from 'scene-narrator'
 import { Session, type Second } from './session'
-import { sceneById, type SceneId } from './scenes'
+import { sceneById, type SceneId } from './scenes/meta'
 
 export interface TranscriptEntry {
   id: number

@@ -72,10 +72,20 @@ canvas {
   touch-action: none;
 }
 
+/* 0.92em of the surrounding text, and only of TEXT. Inside a pre this used to
+   compound: the pre set 12px, then this took 0.9 of it, and the NVDA
+   transcripts, which are the evidence somebody came to read, arrived at
+   10.8px. Lighthouse put 29 per cent of all text on the page in that one
+   selector. A monospace face is narrower than the body face at the same size,
+   so it needs a nudge down and nothing like this much. */
 code,
 .mono {
   font-family: var(--font-chrome);
-  font-size: 0.9em;
+  font-size: 0.92em;
+}
+
+pre code {
+  font-size: inherit;
 }
 
 h1,
@@ -245,7 +255,7 @@ q {
 
 .readout dt {
   font-family: var(--font-chrome);
-  font-size: 10px;
+  font-size: var(--step--1);
   font-weight: 700;
   letter-spacing: var(--track-chrome);
   text-transform: uppercase;
@@ -287,6 +297,20 @@ q {
 .viewport-focused {
   outline: 2px solid var(--accent);
   outline-offset: 4px;
+}
+
+/* The gap between first paint and the scene chunk arriving. The box already
+   has its aspect ratio, so nothing moves when the canvas lands on top. */
+.viewport-pending {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-chrome);
+  font-size: var(--step--1);
+  letter-spacing: var(--track-chrome);
+  text-transform: uppercase;
+  color: var(--dim);
 }
 
 .viewport-refused {
@@ -712,7 +736,7 @@ a.pipeline-file {
 
 .readout-cell dt {
   font-family: var(--font-chrome);
-  font-size: 10px;
+  font-size: var(--step--1);
   font-weight: 700;
   letter-spacing: var(--track-chrome);
   text-transform: uppercase;
@@ -815,7 +839,7 @@ a.pipeline-file {
 
 .data-table thead th {
   font-family: var(--font-chrome);
-  font-size: 10px;
+  font-size: var(--step--1);
   font-weight: 700;
   letter-spacing: var(--track-chrome);
   text-transform: uppercase;
@@ -856,7 +880,7 @@ a.pipeline-file {
   display: inline-block;
   padding: 3px 8px;
   font-family: var(--font-chrome);
-  font-size: 10px;
+  font-size: var(--step--1);
   font-weight: 700;
   letter-spacing: var(--track-chrome);
   white-space: nowrap;
@@ -899,8 +923,8 @@ pre {
   border: 1px solid var(--line);
   background: var(--panel);
   font-family: var(--font-chrome);
-  font-size: 12px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.65;
   white-space: pre;
   tab-size: 2;
 }
@@ -1012,9 +1036,17 @@ pre {
 
   .site-header nav {
     grid-column: 1 / -1;
+    grid-row: 2;
     gap: 20px;
     overflow-x: auto;
     border-top: 1px solid var(--line);
+  }
+
+  /* Beside the brand, not below the nav. Auto-placement put it on a third row
+     of its own, which is a lot of vertical space on a phone for one link. */
+  .site-header .header-link {
+    grid-row: 1;
+    grid-column: 2;
   }
 
   .site-header nav a {

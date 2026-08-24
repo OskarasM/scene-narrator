@@ -12,10 +12,7 @@ import { useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { InstancedMesh, Object3D } from 'three'
 import { useDescribe, useNarrator } from 'scene-narrator/react'
-import type { SceneDefinition } from './types'
-
-const VAN_COUNT = 24
-const YARD = 30
+import { VAN_COUNT, YARD_EXTENT as YARD } from './meta'
 
 interface VanState {
   id: number
@@ -73,7 +70,7 @@ function Dispatches({ vans, running }: { vans: VanState[]; running: boolean }) {
   return null
 }
 
-function Yard({ running }: { running: boolean }) {
+export function Yard({ running }: { running: boolean }) {
   const vans = useMemo(makeVans, [])
   const mesh = useRef<InstancedMesh>(null)
   const dummy = useMemo(() => new Object3D(), [])
@@ -121,16 +118,4 @@ function Yard({ running }: { running: boolean }) {
       <Dispatches vans={vans} running={running} />
     </>
   )
-}
-
-export const yard: SceneDefinition = {
-  id: 'yard',
-  title: 'Delivery yard',
-  objects: VAN_COUNT,
-  blurb:
-    'Twenty-four vans on a yard, nineteen of them moving. Continuous motion with real semantic structure to group by.',
-  regionSource: 'auto',
-  narrator: { label: 'Delivery yard', regions: 'auto', autoRegions: 6, units: 'metres' },
-  camera: { position: [0, 16, 26], fov: 55 },
-  Body: Yard,
 }

@@ -24,10 +24,7 @@ import { useEffect, useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Group, InstancedMesh, Object3D } from 'three'
 import { describe, undescribe } from 'scene-narrator'
-import type { SceneDefinition } from './types'
-
-const COUNT = 4000
-const FIELD = 60
+import { FIELD_EXTENT as FIELD, PARTICLE_COUNT as COUNT } from './meta'
 
 interface Mote {
   radius: number
@@ -49,7 +46,7 @@ function makeMotes(): Mote[] {
   }))
 }
 
-function Particles({ running }: { running: boolean }) {
+export function Particles({ running }: { running: boolean }) {
   const mesh = useRef<InstancedMesh>(null)
   const group = useRef<Group>(null)
   const dummy = useMemo(() => new Object3D(), [])
@@ -114,16 +111,4 @@ function Particles({ running }: { running: boolean }) {
       </mesh>
     </>
   )
-}
-
-export const particles: SceneDefinition = {
-  id: 'particles',
-  title: 'Particle field',
-  objects: COUNT,
-  blurb:
-    'Four thousand described motes on one field. Eight times the object count at which the spike measured a per-object mirror crossing the frame budget, so the only question left is whether a summary can still say something true.',
-  regionSource: 'auto',
-  narrator: { label: 'Particle field', regions: 'auto', autoRegions: 9, units: 'metres' },
-  camera: { position: [0, 46, 96], fov: 50 },
-  Body: Particles,
 }

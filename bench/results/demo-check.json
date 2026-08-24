@@ -1,6 +1,6 @@
 {
-  "recordedAt": "2026-08-24T17:05:40.448Z",
-  "url": "http://127.0.0.1:59118/",
+  "recordedAt": "2026-08-24T17:18:51.934Z",
+  "url": "http://127.0.0.1:53128/",
   "browserVersion": "151.0.7922.34",
   "pageErrors": [],
   "headings": [
@@ -27,20 +27,15 @@
     "Announcements are the author's job",
     "Delivery yard",
     "The north-west of the scene",
-    "The west of the scene",
     "The south-west of the scene",
-    "The north of the scene",
-    "The centre of the scene",
-    "The south of the scene",
     "The north-east of the scene",
-    "The east of the scene",
     "The south-east of the scene"
   ],
   "canvasNodeCount": 1,
   "canvasChildCount": 1,
   "liveRegionCount": 5,
   "pixels": {
-    "distinctColours": 30,
+    "distinctColours": 27,
     "size": [
       756,
       424
@@ -52,18 +47,18 @@
     "movedWithArrow": true,
     "outlineVisible": true,
     "buttonFocusedScene": true,
-    "itemsWhenOpen": 4,
+    "itemsWhenOpen": 5,
     "itemsWhenClosed": 0
   },
   "summarySamples": [
-    "4 vans, mostly parked, ahead, far away, including Van 1",
-    "4 vans, mostly parked, ahead, far away, ",
+    "5 vans, mostly parked, ahead and to your left, far away, including Van 1",
+    "5 vans, mostly parked, ahead and to your ",
     ". Nothing in a scene graph says a van has been dispatched, so nothing infers it: that one is the author's job by design.",
-    "2 vans, mostly moving, ahead and to your right, some distance away",
+    "5 vans, mostly moving, ahead and to your right, some distance away",
     "Nothing in a scene graph says a van has been dispatched, so nothing infers it: that one is the ",
-    "2 vans, mostly moving, ahead ",
+    "5 vans, mostly moving, ahead ",
     "and to your right, some ",
-    "2 vans, mostly parked, ahead and to your left, far away, including Van 1"
+    "7 vans, mostly moving, ahead and to your left, far away, including Van 1"
   ],
   "axeViolations": []
 }

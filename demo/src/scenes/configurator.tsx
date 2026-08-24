@@ -18,40 +18,7 @@ import { useMemo, useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Group, Object3D } from 'three'
 import { useDescribe } from 'scene-narrator/react'
-import type { RegionDefinition } from 'scene-narrator'
-import type { SceneDefinition } from './types'
-
-const MATERIALS = ['brushed steel', 'matte black', 'oak veneer', 'brass'] as const
-
-interface Part {
-  id: string
-  label: string
-  role: string
-  /** World position of the part, which is what puts it in a region. */
-  at: [number, number, number]
-}
-
-const PARTS: Part[] = [
-  { id: 'base', label: 'Base', role: 'part', at: [0, 0.12, 0] },
-  { id: 'switch', label: 'Switch', role: 'control', at: [0.5, 0.2, 0.42] },
-  { id: 'lower-arm', label: 'Lower arm', role: 'part', at: [0, 1.05, 0] },
-  { id: 'upper-arm', label: 'Upper arm', role: 'part', at: [0.72, 2.02, 0] },
-  { id: 'shade', label: 'Shade', role: 'part', at: [1.58, 2.45, 0] },
-  { id: 'bulb', label: 'Bulb', role: 'part', at: [1.58, 2.12, 0] },
-]
-
-// Boxes wide in x and z and split in y, because a lamp is a vertical thing and
-// these three names are the three heights a person thinks of it in.
-const REGIONS: RegionDefinition[] = [
-  ['base', 'The base and its switch', -1, 0.6],
-  ['arm', 'The arm', 0.6, 2.2],
-  ['head', 'The head', 2.2, 6],
-].map(([id, heading, low, high]) => ({
-  id: id as string,
-  heading: heading as string,
-  min: { x: -6, y: low as number, z: -6 },
-  max: { x: 6, y: high as number, z: 6 },
-}))
+import { MATERIALS, PARTS, type Part } from './meta'
 
 function Piece({
   part,
@@ -95,7 +62,7 @@ function Piece({
   return null
 }
 
-function Configurator({ running }: { running: boolean }) {
+export function Configurator({ running }: { running: boolean }) {
   const group = useRef<Group>(null)
   const carriers = useMemo(() => PARTS.map(() => new Object3D()), [])
   const [tick, setTick] = useState(0)
@@ -174,16 +141,4 @@ function Configurator({ running }: { running: boolean }) {
       </mesh>
     </group>
   )
-}
-
-export const configurator: SceneDefinition = {
-  id: 'configurator',
-  title: 'Product configurator',
-  objects: PARTS.length,
-  blurb:
-    'Six named parts, one of them selected, each reporting its finish. Small enough that speed is not the argument. The argument is whether you can tell what you have chosen.',
-  regionSource: 'author',
-  narrator: { label: 'Task lamp configurator', regions: REGIONS, units: 'metres' },
-  camera: { position: [4.2, 3.1, 4.6], fov: 45 },
-  Body: Configurator,
 }

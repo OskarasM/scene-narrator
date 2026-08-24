@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Line } from '../ui/Line'
 import { useLive } from '../live'
-import { sceneById } from '../scenes'
+import { sceneById } from '../scenes/meta'
 
 /**
  * 00:11. Every line the scene has written.

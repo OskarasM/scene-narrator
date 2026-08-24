@@ -16,6 +16,13 @@ const base = process.env.DEMO_BASE ?? '/'
 export default defineConfig({
   base,
   plugins: [react()],
+  build: {
+    // The deployed bundle is the only copy of this code most people will ever
+    // open, and without maps it is one minified line. This is a project whose
+    // whole argument is that the work should be readable, so it ships the maps
+    // that make it readable in a browser as well as on GitHub.
+    sourcemap: true,
+  },
   resolve: {
     alias: {
       'scene-narrator/react': src('react.tsx'),

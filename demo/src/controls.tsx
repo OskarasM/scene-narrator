@@ -12,7 +12,7 @@
 import { useEffect, useState } from 'react'
 import { TabPicker } from './chrome'
 import { useLive } from './live'
-import { SCENES, sceneById, type SceneId } from './scenes'
+import { SCENES, sceneById, type SceneId } from './scenes/meta'
 
 export function Controls() {
   const {

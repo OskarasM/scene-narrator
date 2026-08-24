@@ -39,6 +39,7 @@ test('@smoke the page loads and every section is present', async ({ page }) => {
  */
 test('the scene renders, or says why it cannot', async ({ page }) => {
   await page.goto('/')
+  await settleViewport(page)
 
   const canvas = page.locator('.viewport canvas')
   const refused = page.getByRole('heading', { name: /will not give up a WebGL context/i })
@@ -318,6 +319,21 @@ test('the page still holds its layout when WebGL is refused', async ({ page }) =
   expect(scrollWidth).toBeLessThanOrEqual(clientWidth + 1)
 })
 
+/**
+ * Wait for the viewport to resolve one way or the other.
+ *
+ * The canvas is in a lazily imported chunk, so between first paint and the
+ * chunk arriving the viewport holds neither a canvas nor the refusal notice.
+ * Without this, a test that asks "is there a canvas?" straight after goto gets
+ * "no" in every browser and quietly skips itself, which is worse than failing.
+ */
+async function settleViewport(page: Page) {
+  await page
+    .locator('.viewport canvas, .viewport-refused')
+    .first()
+    .waitFor({ state: 'attached', timeout: 15_000 })
+}
+
 async function refuseWebgl(page: Page) {
   await page.addInitScript(() => {
     const real = HTMLCanvasElement.prototype.getContext
@@ -343,6 +359,7 @@ async function refuseWebgl(page: Page) {
 test('the narrator puts real headings and sentences inside the canvas', async ({ page }) => {
   await page.goto('/')
 
+  await settleViewport(page)
   const canvas = page.locator('.viewport canvas')
   test.skip((await canvas.count()) === 0, 'No WebGL context in this browser.')
 

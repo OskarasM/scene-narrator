@@ -1,6 +1,6 @@
 import { Line } from '../ui/Line'
 import { useLive } from '../live'
-import { sceneById } from '../scenes'
+import { sceneById } from '../scenes/meta'
 import { download } from '../session'
 import { PARTITION, SOURCE, worstCaseCorePct } from '../site'
 
