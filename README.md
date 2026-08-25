@@ -12,7 +12,7 @@ This library groups the scene into a handful of areas, gives each one a real hea
 spoken summary, and rewrites that summary only when the meaning of the area changes rather
 than when a pixel does.
 
-- **Live demo**: <https://scene-narrator-inky.vercel.app/>. Three scenes, live controls, and
+- **Live demo**: <https://scene-narrator-demo.vercel.app/>. Three scenes, live controls, and
   a running transcript of every sentence the library writes. Built from `demo/` on every
   push to main, so it is always the commit above.
 - **The measurements**: [SPIKE.md](SPIKE.md)
@@ -254,7 +254,7 @@ npm run bench:partition  # grouping and phrasing cost at 24, 400 and 4,000 objec
 # Real browser, real accessibility tree, real key presses, plus axe.
 cd demo && npm install && npm run build && cd ..
 node bench/demo-check.mjs                                        # the local build
-node bench/demo-check.mjs https://scene-narrator-inky.vercel.app/    # what is deployed
+node bench/demo-check.mjs https://scene-narrator-demo.vercel.app/    # what is deployed
 
 # The site suite: axe at WCAG 2 A and AA, the skip link, 44px targets at 375px,
 # no horizontal overflow at four widths, the typefaces actually loading, and the

@@ -52,7 +52,7 @@
     "type": "git",
     "url": "git+https://github.com/OskarasM/scene-narrator.git"
   },
-  "homepage": "https://scene-narrator-inky.vercel.app",
+  "homepage": "https://scene-narrator-demo.vercel.app",
   "bugs": {
     "url": "https://github.com/OskarasM/scene-narrator/issues"
   },

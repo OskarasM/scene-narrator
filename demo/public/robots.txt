@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://scene-narrator-inky.vercel.app/sitemap.xml
+Sitemap: https://scene-narrator-demo.vercel.app/sitemap.xml
