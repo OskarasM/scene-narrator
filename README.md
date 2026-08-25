@@ -1,3 +1,5 @@
+<img src="demo/public/favicon.svg" alt="" width="56" height="56" align="left">
+
 # scene-narrator
 
 An accessibility layer for moving 3D scenes.
