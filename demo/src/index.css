@@ -360,10 +360,16 @@ q {
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: var(--track-display);
-  /* Two lines of the longest sentence this library produces, measured against
-     the real face rather than guessed, so the block below it does not move
-     every time an area changes. */
-  min-height: 2.4em;
+  /* A fixed four lines, not a minimum.
+
+     This block is the only thing on the page that rewrites itself as the scene
+     runs, and a minimum height meant a longer sentence grew the box and shoved
+     the whole instrument strip down the page mid-read. Sampling every scene
+     for a minute apiece put the real maximum at three lines (162px against a
+     52.2px line box), so four lines covers the measured worst case with one
+     line of headroom, and the strip below never moves. Same rule as the live
+     tables further down: anything that updates gets a fixed row height. */
+  height: 4.8em;
   max-width: 24ch;
   color: var(--accent);
 }
@@ -391,7 +397,12 @@ q {
   min-height: var(--row-sm);
   flex: 1 1 180px;
   display: flex;
-  align-items: baseline;
+  /* Centred, not baseline-aligned. A single-line flex container places a
+     baseline-aligned group at the cross-start, so on a fixed 56px row the
+     label sat hard against the top edge with every pixel of slack below it.
+     The count and the title differ by one pixel of font size, which is less
+     than the baseline shift centring costs. */
+  align-items: center;
   gap: var(--gutter);
   padding: 0 var(--pad-panel);
   border: 0;
@@ -1100,6 +1111,16 @@ pre {
 @media (max-width: 760px) {
   :root {
     --rail: 0px;
+  }
+
+  /* Five lines here rather than four. The display size has already bottomed
+     out on the clamp by this width, so what changes below 760px is the
+     measure, not the type: the same sentence wraps onto more lines in a
+     narrower column. Measured at 375px the content reached 138px against a
+     134px reserve, so the four-line box that is right on a desktop spills on a
+     phone. */
+  .spoken-line {
+    height: 6em;
   }
 
   .line-shell {
