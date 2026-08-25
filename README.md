@@ -4,6 +4,10 @@
 
 An accessibility layer for moving 3D scenes.
 
+[![CI](https://github.com/OskarasM/scene-narrator/actions/workflows/ci.yml/badge.svg)](https://github.com/OskarasM/scene-narrator/actions/workflows/ci.yml)
+[![npm](https://img.shields.io/npm/v/scene-narrator)](https://www.npmjs.com/package/scene-narrator)
+[![licence](https://img.shields.io/badge/licence-MIT-a4531c)](LICENSE)
+
 A `<canvas>` contributes nothing to the browser's accessibility tree, so an interactive
 WebGL scene fails WCAG 4.1.2 outright. The usual fix, a hidden DOM node per object updated
 every frame, works for a static scene and falls apart for a moving one: it is slow, and
