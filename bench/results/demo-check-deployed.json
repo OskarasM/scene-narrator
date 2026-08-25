@@ -1,10 +1,30 @@
 {
-  "recordedAt": "2026-08-22T13:10:23.434Z",
-  "url": "https://scene-narrator-inky.vercel.app/",
+  "recordedAt": "2026-08-25T13:05:27.501Z",
+  "url": "https://scene-narrator-demo.vercel.app/",
   "browserVersion": "151.0.7922.34",
   "pageErrors": [],
   "headings": [
-    "scene-narrator demo",
+    "Every sentence on this page was written by the library.",
+    "A screen reader can hear this scene move",
+    "What a screen reader normally gets: nothing",
+    "Every line the scene has written",
+    "Where the cost goes",
+    "LIVE, THIS SECOND",
+    "Recorded: grouping and phrasing, by object count",
+    "Recorded: frame time, against a mirror",
+    "What NVDA actually said",
+    "Three lines to describe a scene",
+    "What this cannot tell a user",
+    "Traverse",
+    "Partition",
+    "Digest",
+    "Write",
+    "Three readers are unverified",
+    "Automatic regions are a fallback, not a feature",
+    "The grid is fixed on the first evaluation",
+    "It is O(1) per frame, not O(1) in objects",
+    "A described scene can still be described badly",
+    "Announcements are the author's job",
     "Delivery yard",
     "The north-west of the scene",
     "The south-west of the scene",
@@ -13,12 +33,12 @@
   ],
   "canvasNodeCount": 1,
   "canvasChildCount": 1,
-  "liveRegionCount": 2,
+  "liveRegionCount": 5,
   "pixels": {
-    "distinctColours": 28,
+    "distinctColours": 30,
     "size": [
-      792,
-      495
+      756,
+      424
     ]
   },
   "keyboard": {
@@ -31,14 +51,14 @@
     "itemsWhenClosed": 0
   },
   "summarySamples": [
-    " vans, most of them moving. The 3D view below is a single ",
-    " the scene is a set of headings. Move between them with your heading key, then press Enter on one to hear the vans inside it.",
-    " vans, most of them moving. The 3D view below is a ",
-    "with your heading key, then press Enter on one to hear the vans inside it.",
     "6 vans, mostly parked, ahead, far away, including Van 1",
-    "7 vans, mostly moving, ahead and to your left, some distance away",
-    "5 vans, mostly moving, ahead, far away",
-    "6 vans, mostly moving, ahead and to your right, some distance away"
+    "6 vans, mostly parked, ahead, far away, ",
+    ". Nothing in a scene graph says a van has been dispatched, so nothing infers it: that one is the author's job by design.",
+    "6 vans, mostly moving, ahead and to your right, some distance away",
+    "Nothing in a scene graph says a van has been dispatched, so nothing infers it: that one is the ",
+    "6 vans, mostly moving, ahead ",
+    "and to your right, some ",
+    "7 vans, mostly moving, ahead and to your left, far away, including Van 1"
   ],
   "axeViolations": []
 }
