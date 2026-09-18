@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "repos": {
+    "scene-narrator": {
+      "claude": "local-only",
+      "delivery": "pr",
+      "history": "skip",
+      "reason": "Owner decision #3; history already clean"
+    }
+  }
+}

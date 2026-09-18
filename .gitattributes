@@ -1,0 +1,2 @@
+.github/agent-setup/check.mjs -text
+.github/agent-setup/repo-policies.json -text
