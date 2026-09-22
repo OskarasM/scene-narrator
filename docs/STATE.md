@@ -12,7 +12,7 @@ Maintained library. Version 0.1.0 published on npm with provenance; the demo is 
 
 Max 3 items.
 
-- [ ] Review the agent setup pull request (AGENTS.md contract, vendored contract checker in CI, project docs) - gives every agent the same rules and a checked definition of done - branch `chore/agent-setup`, draft PR.
+- [ ] Review the project setup pull request (AGENTS.md contract, vendored contract checker in CI, project docs) - gives every contributor the same rules and a checked definition of done - draft PR.
 
 ## Blockers
 

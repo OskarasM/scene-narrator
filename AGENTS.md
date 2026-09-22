@@ -1,6 +1,6 @@
 # scene-narrator
 
-Shared instructions for Codex, Claude Code and other repository agents. Current user instructions override these repository defaults. Observed code, configuration and verified live state override stale descriptions; reconcile the documents when they disagree.
+Shared project instructions for contributors and coding tools. Current user instructions override these repository defaults. Observed code, configuration and verified live state override stale descriptions; reconcile the documents when they disagree.
 
 ## Product
 
@@ -36,13 +36,13 @@ Run from the repository root; package.json scripts are the source of truth.
 - Browser tests (install once: `npx playwright install chromium firefox webkit` inside `demo/`): `cd demo && npm run test:browser`
 - Benchmark (not run per pull request; see `.github/workflows/bench.yml`): `npm run bench`, `npm run bench:analyse`, `npm run bench:partition`
 - Package smoke: `npm pack --dry-run`
-- Agent contract check (vendored, see `.github/agent-setup/SOURCE.md`): `node .github/agent-setup/check.mjs --ci --repo-id scene-narrator .`
+- Project contract check (vendored, see `.github/project-check/SOURCE.md`): `node .github/project-check/check.mjs --ci --repo-id scene-narrator .`
 
 ## Conventions
 
 - Default branch `main` is production; the demo deploys from it on every push, and a published GitHub release publishes the npm package. Work on a branch; merge by pull request only.
 - This repository is public. Never commit tokens, registry credentials, private paths or personal details.
-- No co-author or AI attribution trailers. Enable the hook once per clone: `git config core.hooksPath .githooks` (refuses a `Co-Authored-By` trailer at commit time).
+- No co-author trailers. Enable the hook once per clone: `git config core.hooksPath .githooks` (refuses a `Co-Authored-By` trailer at commit time).
 - Do not add a runtime dependency; `three` stays a peer alongside the optional React ones (CONTRIBUTING.md).
 - A change that alters what reaches the accessibility tree needs a test that reads the tree (`test/narrator.test.ts`, `demo/tests/site.spec.ts`), not a test that reads the code that writes it (CONTRIBUTING.md "The accessibility rule").
 - No number in the README, the site or any document unless a committed script produced it; keep live and recorded figures visibly apart, and keep negative results in (CONTRIBUTING.md "The measurement rule").
@@ -77,7 +77,7 @@ Work is done only when these pass, run in this order, output read.
 - Prose or self-hosted font change: also `npm run check:prose`, `npm run check:fonts`.
 - Demo, browser-visible or accessibility-tree change: also `cd demo && npm run typecheck`, `cd demo && npm run build`, then `cd demo && npm run test:browser`.
 - Before opening a pull request (CONTRIBUTING.md): all of the above plus `npm pack --dry-run`.
-- Docs-only change: prose check, links, consistency with package.json scripts and CI, `git diff --check`, and the agent contract check.
+- Docs-only change: prose check, links, consistency with package.json scripts and CI, `git diff --check`, and the project contract check.
 - Update only project docs whose facts changed: `docs/STATE.md` (Now, blockers, Last verified, Updated date), `docs/DECISIONS.md` (new or changed decisions with reason), `docs/ROADMAP.md` (items moved or added), a `CHANGELOG.md` entry for user-visible changes in a release.
 - Report which checks ran and their result. Never skip, weaken, or delete a check to make it pass.
 

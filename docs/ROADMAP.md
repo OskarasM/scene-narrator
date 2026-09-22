@@ -4,13 +4,13 @@ Updated: 2026-09-18
 
 Forward plan only. Shipped work leaves this file (CHANGELOG.md + git). Rejected ideas live in docs/DECISIONS.md. Max 250 lines. Not shipped in the npm tarball.
 
-Drafted from repository evidence (README, CONTRIBUTING.md, PRODUCT.md, SECURITY.md, build output). Items are agent proposals until the owner orders them.
+Drafted from repository evidence (README, CONTRIBUTING.md, PRODUCT.md, SECURITY.md, build output). Items are proposals until the owner orders them.
 
 ## Next
 
 Ordered. Top item moves to STATE Now when started.
 
-1. Merge the agent setup pull request - done when CI (the `test` job, including the vendored contract check) passes and the owner merges.
+1. Merge the project setup pull request - done when CI (the `test` job, including the vendored contract check) passes and the owner merges.
 
 ## Later
 
