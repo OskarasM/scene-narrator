@@ -21,6 +21,8 @@ jobs:
       # system dependency, which is why they can gate every pull request. The real NVDA
       # pass cannot, and is documented in NVDA.md instead of being faked here.
       - run: npm test
+      - name: Project contract check
+        run: node .github/project-check/check.mjs --ci --repo-id scene-narrator .
 
   demo:
     runs-on: ubuntu-latest
